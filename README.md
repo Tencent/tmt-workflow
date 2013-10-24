@@ -18,7 +18,7 @@
 默认流，输出 publish['css', 'img', 'slice']  
 仅Less->CSS，无其他操作  
 
-#### `grunt whole`
+#### `grunt all`
 完全发布流，输出 release['css', 'img', 'sprite']
 
 #### `grunt debug`
@@ -29,3 +29,8 @@
 
 #### `grunt zip`
 将release版本，Zip打包到根目录，命名为`proj-xxx-release.zip`
+
+## 已解决问题
+
+* Mac & Win下的版本下 CPU图片压缩算法不同导致的 版本库Diff问题
+* 去除了开发过程中频繁的编译、压缩、合并图片等操作
