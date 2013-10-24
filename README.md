@@ -34,3 +34,7 @@
 
 * Mac & Win下的版本下 CPU图片压缩算法不同导致的 版本库Diff问题
 * 去除了开发过程中频繁的编译、压缩、合并图片等操作
+
+## 示例图
+
+![](http://ww3.sinaimg.cn/large/644eac00gw1e9woj8gddmj20cr0mijuj.jpg)
