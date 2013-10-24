@@ -1,0 +1,21 @@
+{
+	"name": "xxx",
+	"description": "xxx",
+	"author": {
+		"name": "xxx"
+	},
+	"dependencies": {
+		"grunt": "*",
+		"grunt-contrib-less": "*",
+		"grunt-contrib-cssmin": "*",
+        "grunt-contrib-watch": "*",
+        "grunt-contrib-copy": "*",
+        "grunt-contrib-clean": "*",
+        "grunt-contrib-compress": "*",
+		"grunt-sprite": "*",
+		"grunt-pngmin": "*",
+		"grunt-timer": "*",
+		"grunt-ftp-deploy": "*",
+		"gm": "*"
+	}
+}
