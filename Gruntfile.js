@@ -2,13 +2,13 @@
  Grunt Workflow v1.3
 
  一个完整的Grunt工作流，其中包含：
-    Less编译CSS
-    CSS压缩
-    自动合并雪碧图
-    自动处理Retina 2x适配
-    文件变动监控
-    FTP发布部署
-    Zip打包
+ Less编译CSS
+ CSS压缩
+ 自动合并雪碧图
+ 自动处理Retina 2x适配
+ 文件变动监控
+ FTP发布部署
+ Zip打包
 
  https://github.com/Mobile-Team/Grunt-Workflow
  */
