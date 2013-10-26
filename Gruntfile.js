@@ -2,13 +2,13 @@
  Grunt Workflow v1.3
 
  一个完整的Grunt工作流，其中包含：
- Less编译CSS
- CSS压缩
- 自动合并雪碧图
- 自动处理Retina 2x适配
- 文件变动监控
- FTP发布部署
- Zip打包
+    Less编译CSS
+    CSS压缩
+    自动合并雪碧图
+    自动处理Retina 2x适配
+    文件变动监控
+    FTP发布部署
+    Zip打包
 
  https://github.com/Mobile-Team/Grunt-Workflow
  */
@@ -62,6 +62,21 @@ module.exports = function (grunt) {
                 }
             }
 
+        },
+        // CSS 语法检查
+        csslint: {
+            strict: {
+                options: {
+                    import: 2
+                },
+                src: ['publish/css/*.css']
+            },
+            lax: {
+                options: {
+                    import: false
+                },
+                src: ['publish/css/*.css']
+            }
         },
         // 压缩css
         cssmin: {
@@ -140,9 +155,9 @@ module.exports = function (grunt) {
         'ftp-deploy': {
             push: {
                 auth: {
-                    host: 'xxx.xxx.xxx.xxx',
-                    port: 21,
-                    authKey: 'xxxxxx'
+                    host: '119.147.200.113',
+                    port: 21000,
+                    authKey: 'lifestyle'
                 },
                 src: 'release/',
                 dest: 'proj-<%= pkg.name %>/',
@@ -181,7 +196,7 @@ module.exports = function (grunt) {
             }
         },
         clean: {
-            dev: ['tmp/', 'publish/sprite/', 'release/'],
+            dev: ['tmp/','publish/sprite/', 'release/'],
             release: ['tmp/', 'publish/', 'release/'],
             debug: ['tmp/', 'publish/slice/']
 
@@ -200,6 +215,7 @@ module.exports = function (grunt) {
 
     // Offical
     grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-csslint');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');

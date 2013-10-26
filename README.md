@@ -3,6 +3,7 @@
 ## 一个完整的Grunt工作流，其中包含Task：
     
 * Less编译CSS
+* CSSLint检验
 * CSS压缩
 * 自动合并雪碧图
 * 自动处理Retina 2x适配
