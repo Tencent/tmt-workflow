@@ -28,9 +28,8 @@ module.exports = function (grunt) {
 
         // Less 编译 CSS
         less: {
-
             // 编译
-
+            
             // 分支 -> 开发向
             dev: {
                 files: [
@@ -61,10 +60,15 @@ module.exports = function (grunt) {
                     yuicompress: true
                 }
             }
-
         },
         // CSS 语法检查
         csslint: {
+            options: {
+                formatters: [
+                    {id: 'junit-xml', dest: 'report/csslint_junit.xml'},
+                    {id: 'csslint-xml', dest: 'report/csslint.xml'}
+                ]
+            },
             strict: {
                 options: {
                     import: 2
@@ -199,7 +203,6 @@ module.exports = function (grunt) {
             dev: ['tmp/','publish/sprite/', 'release/'],
             release: ['tmp/', 'publish/', 'release/'],
             debug: ['tmp/', 'publish/slice/']
-
         },
         compress: {
             main: {
@@ -245,5 +248,4 @@ module.exports = function (grunt) {
 
     // 别名：移动slice -> 合并sprite -> css压缩
     grunt.registerTask('sprite-cssmin', ['copy:slice', 'sprite', 'cssmin']);
-
 }
