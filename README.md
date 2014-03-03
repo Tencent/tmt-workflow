@@ -10,7 +10,7 @@
 - Clone the repo: `git clone git@github.com:hzlzh/Grunt-Workflow.git`
 - 用 [Bower](http://bower.io) 安装: `bower install grunt-workflow`.
 
-阅读 [说明文档] 了解更多.
+阅读 [说明文档] 了解更多，如有疑问参见 [Wiki]
 
 ### 文件结构
 
@@ -73,7 +73,7 @@ Grunt-Workflow/
 如：[phantomjs-1.9.2-windows.zip](https://raw.github.com/hzlzh/Grunt-Workflow/assets/download/phantomjs-1.9.2-windows.zip)
 3. 运行安装完成后，[添加环境变量](https://www.evernote.com/shard/s50/sh/18f4d9ad-b55d-46e5-8fc4-a45452ccfdc9/0f4b9b7fe459888337f48689ced99068)
 
-### 说明文档
+<a name="details"></a>### 说明文档
 
 一个完整的 `Grunt 工作流`，其中包含 `Task`：
     
@@ -134,7 +134,8 @@ Grunt-Workflow/
 Released under [MIT] LICENSE
 
 [MIT]: http://rem.mit-license.org/
-[说明文档]: https://github.com/hzlzh/Grunt-Workflow/issues
+[说明文档]: https://github.com/hzlzh/Grunt-Workflow#details
+[Wiki]: https://github.com/hzlzh/Grunt-Workflow/issues
 [Node.js]: http://nodejs.org/
 [GraphicsMagick]: http://www.graphicsmagick.org/
 [Phantomjs]: http://phantomjs.org/
