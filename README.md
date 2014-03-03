@@ -38,7 +38,7 @@ Grunt-Workflow/
 │   ├── icon-github.png
 │   ├── icon-github@2x.png      // 含 1x & 2x 图
 │   ├── icon-apple.png
-│   ├── icon-apple@2x.png
+│   └── icon-apple@2x.png
 └── publish/                    // 目标文件夹，存放可发布的成品
     ├── css/                    // 最终 CSS 成品
     │   └── style.css
@@ -73,7 +73,8 @@ Grunt-Workflow/
 如：[phantomjs-1.9.2-windows.zip](https://raw.github.com/hzlzh/Grunt-Workflow/assets/download/phantomjs-1.9.2-windows.zip)
 3. 运行安装完成后，[添加环境变量](https://www.evernote.com/shard/s50/sh/18f4d9ad-b55d-46e5-8fc4-a45452ccfdc9/0f4b9b7fe459888337f48689ced99068)
 
-<a name="details"></a>### 说明文档
+<a name="details"></a>
+### 说明文档
 
 一个完整的 `Grunt 工作流`，其中包含 `Task`：
     
