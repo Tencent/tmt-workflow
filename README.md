@@ -87,7 +87,7 @@ Grunt-Workflow/
 * FTP 发布部署
 * ZIP 打包项目
 
-## 命令详解：
+### 命令详解：
 
 #### 默认工作流 `grunt`
 
@@ -124,17 +124,17 @@ Grunt-Workflow/
 注：@2x 图 生成 @1x 图
 
 
-## 已知特性
+### 已知特性
 
 * 由于 `Mac OS` & `Win` 底层 `CPU图片压缩算法` 不同导致的版本库`Diff`问题
 * 移除了开发过程中频繁的编译、压缩、合并图片等操作，开发全程使用 `@1x` 图预览
 
-## 示例图
+### License
 
-(http://ww3.sinaimg.cn/large/644eac00gw1e9woj8gddmj20cr0mijuj.jpg)
+Released under [MIT] LICENSE
 
-
-[说明文档]: 
+[MIT]: http://rem.mit-license.org/
+[说明文档]: https://github.com/hzlzh/Grunt-Workflow/issues
 [Node.js]: http://nodejs.org/
 [GraphicsMagick]: http://www.graphicsmagick.org/
 [Phantomjs]: http://phantomjs.org/
