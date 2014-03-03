@@ -1,5 +1,4 @@
-# Grunt Workflow v1.3 [![Bower version](https://badge.fury.io/bo/grunt-workflow.png)](http://badge.fury.io/bo/grunt-workflow) [![Build Status](https://secure.travis-ci.org/hzlzh/Grunt-Workflow.png)](http://travis-ci.org/hzlzh/Grunt-Workflow) [![devDependency Status](https://david-dm.org/hzlzh/Grunt-Workflow/dev-status.png?theme=shields.io)](https://david-dm.org/hzlzh/Grunt-Workflow#info=devDependencies)
-
+# Grunt Workflow [![Bower version](https://badge.fury.io/bo/grunt-workflow.png)](http://badge.fury.io/bo/grunt-workflow) [![Build Status](https://secure.travis-ci.org/hzlzh/Grunt-Workflow.png)](http://travis-ci.org/hzlzh/Grunt-Workflow) [![devDependency Status](https://david-dm.org/hzlzh/Grunt-Workflow/dev-status.png?theme=shields.io)](https://david-dm.org/hzlzh/Grunt-Workflow#info=devDependencies)
 
 **Grunt Workflow** 是一个基于 [Grunt]的 跨平台（Mac&Win）、优雅的、高效的、可定制的前端重构工作流程。
 
@@ -7,8 +6,8 @@
 
 提供以下三种方式获取：
 
-- [下载最新版 Grunt Workflow]
-- Clone the repo: `git clone 
+- [下载最新版 Grunt Workflow](https://github.com/hzlzh/Grunt-Workflow/archive/master.zip)
+- Clone the repo: `git clone git@github.com:hzlzh/Grunt-Workflow.git`
 - 用 [Bower](http://bower.io) 安装: `bower install grunt-workflow`.
 
 阅读 [说明文档] 了解更多.
