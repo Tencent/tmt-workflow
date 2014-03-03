@@ -23,9 +23,9 @@ Grunt-Workflow/
 ├── Gruntfile.js                // 配置任务
 ├── .ftppass                    // FTP 部署密码(非必选)
 │
-├── node_modules    // FTP 部署密码(非必选)
+├── node_modules    			  // FTP 部署密码(非必选)
 │
-├── html/                   // HTML文件
+├── html/                   	  // HTML文件
 │   └── index.html
 ├── css/                        // CSS源文件(通常为`Less`/`Sass`等)
 │   ├── lib-reset.less
