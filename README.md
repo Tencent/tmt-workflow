@@ -1,4 +1,4 @@
-# Grunt Workflow [![Bower version](https://badge.fury.io/bo/grunt-workflow.png)](http://badge.fury.io/bo/grunt-workflow) [![Build Status](https://secure.travis-ci.org/hzlzh/Grunt-Workflow.png)](http://travis-ci.org/hzlzh/Grunt-Workflow) [![devDependency Status](https://david-dm.org/hzlzh/Grunt-Workflow/dev-status.png?theme=shields.io)](https://david-dm.org/hzlzh/Grunt-Workflow#info=devDependencies)
+## Grunt-Workflow  [![Bower version](https://badge.fury.io/bo/grunt-workflow.png)](http://badge.fury.io/bo/grunt-workflow) [![Build Status](https://secure.travis-ci.org/hzlzh/Grunt-Workflow.png)](http://travis-ci.org/hzlzh/Grunt-Workflow) [![devDependency Status](https://david-dm.org/hzlzh/Grunt-Workflow/dev-status.png?theme=shields.io)](https://david-dm.org/hzlzh/Grunt-Workflow#info=devDependencies)
 
 **Grunt Workflow** 是一个基于 [Grunt]的 跨平台（Mac&Win）、优雅的、高效的、可定制的前端重构工作流程。
 
