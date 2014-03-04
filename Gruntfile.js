@@ -1,5 +1,5 @@
 /**
- * Grunt Workflow v1.5
+ * Grunt Workflow v1.5.1
  * https://github.com/Mobile-Team/Grunt-Workflow
  * @hzlzh <hzlzh.dev@gmail.com>
  */
@@ -21,7 +21,7 @@ module.exports = function (grunt) {
         // Less 编译 CSS，若使用 Sass 请自行替换
         less: {
             // 编译
-            
+
             // less 分支 -> 开发向
             dev: {
                 files: [
@@ -34,7 +34,7 @@ module.exports = function (grunt) {
                     }
                 ],
                 options: {
-                    yuicompress: false
+                    yuicompress: false // 开启 YUI CSS 压缩 (http://yui.github.io/yuicompressor/)
                 }
             },
             // less 分支 -> 发布向
@@ -105,11 +105,18 @@ module.exports = function (grunt) {
                 ],
                 // options
                 options: {
-                    // 图片处理引擎选择，如：`GraphicsMagick` 或 `ImageMagick`
+                    // 选择图片处理引擎: auto, canvas, gm
                     'engine': 'gm',
-                    // 图像合并排列算法: (默认使用最优二叉树法) top-down, left-right, diagonal, alt-diagonal
-                    'algorithm': 'binary-tree'
+                    // 设置雪碧图合并算法，如：二叉树算法(top-down, left-right, diagonal, alt-diagonal)
+                    'algorithm': 'binary-tree',
+                    // 默认给雪碧图追加时间戳，如：background-image:url(../sprite/style@2x.png?20140304100328);
+                    'imagestamp':true,
+                    // 默认给样式文件追加时间戳，如：.TmTStamp{content:"20140304100328"}
+                    'cssstamp':true,
+                    // 每次编译生成新文件名，如：style-20140304102859.png
+                    'newsprite':false
                 }
+
             }
         },
 
@@ -244,7 +251,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-pngmin');
     grunt.loadNpmTasks('grunt-2x2x');
 
-    
 
     /* 任务注册开始 */
 
