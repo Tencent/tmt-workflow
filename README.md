@@ -9,7 +9,7 @@
 - [下载最新版 Grunt Workflow](https://github.com/hzlzh/Grunt-Workflow/archive/master.zip)
 - Clone the repo: `git clone git@github.com:hzlzh/Grunt-Workflow.git`
 - 用 [Bower](http://bower.io) 安装: `bower install grunt-workflow`
-	- 若已安装，可通过 [bower 或 git](https://github.com/hzlzh/Grunt-Workflow/issues/7) 保持更新
+	- 若已安装，可通过 [bower 或 git 保持更新](https://github.com/hzlzh/Grunt-Workflow/issues/7) 
 
 阅读 [说明文档] 了解更多，如有疑问参见 [Wiki] 中的图解
 
@@ -24,7 +24,7 @@ Grunt-Workflow/
 ├── Gruntfile.js                // 配置任务
 ├── .ftppass                    // FTP 部署密码(非必选) 配置参见插件：grunt-ftp-deploy
 │
-├── node_modules    			  // `npm install` 得到依赖包
+├── node_modules    			  // `npm install` 拉取依赖包
 │
 ├── html/                   	  // HTML文件
 │   └── index.html
@@ -43,7 +43,7 @@ Grunt-Workflow/
 └── publish/                    // 目标文件夹，存放可发布的成品
     ├── css/                    // 最终 CSS 成品
     │   └── style.css
-    ├── img/                    // 仅 Copy 不错操作
+    ├── img/                    // 仅 Copy 不做操作
     │   ├── logo.png
     │   └── background.png
     └── sprite/                 // 自动生成的雪碧图
