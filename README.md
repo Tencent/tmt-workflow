@@ -1,6 +1,6 @@
 ## Grunt-Workflow  [![Bower version](https://badge.fury.io/bo/grunt-workflow.png)](http://badge.fury.io/bo/grunt-workflow) [![Build Status](https://secure.travis-ci.org/hzlzh/Grunt-Workflow.png)](http://travis-ci.org/hzlzh/Grunt-Workflow) [![devDependency Status](https://david-dm.org/hzlzh/Grunt-Workflow/dev-status.png?theme=shields.io)](https://david-dm.org/hzlzh/Grunt-Workflow#info=devDependencies)
 
-**Grunt Workflow** 是一个基于 [Grunt]的 跨平台（Mac&Win）、优雅的、高效的、可定制的前端重构工作流程。
+**Grunt Workflow** 基于 [Grunt]，是一个跨平台的（Mac&Win）、优雅的、高效的、可定制的前端重构工作流程。
 
 ### 快速开始
 
@@ -8,9 +8,9 @@
 
 - [下载最新版 Grunt Workflow](https://github.com/hzlzh/Grunt-Workflow/archive/master.zip)
 - Clone the repo: `git clone git@github.com:hzlzh/Grunt-Workflow.git`
-- 用 [Bower](http://bower.io) 安装: `bower install grunt-workflow`.
+- 用 [Bower](http://bower.io) 安装: `bower install grunt-workflow`
 
-阅读 [说明文档] 了解更多，如有疑问参见 [Wiki]
+阅读 [说明文档] 了解更多，如有疑问参见 [Wiki] 中的图解
 
 ### 文件结构
 
@@ -125,16 +125,17 @@ Grunt-Workflow/
 注：@2x 图 生成 @1x 图
 
 
-### 已知特性
+### 补充说明
 
 * 由于 `Mac OS` & `Win` 底层 `CPU图片压缩算法` 不同导致的版本库`Diff`问题
-* 移除了开发过程中频繁的编译、压缩、合并图片等操作，开发全程使用 `@1x` 图预览
+* 移除了开发过程中频繁的编译、压缩、合并图片等操作，开发全程使用 `@1x` 图以及 `未压缩 CSS` 预览
 
 ### License
 
 Released under [MIT] LICENSE
 
 [MIT]: http://rem.mit-license.org/
+[Grunt]: http://gruntjs.com/
 [说明文档]: https://github.com/hzlzh/Grunt-Workflow#details
 [Wiki]: https://github.com/hzlzh/Grunt-Workflow/issues
 [Node.js]: http://nodejs.org/
