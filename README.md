@@ -21,9 +21,9 @@ Grunt-Workflow/
 │
 ├── package.json                // 项目依赖定义
 ├── Gruntfile.js                // 配置任务
-├── .ftppass                    // FTP 部署密码(非必选)
+├── .ftppass                    // FTP 部署密码(非必选) 配置参见插件：grunt-ftp-deploy
 │
-├── node_modules    			  // FTP 部署密码(非必选)
+├── node_modules    			  // `npm install` 得到依赖包
 │
 ├── html/                   	  // HTML文件
 │   └── index.html
@@ -37,8 +37,8 @@ Grunt-Workflow/
 ├── slice/                      // 图片素材 [待自动合并 Sprite] 如：Icons
 │   ├── icon-github.png
 │   ├── icon-github@2x.png      // 含 1x & 2x 图
-│   ├── icon-apple.png
-│   └── icon-apple@2x.png
+│   ├── icon-twitter.png
+│   └── icon-twitter@2x.png
 └── publish/                    // 目标文件夹，存放可发布的成品
     ├── css/                    // 最终 CSS 成品
     │   └── style.css
@@ -48,13 +48,13 @@ Grunt-Workflow/
     └── sprite/                 // 自动生成的雪碧图
         └── demo.png
 ```
-经过 Grunt Workflow 的自动化过程，`../publish`目录下为最终输出
+经过 `Grunt Workflow` 的自动化过程，`../publish` 目录下为最终输出
 
 ### 环境准备
 
 #### Mac OS
 
-1. 建议使用 Brew 安装 Node.js [默认此步骤已完成]
+1. 建议使用 [Brew] 安装 [Node.js] *默认此步骤已完成*
 2. 单独安装下面两个依赖 [注](https://github.com/Ensighten/spritesmith#requirements)
 
         // 安装 GraphicsMagick 图像处理库
@@ -144,6 +144,7 @@ Released under [MIT] LICENSE
 [Grunt]: http://gruntjs.com/
 [说明文档]: https://github.com/hzlzh/Grunt-Workflow#details
 [Wiki]: https://github.com/hzlzh/Grunt-Workflow/issues
+[Brew]: http://brew.sh/
 [Node.js]: http://nodejs.org/
 [GraphicsMagick]: http://www.graphicsmagick.org/
 [Phantomjs]: http://phantomjs.org/
