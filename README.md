@@ -70,9 +70,9 @@ Grunt-Workflow/
 1. 安装 [Node.js] *默认此步骤已完成*
 2. 下载安装 [GraphicsMagick] 和 [Phantomjs]  
     * [安装步骤图解](https://github.com/hzlzh/Grunt-Workflow/issues/2)  
-    * 备用下载：[GraphicsMagick-1.3.19-Q16-win32-dll.zip](https://raw.github.com/hzlzh/Grunt-Workflow/assets/download/GraphicsMagick-1.3.19-Q16-win32-dll.zip)
+    * 备用下载：[GraphicsMagick-1.3.19-Q8-win32-dll.zip](https://raw.github.com/hzlzh/Grunt-Workflow/assets/download/GraphicsMagick-1.3.19-Q8-win32-dll.zip)
     * 备用下载：[phantomjs-1.9.2-windows.zip](https://raw.github.com/hzlzh/Grunt-Workflow/assets/download/phantomjs-1.9.2-windows.zip)
-3. 运行安装完成后，[添加环境变量](https://www.evernote.com/shard/s50/sh/18f4d9ad-b55d-46e5-8fc4-a45452ccfdc9/0f4b9b7fe459888337f48689ced99068)
+3. 运行安装完成后，[添加环境变量步骤](https://github.com/hzlzh/Grunt-Workflow/issues/6)
 
 #### Mac OS & Windows 通用步骤
 
@@ -133,7 +133,7 @@ Grunt-Workflow/
 
 ### 补充说明
 
-* 由于 `Mac OS` & `Win` 底层 `CPU图片压缩算法` 不同导致的版本库`Diff`问题
+* 由于 `Mac OS` & `Win` 底层 `CPU图片压缩算法` 不同导致的版本库`Diff`问题 [\[见：#issues\]](https://github.com/zauni/pngmin/issues/6)
 * 移除了开发过程中频繁的编译、压缩、合并图片等操作，开发全程使用 `@1x` 图以及 `未压缩 CSS` 预览
 
 ### License
