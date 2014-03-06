@@ -62,6 +62,7 @@ Grunt-Workflow/
 2. 单独安装下面两个依赖 [注](https://github.com/Ensighten/spritesmith#requirements)
 
         // 安装 GraphicsMagick 图像处理库
+        // 期间可能会要求安装 Xcode Command Line Tools，同意即可
         brew install GraphicsMagick
         
         // 安装 Phantomjs 库
