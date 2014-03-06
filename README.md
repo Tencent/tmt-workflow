@@ -8,7 +8,10 @@
 
 - [下载最新版 Grunt Workflow](https://github.com/hzlzh/Grunt-Workflow/archive/master.zip)
 - Clone the repo: `git clone git@github.com:hzlzh/Grunt-Workflow.git`
-- 用 [Bower](http://bower.io) 安装: `bower install grunt-workflow`
+- 用 [yeoman](http://yeoman.io/) 安装: 
+	- `npm install generator-f2e`
+	- `yo f2e`
+- 用 [Bower](http://bower.io/) 安装: `bower install grunt-workflow`
 	- 若已安装，可通过 [bower 或 git 保持更新](https://github.com/hzlzh/Grunt-Workflow/issues/7) 
 
 阅读 [说明文档] 了解更多，如有疑问参见 [Wiki] 中的图解
