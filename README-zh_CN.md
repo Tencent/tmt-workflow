@@ -2,17 +2,19 @@
 
 **f2e-workflow** 基于 [Grunt]，是一个跨平台的（Mac&Win）、优雅的、高效的、可定制的前端重构工作流程。
 
+*[English README.md available.](https://github.com/hzlzh/Grunt-Workflow/blob/master/README.md)*   
+
 ###Table of contents
 
-* [快速开始](#quickstart)
-* [文件结构](#whatsincluded)
-* [环境准备](systemenvironment)
+* [快速开始](#quick-start)
+* [文件结构](#whats-included)
+* [环境准备](#system-environment)
 * [任务说明](#documentation)
-* [流程详解](#taskdetails)
-* [已知说明](#knowissues)
+* [流程详解](#task-details)
+* [已知说明](#know-issues)
 * [License](#license)
 
-### <a name="quickstart"></a>快速开始
+### <a name="quick-start"></a>快速开始
 
 提供以下 **4种** 方式获取：
 
@@ -26,7 +28,7 @@
 
 阅读 [说明文档] 了解更多，如有疑问参见 [Wiki] 中的图解
 
-### <a name="whatsincluded"></a>文件结构
+### <a name="whats-included"></a>文件结构
 
 安装完成后，你将得到以下文件结构：
 
@@ -64,7 +66,7 @@ f2e-workflow/
 ```
 经过 `f2e-workflow` 的自动化过程，`../publish` 目录下为最终输出
 
-### <a name="systemenvironment"></a>环境准备
+### <a name="system-environment"></a>环境准备
 
 #### Mac OS
 
@@ -108,7 +110,7 @@ f2e-workflow/
 * FTP 发布部署
 * ZIP 打包项目
 
-### <a name="taskdetails"></a>流程详解：
+### <a name="task-details"></a>流程详解：
 
 #### 默认工作流 `grunt`
 
@@ -144,7 +146,7 @@ f2e-workflow/
 注：@2x 图 生成 @1x 图
 
 
-### <a name="knowissues"></a>已知说明
+### <a name="know-issues"></a>已知说明
 
 * 由于 `Mac OS` & `Win` 底层 `CPU图片压缩算法` 不同导致的版本库`Diff`问题 [\[见：#issues\]](https://github.com/zauni/pngmin/issues/6)
 * 移除了开发过程中频繁的编译、压缩、合并图片等操作，开发全程使用 `@1x` 图以及 `未压缩 CSS` 预览

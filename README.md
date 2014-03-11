@@ -2,21 +2,19 @@
 
 **f2e-workflow** is a cross-platform, efficient, smooth workflow for F2E project based on [Grunt].
 
-*[Chinese(zh_CN) ReadMe.MD available.](https://github.com/hzlzh/Grunt-Workflow/blob/master/README-zh_CN.md)*   
+*[Chinese(zh_CN) README.md available.](https://github.com/hzlzh/Grunt-Workflow/blob/master/README-zh_CN.md)*   
 
 ###Table of contents
 
-* [Quick start](#quickstart)
-* [What's included](#whatsincluded)
-* [System Environment](systemenvironment)
-* [Documentation](#Documentation)
-* [Task Details](#taskdetails)
-* [Know Issues](knowissues)
+* [Quick start](#quick-start)
+* [What's included](#whats-included)
+* [System Environment](#system-environment)
+* [Documentation](#documentation)
+* [Task Details](#task-details)
+* [Know Issues](know-issues)
 * [License](license)
 
 ### Quick Start
-
-
 
 4 quick start options are available:
 
