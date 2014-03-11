@@ -1,4 +1,4 @@
-## f2e-workflow [![Bower version](https://badge.fury.io/bo/f2e.png)](http://badge.fury.io/bo/f2e-workflow) [![Build Status](https://secure.travis-ci.org/hzlzh/f2e-workflow.png)](http://travis-ci.org/hzlzh/f2e-workflow) [![devDependency Status](https://david-dm.org/hzlzh/f2e-workflow/dev-status.png?theme=shields.io)](https://david-dm.org/hzlzh/f2e-workflow#info=devDependencies)
+## f2e-workflow  [![GitHub version](https://badge.fury.io/gh/hzlzh%2Ff2e-workflow.png)](http://badge.fury.io/gh/hzlzh%2Ff2e-workflow) [![devDependency Status](https://david-dm.org/hzlzh/f2e-workflow/dev-status.png?theme=shields.io)](https://david-dm.org/hzlzh/f2e-workflow#info=devDependencies)
 
 **f2e-workflow** is a cross-platform, efficient, smooth workflow for F2E project based on [Grunt].
 
@@ -23,7 +23,7 @@
 - install with [yeoman](http://yeoman.io/) : 
     - `npm install generator-f2e`
     - `yo f2e`
-- install with [Bower](http://bower.io/) : `bower install f2e-workflow`
+- install with [Bower](http://bower.io/): `bower install f2e`
 
 Read the [Getting Started page] and [wiki list] for more.
 

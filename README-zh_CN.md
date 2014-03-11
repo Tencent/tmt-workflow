@@ -1,4 +1,4 @@
-## f2e-workflow  [![Bower version](https://badge.fury.io/bo/f2e-workflow.png)](http://badge.fury.io/bo/f2e-workflow) [![Build Status](https://secure.travis-ci.org/hzlzh/f2e-workflow.png)](http://travis-ci.org/hzlzh/f2e-workflow) [![devDependency Status](https://david-dm.org/hzlzh/f2e-workflow/dev-status.png?theme=shields.io)](https://david-dm.org/hzlzh/f2e-workflow#info=devDependencies)
+## f2e-workflow  [![GitHub version](https://badge.fury.io/gh/hzlzh%2Ff2e-workflow.png)](http://badge.fury.io/gh/hzlzh%2Ff2e-workflow) [![devDependency Status](https://david-dm.org/hzlzh/f2e-workflow/dev-status.png?theme=shields.io)](https://david-dm.org/hzlzh/f2e-workflow#info=devDependencies)
 
 **f2e-workflow** 基于 [Grunt]，是一个跨平台的（Mac&Win）、优雅的、高效的、可定制的前端重构工作流程。
 
@@ -23,7 +23,7 @@
 - 用 [yeoman](http://yeoman.io/) 安装: 
 	- `npm install generator-f2e`
 	- `yo f2e`
-- 用 [Bower](http://bower.io/) 安装: `bower install f2e-workflow`
+- 用 [Bower](http://bower.io/) 安装: `bower install f2e`
 	- 若已安装，可通过 [bower 或 git 保持更新](https://github.com/hzlzh/f2e-workflow/issues/7) 
 
 阅读 [说明文档] 了解更多，如有疑问参见 [Wiki] 中的图解
