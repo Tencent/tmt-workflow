@@ -1,4 +1,4 @@
-## f2e-workflow [![Bower version](https://badge.fury.io/bo/f2e-workflow.png)](http://badge.fury.io/bo/grunt-workflow) [![Build Status](https://secure.travis-ci.org/hzlzh/f2e-workflow.png)](http://travis-ci.org/hzlzh/f2e-workflow) [![devDependency Status](https://david-dm.org/hzlzh/f2e-workflow/dev-status.png?theme=shields.io)](https://david-dm.org/hzlzh/f2e-workflow#info=devDependencies)
+## f2e-workflow [![Bower version](https://badge.fury.io/bo/f2e-workflow.png)](http://badge.fury.io/bo/f2e-workflow) [![Build Status](https://secure.travis-ci.org/hzlzh/f2e-workflow.png)](http://travis-ci.org/hzlzh/f2e-workflow) [![devDependency Status](https://david-dm.org/hzlzh/f2e-workflow/dev-status.png?theme=shields.io)](https://david-dm.org/hzlzh/f2e-workflow#info=devDependencies)
 
 **f2e-workflow** is a cross-platform, efficient, smooth workflow for F2E project based on [Grunt].
 
