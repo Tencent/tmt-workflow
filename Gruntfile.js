@@ -1,5 +1,5 @@
 /**
- * Grunt Workflow v1.5.1
+ * Grunt Workflow v1.5.6
  * https://github.com/Mobile-Team/Grunt-Workflow
  * @hzlzh <hzlzh.dev@gmail.com>
  */

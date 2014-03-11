@@ -1,7 +1,7 @@
 {
   "name": "grunt-workflow",
   "description": "一个跨平台的（Mac&Win）、优雅的、高效的、可定制的前端重构工作流程",
-  "version": "1.5.4",
+  "version": "1.5.6",
   "homepage": "https://github.com/hzlzh/Grunt-Workflow",
   "author": {
     "name": "hzlzh",
