@@ -1,5 +1,5 @@
 {
-  "name": "grunt-workflow",
+  "name": "f2e-workflow",
   "version": "1.5.6",
   "authors": [
     "hzlzh <hzlzh.dev@gmail.com>"
@@ -20,7 +20,7 @@
     "FTP"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/hzlzh/Grunt-Workflow",
+  "homepage": "https://github.com/hzlzh/f2e-workflow",
   "ignore": [
     "**/.*"
   ]
