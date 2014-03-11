@@ -1,6 +1,6 @@
 /**
- * Grunt Workflow v1.5.6
- * https://github.com/Mobile-Team/Grunt-Workflow
+ * f2e-workflow v1.5.6
+ * https://github.com/Mobile-Team/f2e-workflow
  * @hzlzh <hzlzh.dev@gmail.com>
  */
 

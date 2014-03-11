@@ -1,18 +1,18 @@
 {
-  "name": "grunt-workflow",
-  "description": "一个跨平台的（Mac&Win）、优雅的、高效的、可定制的前端重构工作流程",
+  "name": "f2e-workflow",
+  "description": "f2e-workflow is a cross-platform, efficient, smooth workflow for F2E project based on Grunt.",
   "version": "1.5.6",
-  "homepage": "https://github.com/hzlzh/Grunt-Workflow",
+  "homepage": "https://github.com/hzlzh/f2e-workflow",
   "author": {
     "name": "hzlzh",
     "url": "https://github.com/hzlzh"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/hzlzh/Grunt-Workflow.git"
+    "url": "git://github.com/hzlzh/f2e-workflow.git"
   },
   "bugs": {
-    "url": "https://github.com/hzlzh/Grunt-Workflow/issues"
+    "url": "https://github.com/hzlzh/f2e-workflow/issues"
   },
   "licenses": [
     {
