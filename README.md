@@ -11,8 +11,8 @@
 * [System Environment](#system-environment)
 * [Documentation](#documentation)
 * [Task Details](#task-details)
-* [Know Issues](know-issues)
-* [License](license)
+* [Know Issues](#know-issues)
+* [License](#license)
 
 ### Quick Start
 
