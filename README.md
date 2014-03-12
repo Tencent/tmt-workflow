@@ -21,7 +21,7 @@
 - [Download the latest release](https://github.com/hzlzh/f2e-workflow/archive/master.zip).
 - Clone the repo: `git clone git@github.com:hzlzh/f2e-workflow.git`
 - install with [yeoman](http://yeoman.io/) : 
-    - `npm install generator-f2e`
+    - `npm install -g generator-f2e`
     - `yo f2e`
 - install with [Bower](http://bower.io/): `bower install f2e`
 
