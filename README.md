@@ -79,6 +79,9 @@ After run `f2e-workflow`, you'll get `../publish` which is the final output.
         
         // install Phantomjs library
         brew install phantomjs
+        
+        // re-install node_modules, e.g. `gm`
+        npm install
 
 3. Run `gm version` & `phantomjs --version` to test if your environment is OK.
 

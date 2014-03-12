@@ -79,6 +79,9 @@ f2e-workflow/
         
         // 安装 Phantomjs 库
         brew install phantomjs
+        
+        // 重新安装 node_modules 缺失依赖，如：gm
+        npm install
 
 3. 运行 `gm version` 和 `phantomjs --version` 来测试上述依赖是否成功安装完成
 
