@@ -11,6 +11,7 @@
 * [System Environment](#system-environment)
 * [Documentation](#documentation)
 * [Task Details](#task-details)
+* [Demo](#demo)
 * [Know Issues](#know-issues)
 * [License](#license)
 
@@ -151,6 +152,13 @@ Output folder: ../publish/(css/ + img/ + slice/)
 #### Rename init `grunt 2x2x`
 
 *Note: @2x image to @1x image*
+
+### Demo
+
+Command line demo is below,  
+*Also a GUI tools is ready, check [Mobile-Team / spock](https://github.com/Mobile-Team/spock)*
+
+![Demo](https://f.cloud.github.com/assets/1049575/2406255/386e803c-aa67-11e3-982b-36590d24f459.gif)
 
 
 ### Know Issues

@@ -11,6 +11,7 @@
 * [环境准备](#system-environment)
 * [任务说明](#documentation)
 * [流程详解](#task-details)
+* [Demo](#demo)
 * [已知说明](#know-issues)
 * [License](#license)
 
@@ -148,6 +149,12 @@ f2e-workflow/
 
 注：@2x 图 生成 @1x 图
 
+### <a name="demo"></a>Demo
+
+命令行操作范例如下： 
+*同样，你也可以使用 GUI 工具 [Mobile-Team / spock](https://github.com/Mobile-Team/spock)*
+
+![Demo](https://f.cloud.github.com/assets/1049575/2406255/386e803c-aa67-11e3-982b-36590d24f459.gif)
 
 ### <a name="know-issues"></a>已知说明
 
