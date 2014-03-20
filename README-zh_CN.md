@@ -152,7 +152,9 @@ f2e-workflow/
 ### <a name="demo"></a>Demo
 
 命令行操作范例如下： 
-*同样，你也可以使用 GUI 工具 [Mobile-Team / spock](https://github.com/Mobile-Team/spock)*
+
+* **对应的 GUI 工具已经发布：** [Mobile-Team / spock](https://github.com/Mobile-Team/spock)  
+* **更多资料 Keynote：**[《移动终端重构Workflow》 -- WebRebuild 2013](https://speakerdeck.com/hzlzh/webrebuild-2013-yi-dong-zhong-duan-zhong-gou-workflow)
 
 ![Demo](https://f.cloud.github.com/assets/1049575/2406255/386e803c-aa67-11e3-982b-36590d24f459.gif)
 
