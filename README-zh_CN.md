@@ -21,7 +21,7 @@
 
 - [下载最新版 f2e-workflow](https://github.com/hzlzh/f2e-workflow/archive/master.zip)
 - Clone the repo: `git clone git@github.com:hzlzh/f2e-workflow.git`
-- 用 [yeoman](http://yeoman.io/) 安装: 
+- 用 [yeoman](http://yeoman.io/) 安装，或参考此 [generator-f2e] 进行定制: 
 	- `npm install -g generator-f2e`
 	- `yo f2e`
 - 用 [Bower](http://bower.io/) 安装: `bower install f2e`
@@ -173,3 +173,4 @@ Released under [MIT] LICENSE
 [Node.js]: http://nodejs.org/
 [GraphicsMagick]: http://www.graphicsmagick.org/
 [Phantomjs]: http://phantomjs.org/
+[generator-f2e]: https://github.com/hzlzh/generator-f2e 'Generator F2E'
