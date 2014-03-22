@@ -160,7 +160,7 @@ Command line demo is below,
 
 ![Demo](https://f.cloud.github.com/assets/1049575/2406255/386e803c-aa67-11e3-982b-36590d24f459.gif)
 
-After the workflow，check `Demo Page` [/f2e-workflow/demo/index.html](http://hzlzh.github.io/f2e-workflow/demo/) for `sprite image` source code.
+After the workflow，check `Demo Page` [/demo/html/index.html](http://hzlzh.github.io/f2e-workflow/demo/html/index.html) for `sprite image` source code.
 
 ### Know Issues
 
