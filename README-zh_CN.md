@@ -153,8 +153,9 @@ f2e-workflow/
 
 命令行操作范例如下： 
 
-* **对应的 GUI 工具已经发布：** [Mobile-Team / spock](https://github.com/Mobile-Team/spock)  
-* **更多资料 Keynote：**[《移动终端重构Workflow》 -- WebRebuild 2013](https://speakerdeck.com/hzlzh/webrebuild-2013-yi-dong-zhong-duan-zhong-gou-workflow)
+* *对应的 GUI 工具已经发布：* [Mobile-Team / spock](https://github.com/Mobile-Team/spock)  
+* *WebStorm 8 将支持`Yo` & `Grunt`:* [WebStorm 8.0 Release Candidate](http://blog.jetbrains.com/webstorm/2014/03/webstorm-8-rc/)
+* *更多资料 Keynote：*[《移动终端重构Workflow》 -- WebRebuild 2013](https://speakerdeck.com/hzlzh/webrebuild-2013-yi-dong-zhong-duan-zhong-gou-workflow)
 
 ![Demo](https://f.cloud.github.com/assets/1049575/2406255/386e803c-aa67-11e3-982b-36590d24f459.gif)
 

@@ -156,7 +156,9 @@ Output folder: ../publish/(css/ + img/ + slice/)
 ### Demo
 
 Command line demo is below,  
-*Also a GUI tools is ready, check [Mobile-Team / spock](https://github.com/Mobile-Team/spock)*
+
+* *Also a GUI tools is ready, check: [Mobile-Team / spock](https://github.com/Mobile-Team/spock)*  
+* *WebStorm 8 is ready for `Yo` & `Grunt`:* [WebStorm 8.0 Release Candidate](http://blog.jetbrains.com/webstorm/2014/03/webstorm-8-rc/)
 
 ![Demo](https://f.cloud.github.com/assets/1049575/2406255/386e803c-aa67-11e3-982b-36590d24f459.gif)
 
