@@ -159,6 +159,7 @@ f2e-workflow/
 
 ![Demo](https://f.cloud.github.com/assets/1049575/2406255/386e803c-aa67-11e3-982b-36590d24f459.gif)
 
+`Demo Page` **不含** 雪碧图拼合流程 ：[/demo-without-sprite/html/index.html](http://hzlzh.github.io/f2e-workflow/demo-without-sprite/html/index.html)  
 上述执行完成，参看`Demo`页面 [/demo/html/index.html](http://hzlzh.github.io/f2e-workflow/demo/html/index.html) 雪碧图源码
 
 ### <a name="know-issues"></a>已知说明

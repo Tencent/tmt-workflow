@@ -162,6 +162,7 @@ Command line demo is below,
 
 ![Demo](https://f.cloud.github.com/assets/1049575/2406255/386e803c-aa67-11e3-982b-36590d24f459.gif)
 
+`Demo Page` **without** Sprite Task: [/demo-without-sprite/html/index.html](http://hzlzh.github.io/f2e-workflow/demo-without-sprite/html/index.html)  
 After the workflow，check `Demo Page` [/demo/html/index.html](http://hzlzh.github.io/f2e-workflow/demo/html/index.html) for `sprite image` source code.
 
 ### Know Issues
