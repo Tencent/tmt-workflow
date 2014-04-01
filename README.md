@@ -147,7 +147,7 @@ Output folder: ../publish/(css/ + img/ + slice/)
 
 #### Rename init `grunt sprite-cssmin`
 
-*Note: copy files from `slice/` to -> `sprite` -> CSS compression*
+*Note: copy files from `slice/` to -> `sprite` -> use `pngmin` with PNGs -> CSS compression*
 
 #### Rename init `grunt 2x2x`
 

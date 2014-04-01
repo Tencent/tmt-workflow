@@ -143,7 +143,7 @@ f2e-workflow/
 
 #### 定义别名 `grunt sprite-cssmin`
 
-注：拷贝移动 `slice/` -> 合并雪碧图 `sprite` -> CSS 压缩
+注：拷贝移动 `slice/` -> 合并雪碧图 `sprite` -> 将雪碧图进行`pngmin`图片压缩 -> CSS 压缩
 
 #### 定义别名 `grunt 2x2x`
 
