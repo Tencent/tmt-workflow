@@ -130,7 +130,7 @@ Output folder: ../publish/(css/ + img/ + slice/)
 #### 2. Full workflow `grunt all`
 
 **Output folder:** `../publish/(css/ + img/ + sprite/)`  
-*Note: Include Less/Sass Compile+Compression+Sprite+PNGmin, without file watch*
+*Note: Include Less/Sass Compile+Compression+Sprite+PNGmin(under `./img/` & `./sprite/`), without file watch*
 
 #### 3. Debug workflow `grunt debug`
 
@@ -147,7 +147,7 @@ Output folder: ../publish/(css/ + img/ + slice/)
 
 #### Rename init `grunt sprite-cssmin`
 
-*Note: copy files from `slice/` to -> `sprite` -> use `pngmin` with PNGs -> CSS compression*
+*Note: copy files from `slice/` to -> `sprite` -> CSS compression*
 
 #### Rename init `grunt 2x2x`
 

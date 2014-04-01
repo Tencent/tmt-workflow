@@ -1,5 +1,5 @@
 /**
- * f2e-workflow v1.5.7
+ * f2e-workflow v1.6.0
  * https://github.com/Mobile-Team/f2e-workflow
  * @hzlzh <hzlzh.dev@gmail.com>
  */
@@ -188,14 +188,14 @@ module.exports = function (grunt) {
                 },
                 files: [
                     {
-                        src: ['tmp/sprite/*.png'],
-                        dest: 'tmp/sprite/'
+                        src: ['release/sprite/*.png'],
+                        dest: 'release/sprite/'
                     },
                     {
                         expand: true,
-                        cwd: 'v/img',
+                        cwd: 'release/img',
                         src: ['**/*.png'],
-                        dest: 'tmp/img',
+                        dest: 'release/img',
                         ext: '.png'
                     }
                 ]
@@ -262,7 +262,7 @@ module.exports = function (grunt) {
     // == 完整发布流 ==
     // 输出目录为：../publish/(css/ + img/ + sprite/)
     // 注：包括 Less/Sass 编译+压缩+雪碧图拼合+PNG压缩，仅执行1次流，不含(文件变动 watch)
-    grunt.registerTask('all', ['less:release', 'sprite-cssmin', 'copy:debug']);
+    grunt.registerTask('all', ['less:release', 'sprite-cssmin', 'copy:release', 'pngmin']);
 
     // == 调试工作流 ==
     // 输出目录为：../publish/(css/ + img/ + sprite/)
@@ -279,7 +279,7 @@ module.exports = function (grunt) {
 
     // 定义别名 `grunt sprite-cssmin`
     // 注：拷贝移动 slice -> 合并雪碧图 sprite -> CSS 压缩
-    grunt.registerTask('sprite-cssmin', ['copy:slice', 'sprite', 'cssmin', 'pngmin']);
+    grunt.registerTask('sprite-cssmin', ['copy:slice', 'sprite', 'cssmin']);
 
     // for test build
     grunt.registerTask('test', ['all', 'compress', 'clean:release']);

@@ -126,7 +126,7 @@ f2e-workflow/
 #### 完整发布流 `grunt all`
 
 输出目录为：`../publish/(css/ + img/ + sprite/)`  
-注：包括 Less/Sass 编译+压缩+雪碧图拼合+PNG压缩，仅执行1次流，不含(文件变动 watch)
+注：包括 Less/Sass 编译+压缩+雪碧图拼合+PNG压缩(包括`./img/` 和 `./sprite/` 两个目录下)，仅执行1次流，不含(文件变动 watch)
 
 #### 调试工作流 `grunt debug`
 
@@ -143,7 +143,7 @@ f2e-workflow/
 
 #### 定义别名 `grunt sprite-cssmin`
 
-注：拷贝移动 `slice/` -> 合并雪碧图 `sprite` -> 将雪碧图进行`pngmin`图片压缩 -> CSS 压缩
+注：拷贝移动 `slice/` -> 合并雪碧图 `sprite` -> CSS 压缩
 
 #### 定义别名 `grunt 2x2x`
 
