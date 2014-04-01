@@ -183,3 +183,6 @@ Released under [MIT] LICENSE
 [GraphicsMagick]: http://www.graphicsmagick.org/
 [generator-f2e]: https://github.com/hzlzh/generator-f2e 'Generator F2E'
 [Phantomjs]: http://phantomjs.org/
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/hzlzh/f2e-workflow/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
