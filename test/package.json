@@ -15,6 +15,7 @@
     "grunt-contrib-compress": "~0.7.0",
     "grunt-sprite": "~0.0.5",
     "grunt-pngmin": "~0.6.1",
+    "grunt-timestamp": "~0.0.7",
     "time-grunt": "~0.3.1",
     "grunt-ftp-deploy": "~0.1.1",
     "grunt-2x2x": "~0.1.3",
