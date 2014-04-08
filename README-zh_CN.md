@@ -91,14 +91,14 @@ f2e-workflow/
 1. 安装 [Node.js] *默认此步骤已完成*
 2. 下载安装 [GraphicsMagick] 和 [Phantomjs]  
     * [安装步骤图解](https://github.com/hzlzh/f2e-workflow/issues/2)  
-    * 备用下载：[GraphicsMagick-1.3.19-Q8-win32-dll.zip](http://pan.baidu.com/s/1pJFczEz)
-    * 备用下载：[phantomjs-1.9.2-windows.zip](http://pan.baidu.com/s/1pJFczEz)
+    * 备用下载：[GraphicsMagick-1.3.19-Q8-win32-dll.zip](http://pan.baidu.com/s/1pJFczEz#dir/path=%2Fpublic%2Fdl%2Ff2e-workflow)
+    * 备用下载：[phantomjs-1.9.2-windows.zip](http://pan.baidu.com/s/1pJFczEz#dir/path=%2Fpublic%2Fdl%2Ff2e-workflow)
 3. 运行安装完成后，[添加环境变量步骤](https://github.com/hzlzh/f2e-workflow/issues/6)
 
 #### Mac OS & Windows 通用步骤
 
 1. 成功安装上述`GraphicsMagick`和`Phantomjs`之后，在项目目录下运行 `npm install` 继续安装其他依赖。
-    * 若遇到网络问题，临时使用已打包的依赖包：[node_modules.zip](http://pan.baidu.com/s/1pJFczEz#node_modules.zip)
+    * 若遇到网络问题，临时使用已打包的依赖包：[node_modules.zip](http://pan.baidu.com/s/1pJFczEz#dir/path=%2Fpublic%2Fdl%2Ff2e-workflow)
 
 ### <a name="documentation"></a>任务说明
 
