@@ -344,7 +344,7 @@ module.exports = function(grunt) {
     grunt.registerTask('sprite-cssmin', ['copy:slice', 'sprite', 'cssmin']);
 
     // for test build
-    grunt.registerTask('test', ['all', 'compress', 'clean:release']);
+    grunt.registerTask('test', ['less:dev', 'copy:dev', 'clean:dev']);
 
     // 定义别名 `grunt 2x2x`
     // 注：@2x 图 生成 @1x 图
