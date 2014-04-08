@@ -113,6 +113,7 @@ module.exports = function(grunt) {
         },
 
         // 时间戳，去缓存
+        // https://www.npmjs.org/package/grunt-timestamp
         timestamp: {
             timestamp: {
                 files: [{
@@ -309,6 +310,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-sprite');
     grunt.loadNpmTasks('grunt-ftp-deploy');
     grunt.loadNpmTasks('grunt-pngmin');
+    grunt.loadNpmTasks('grunt-timestamp');
     grunt.loadNpmTasks('grunt-2x2x');
 
 

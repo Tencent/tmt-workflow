@@ -310,8 +310,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-sprite');
     grunt.loadNpmTasks('grunt-ftp-deploy');
     grunt.loadNpmTasks('grunt-pngmin');
-    grunt.loadNpmTasks('grunt-2x2x');
     grunt.loadNpmTasks('grunt-timestamp');
+    grunt.loadNpmTasks('grunt-2x2x');
+
 
     /* 任务注册开始 */
 
