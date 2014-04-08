@@ -91,14 +91,14 @@ After run `f2e-workflow`, you'll get `../publish` which is the final output.
 1. Install [Node.js] *If not installed*
 2. Download, then Install [GraphicsMagick] & [Phantomjs]  
     * [Install ](https://github.com/hzlzh/f2e-workflow/issues/2)  
-    * Download Mirror: [GraphicsMagick-1.3.19-Q8-win32-dll.zip](https://app.box.com/s/95johmr7aggnqvrcpabu)
-    * Download Mirror: [phantomjs-1.9.2-windows.zip](https://app.box.com/s/95johmr7aggnqvrcpabu)
+    * Download Mirror: [GraphicsMagick-1.3.19-Q8-win32-dll.zip](http://pan.baidu.com/s/1pJFczEz)
+    * Download Mirror: [phantomjs-1.9.2-windows.zip](http://pan.baidu.com/s/1pJFczEz)
 3. At last [Set system variable](https://github.com/hzlzh/f2e-workflow/issues/6)
 
 #### Both
 
 1. After install `GraphicsMagick` and `Phantomjs` successfully, run `npm install` to pull the dependance package.
-    * If you get some network trouble, you can download [node_modules.zip](https://app.box.com/s/95johmr7aggnqvrcpabu) instead.
+    * If you get some network trouble, you can download [node_modules.zip](http://pan.baidu.com/s/1pJFczEz) instead.
 
 <a name="details"></a>
 ### Documentation
