@@ -1,7 +1,7 @@
 {
   "name": "f2e-workflow",
   "description": "f2e-workflow is a cross-platform, efficient, smooth workflow for F2E project based on Grunt.",
-  "version": "1.6.7",
+  "version": "1.6.8",
   "homepage": "https://github.com/hzlzh/f2e-workflow",
   "author": {
     "name": "hzlzh",

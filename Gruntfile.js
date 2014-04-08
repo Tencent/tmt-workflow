@@ -1,5 +1,5 @@
 /**
- * f2e-workflow
+ * f2e-workflow v1.6.8
  * https://github.com/Mobile-Team/f2e-workflow
  * @hzlzh <hzlzh.dev@gmail.com>
  */
