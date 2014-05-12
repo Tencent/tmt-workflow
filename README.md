@@ -2,7 +2,7 @@
 
 **f2e-workflow** is a cross-platform, efficient, smooth workflow for F2E project based on [Grunt].
 
-*[Chinese(zh_CN) README.md available.](https://github.com/hzlzh/Grunt-Workflow/blob/master/README-zh_CN.md)*   
+*[中文说明文档(zh_CN) 见此](https://github.com/hzlzh/Grunt-Workflow/blob/master/README-zh_CN.md)*   
 
 ###Table of contents
 

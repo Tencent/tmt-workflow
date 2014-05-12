@@ -72,10 +72,11 @@ f2e-workflow/
 #### Mac OS
 
 1. 建议使用 [Brew] 安装 [Node.js] *默认此步骤已完成*
-2. 单独安装下面两个依赖 [注](https://github.com/Ensighten/spritesmith#requirements)
+2. 单独安装下面两个依赖 [\[注\]](https://github.com/Ensighten/spritesmith#requirements)
 
         // 安装 GraphicsMagick 图像处理库
         // 期间可能会要求安装 Xcode Command Line Tools，同意即可
+        // 注：请保证至少运行一次 XCode.app 以同意苹果协议
         brew install GraphicsMagick
         
         // 安装 Phantomjs 库
