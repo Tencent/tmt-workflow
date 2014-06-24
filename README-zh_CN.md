@@ -71,7 +71,8 @@ f2e-workflow/
 
 #### Mac OS
 
-1. 建议使用 [Brew] 安装 [Node.js] *默认此步骤已完成*
+1. Node 环境：建议使用 [Brew] 安装 [Node.js] *默认此步骤已完成*  
+3. Grunt 环境：安装 [Grunt CLI](https://github.com/hzlzh/f2e-workflow/issues/11) 和 [Grunt](https://github.com/hzlzh/f2e-workflow/issues/11) 保证Grunt的正常环境   
 2. 单独安装下面两个依赖 [\[注\]](https://github.com/Ensighten/spritesmith#requirements)
 
         // 安装 GraphicsMagick 图像处理库

@@ -71,8 +71,9 @@ After run `f2e-workflow`, you'll get `../publish` which is the final output.
 
 #### Mac OS
 
-1. Recommended: install [Node.js] with [Brew] *If not installed*
-2. Install those two requirements [via](https://github.com/Ensighten/spritesmith#requirements)
+1. Recommended: install [Node.js] with [Brew] *If not installed* [HowTo](https://github.com/hzlzh/f2e-workflow/issues/11)
+2. Required: install [Grunt CLI](https://github.com/hzlzh/f2e-workflow/issues/11) and [Grunt](https://github.com/hzlzh/f2e-workflow/issues/11)  
+3. Install those two requirements [via](https://github.com/Ensighten/spritesmith#requirements)
 
         // install GraphicsMagick library
         // `Xcode Command Line Tools` may be needed, please agree.
