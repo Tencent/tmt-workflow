@@ -1,5 +1,5 @@
 /**
- * f2e-workflow v1.6.8
+ * f2e-workflow v1.6.9
  * https://github.com/Mobile-Team/f2e-workflow
  * @hzlzh <hzlzh.dev@gmail.com>
  */
@@ -297,21 +297,23 @@ module.exports = function(grunt) {
         }
     });
 
-    // 加载官方插件
-    grunt.loadNpmTasks('grunt-contrib-less');
-    grunt.loadNpmTasks('grunt-contrib-csslint');
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-compress');
-
-    // 加载其他插件
-    grunt.loadNpmTasks('grunt-sprite');
-    grunt.loadNpmTasks('grunt-ftp-deploy');
-    grunt.loadNpmTasks('grunt-pngmin');
-    grunt.loadNpmTasks('grunt-timestamp');
-    grunt.loadNpmTasks('grunt-2x2x');
+    //    // 加载官方插件
+    //    grunt.loadNpmTasks('grunt-contrib-less');
+    //    grunt.loadNpmTasks('grunt-contrib-csslint');
+    //    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    //    grunt.loadNpmTasks('grunt-contrib-copy');
+    //    grunt.loadNpmTasks('grunt-contrib-clean');
+    //    grunt.loadNpmTasks('grunt-contrib-watch');
+    //    grunt.loadNpmTasks('grunt-contrib-compress');
+    //
+    //    // 加载其他插件
+    //    grunt.loadNpmTasks('grunt-sprite');
+    //    grunt.loadNpmTasks('grunt-ftp-deploy');
+    //    grunt.loadNpmTasks('grunt-pngmin');
+    //    grunt.loadNpmTasks('grunt-timestamp');
+    //    grunt.loadNpmTasks('grunt-2x2x');
+    require('jit-grunt')(grunt);
+    // 按需 load，文档：https://www.npmjs.org/package/jit-grunt
 
 
     /* 任务注册开始 */
