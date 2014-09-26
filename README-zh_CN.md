@@ -95,7 +95,7 @@ f2e-workflow/
     * [安装步骤图解](https://github.com/hzlzh/f2e-workflow/issues/2)  
     * 备用下载：[GraphicsMagick-1.3.19-Q8-win32-dll.zip](http://pan.baidu.com/s/1qWDE7Y8#dir/path=%2Fpublic%2Fdl%2Ff2e%2Ff2e-workflow)
     * 备用下载：[phantomjs-1.9.2-windows.zip](http://pan.baidu.com/s/1qWDE7Y8#dir/path=%2Fpublic%2Fdl%2Ff2e%2Ff2e-workflow)
-3. 运行安装完成后，[添加环境变量步骤](https://github.com/hzlzh/f2e-workflow/issues/6)
+3. 下载完毕，解压到任意目录后，会得到文件夹路径，继续[添加环境变量步骤](https://github.com/hzlzh/f2e-workflow/issues/6)
 
 #### Mac OS & Windows 通用步骤
 
