@@ -92,8 +92,8 @@ After run `f2e-workflow`, you'll get `../publish` which is the final output.
 1. Install [Node.js] *If not installed*
 2. Download, then Install [GraphicsMagick] & [Phantomjs]  
     * [Install ](https://github.com/hzlzh/f2e-workflow/issues/2)  
-    * Download Mirror: [GraphicsMagick-1.3.19-Q8-win32-dll.zip](http://pan.baidu.com/s/1qWDE7Y8#dir/path=%2Fpublic%2Fdl%2Ff2e%2Ff2e-workflow)
-    * Download Mirror: [phantomjs-1.9.2-windows.zip](http://pan.baidu.com/s/1qWDE7Y8#dir/path=%2Fpublic%2Fdl%2Ff2e%2Ff2e-workflow)
+    * Download Mirror: [GraphicsMagick-1.3.19-Q8-win32-dll.zip](http://pan.baidu.com/s/1qWDE7Y8#path=%252Ff2e-workflow)
+    * Download Mirror: [phantomjs-1.9.2-windows.zip](http://pan.baidu.com/s/1qWDE7Y8#path=%252Ff2e-workflow)
 3. At last unpack them into any of your folder [Set system variable](https://github.com/hzlzh/f2e-workflow/issues/6)
 
 #### Both
