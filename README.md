@@ -85,21 +85,21 @@ After run `f2e-workflow`, you'll get `../publish` which is the final output.
         // re-install node_modules, e.g. `gm`
         npm install
 
-3. Run `gm version` & `phantomjs --version` to test if your environment is OK.
+3. **Run** `gm version` & `phantomjs --version` to test if your environment is OK.
 
 #### Windows
 
 1. Install [Node.js] *If not installed*
-2. Download, then Install [GraphicsMagick] & [Phantomjs]  
+2. Download, then Install [GraphicsMagick(**Q8**)]*(or 64bit)* & [Phantomjs]  
     * [Install ](https://github.com/hzlzh/f2e-workflow/issues/2)  
-    * Download Mirror: [GraphicsMagick-1.3.19-Q8-win32-dll.zip](http://pan.baidu.com/s/1qWDE7Y8#path=%252Ff2e-workflow)
-    * Download Mirror: [phantomjs-1.9.2-windows.zip](http://pan.baidu.com/s/1qWDE7Y8#path=%252Ff2e-workflow)
+    * Download Mirror: [GraphicsMagick-1.3.20-**Q8**-win32-dll.zip](http://pan.baidu.com/s/1qWDE7Y8#path=%252Ff2e-workflow)
+    * Download Mirror: [phantomjs-1.9.7-windows.zip](http://pan.baidu.com/s/1qWDE7Y8#path=%252Ff2e-workflow)
 3. At last unpack them into any of your folder [Set system variable](https://github.com/hzlzh/f2e-workflow/issues/6)
 
 #### Both
 
 1. After install `GraphicsMagick` and `Phantomjs` successfully, run `npm install` to pull the dependance package.
-    * If you get some network trouble, you can download [node_modules.zip](http://pan.baidu.com/s/1qWDE7Y8#dir/path=%2Fpublic%2Fdl%2Ff2e%2Ff2e-workflow) instead.
+    * If you get some network trouble, you can download [node_modules.zip](http://pan.baidu.com/s/1qWDE7Y8#path=%252Ff2e-workflow) instead.
 
 <a name="details"></a>
 ### Documentation
@@ -181,7 +181,7 @@ Released under [MIT] LICENSE
 [wiki list]: https://github.com/hzlzh/f2e-workflow/issues
 [Brew]: http://brew.sh/
 [Node.js]: http://nodejs.org/
-[GraphicsMagick]: http://www.graphicsmagick.org/
+[GraphicsMagick(**Q8**)]: http://www.graphicsmagick.org/
 [generator-f2e]: https://github.com/hzlzh/generator-f2e 'Generator F2E'
 [Phantomjs]: http://phantomjs.org/
 
