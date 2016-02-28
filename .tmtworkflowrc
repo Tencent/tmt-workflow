@@ -1,0 +1,32 @@
+{
+  "ftp": {
+    "host": "xx.xx.xx.xx",
+    "port": "8021",
+    "user": "tmt",
+    "pass": "password",
+    "remotePath": "remotePath",
+    "includeHtml": true  //ftp 上传是否包含 html
+  },
+
+  "livereload": {
+     "available": true,  //开启自动刷新
+     "port": 8080,
+     "startPath": "html/TmTIndex.html"
+   },
+
+   //路径相对于 tasks/plugins 目录
+  "plugins": {
+    "devAfter": ["TmTIndex"],
+    "buildAfter": [],
+    "ftpAfter": ["ftp"]
+  },
+
+  "lazyDir": ["../slice"],  //gulp-lazyImageCSS 寻找目录(https://github.com/weixin/gulp-lazyimagecss)
+
+  "supportWebp": false,
+
+  "supportREM": false,
+
+  "reversion": false
+
+}

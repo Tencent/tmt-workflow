@@ -1,189 +1,129 @@
-## f2e-workflow  [![GitHub version](https://badge.fury.io/gh/hzlzh%2Ff2e-workflow.png)](http://badge.fury.io/gh/hzlzh%2Ff2e-workflow) [![devDependency Status](https://david-dm.org/hzlzh/f2e-workflow/dev-status.png?theme=shields.io)](https://david-dm.org/hzlzh/f2e-workflow#info=devDependencies)
+#tmt-workflow
+@(随手记)
 
-**f2e-workflow** is a cross-platform, efficient, smooth workflow for F2E project based on [Grunt].
+**tmt-workflow** 是一个基于 [Gulp(Gulp4)](https://github.com/gulpjs/gulp/tree/4.0) 、跨平台(Mac&Win)、高效、可定制的前端工作流程。
 
-*[中文说明文档(zh_CN) 见此](https://github.com/hzlzh/Grunt-Workflow/blob/master/README-zh_CN.md)*   
+## 功能说明
 
-###Table of contents
+`tmt-workflow` 有如下功能：
+- Less 编译为 CSS(用 Sass 的伙伴们自行修改一下即可)
+- CSS 代码前缀自动补全(Autoprefixer)
+- CSS 压缩
+- 雪碧图合成(css sprite)
+- 自动处理 Retina 2x, Retina3x 适配
+- 图片压缩
+- JS 合并压缩
+- EJS 模版编译
+- 监听文件变动，自动刷新浏览器(LiveReload)
+- FTP 发布部署
+- ZIP 项目打包
+- 完整的 PX -> REM 解决方案
+- 完整的智能 WEBP 解决方案
+- 完整的缓存解决方案(reversion, 编译时根据内容生成新文件名)
 
-* [Quick start](#quick-start)
-* [What's included](#whats-included)
-* [System Environment](#system-environment)
-* [Documentation](#documentation)
-* [Task Details](#task-details)
-* [Demo](#demo)
-* [Know Issues](#know-issues)
-* [License](#license)
+具体详见：https://github.com/weixin/tmt-workflow/wiki
 
-### Quick Start
+## 安装
 
-4 quick start options are available:
+1. 默认认为您已经安装了 [Node](https://nodejs.org/en/) 环境
+2. 安装全局 gulp4： `npm install gulpjs/gulp#4.0 -g`
+3. 下载 tmt-workflow，进入根目录执行： `npm install`
 
-- [Download the latest release](https://github.com/hzlzh/f2e-workflow/archive/master.zip).
-- Clone the repo: `git clone git@github.com:hzlzh/f2e-workflow.git`
-- Install with [yeoman](http://yeoman.io/) or **custom it according to repo: [generator-f2e]** : 
-    - `npm install -g generator-f2e`
-    - `yo f2e`
-- Install with [Bower](http://bower.io/): `bower install f2e`
+> 注意：
+> 1. 由于 gulp4 尚未发布，Win 用户需安装 git ，在 git bash 下执行 npm install，而不是在 cmd。
+> 2. tmt-workflow 只支持 Node4 以上版本
 
-Read the [Getting Started page] and [wiki list] for more.
-
-### What's included
-
-Within the download you'll find the following directories and files, you'll see something like this:
+## 目录介绍
 
 ```
-f2e-workflow/
+tmt-workflow/
 │
-├── package.json                // Project dependance
-├── Gruntfile.js                // Grunt task config
-├── .ftppass                    // FTP passwork(optional): grunt-ftp-deploy
-│
-├── node_modules                  // `npm install` generate package
-│
-├── html/                         // HTML files
-│   └── index.html
-├── css/                        // CSS source files(e.g., `Less`/`Sass`)
-│   ├── lib-reset.less
-│   ├── lib-mixins.less
-│   └── style.less
-├── img/                        // Images source [non-sprite] e.g, logo
-│   ├── logo.png
-│   └── background.png
-├── slice/                      // Slice images source [Tobe-Sprite] e.g, Icons
-│   ├── icon-github.png
-│   ├── icon-github@2x.png      // Include 1x & 2x images
-│   ├── icon-twitter.png
-│   └── icon-twitter@2x.png
-└── publish/                    // The target folder, The final F2E output
-    ├── css/                    // The final CSS
-    │   └── style.css
-    ├── img/                    // just copy from `../img/`
-    │   ├── logo.png
-    │   └── background.png
-    └── sprite/                 // Sprited automatically
-        └── demo.png
+├── _tasks       //Gulp 任务定义
+├── package.json
+├── .tmtworkflowrc  //工作流配置文件
+└── project      //项目目录
+    ├── gulpfile.js    //任务配置，每个项目必需
+    ├── dev      //开发目录，由 dev 任务自动生成
+    │   ├── css
+    │   ├── html
+    │   ├── img
+    │   └── slice
+    ├── dist     //生产目录(存放最终可发布上线的文件)，由 build 任务自动生成
+    │   ├── css
+    │   ├── html
+    │   ├── img
+    │   └── sprite   //雪碧图合并自 src/slice，文件名与 css 文件名一致
+    │       ├── style-index.png
+    │       └── style-index@2x.png
+    └── src      //源文件目录，此目录会被监听变化并重新编译->dev
+        ├── css  //样式表目录，使用 Less，只有 style-*.less 的文件名会被编译
+        ├── html
+        ├── img
+        └── slice  //图片素材，雪碧图合并，同名的 @2x 图片会被识别并进行合并
+            ├── icon-dribbble.png
+            ├── icon-dribbble@2x.png
 ```
 
-After run `f2e-workflow`, you'll get `../publish` which is the final output.
-
-### System Environment
-
-#### Mac OS
-
-1. Recommended: install [Node.js] with [Brew] *If not installed* [HowTo](https://github.com/hzlzh/f2e-workflow/issues/11)
-2. Required: install [Grunt CLI](https://github.com/hzlzh/f2e-workflow/issues/11) and [Grunt](https://github.com/hzlzh/f2e-workflow/issues/11)  
-3. Install those two requirements [via](https://github.com/Ensighten/spritesmith#requirements)
-
-        // install GraphicsMagick library
-        // `Xcode Command Line Tools` may be needed, please agree.
-        brew install GraphicsMagick
-        
-        // install Phantomjs library
-        brew install phantomjs
-        
-        // re-install node_modules, e.g. `gm`
-        npm install
-
-3. **Run** `gm version` & `phantomjs --version` to test if your environment is OK.
-
-#### Windows
-
-1. Install [Node.js] *If not installed*
-2. Download, then Install [GraphicsMagick(**Q8**)]*(or 64bit)* & [Phantomjs]  
-    * [Install ](https://github.com/hzlzh/f2e-workflow/issues/2)  
-    * Download Mirror: [GraphicsMagick-1.3.20-**Q8**-win32-dll.zip](http://pan.baidu.com/s/1qWDE7Y8#path=%252Ff2e-workflow)
-    * Download Mirror: [phantomjs-1.9.7-windows.zip](http://pan.baidu.com/s/1qWDE7Y8#path=%252Ff2e-workflow)
-3. At last unpack them into any of your folder [Set system variable](https://github.com/hzlzh/f2e-workflow/issues/6)
-
-#### Both
-
-1. After install `GraphicsMagick` and `Phantomjs` successfully, run `npm install` to pull the dependance package.
-    * If you get some network trouble, you can download [node_modules.zip](http://pan.baidu.com/s/1qWDE7Y8#path=%252Ff2e-workflow) instead.
-
-<a name="details"></a>
-### Documentation
-
-A full `f2e-workflow` include those `Tasks` below:
-    
-* Compile `Less/Sass` to `CSS`
-* `CSS` Lint
-* `CSS` compression
-* Auto merge sprite images
-* Auto fit `@2x` retina images
-* Add timestamp after `CSS` files
-* Watch files changes
-* `FTP` deploy
-* `ZIP` package
-
-### Task Details
-
-#### 1. Default workflow `grunt`
-
+## 配置文件说明
 ```
-grunt.registerTask('default', ['less:dev', 'copy:dev', 'clean:dev', 'watch']);
-Output folder: ../publish/(css/ + img/ + slice/) 
+{
+  //ftp 配置
+  "ftp": {
+    "host": "xx.xx.xx.xx",
+    "port": "8021",
+    "user": "tmt",
+    "pass": "password",
+    "remotePath": "remotePath", //默认上传到根目录下，配置此属性可指定具体子目录
+    "includeHtml": true  //ftp 上传是否包含 html
+  },
+
+  //自动刷新
+  "livereload": {
+     "available": true,  //开启自动刷新
+     "port": 8080,
+     "startPath": "html/TmTIndex.html"  //启动时自动打开的路径
+   },
+
+   //插件功能
+   //路径相对于 tasks/plugins 目录
+  "plugins": {
+    "devAfter": ["TmTIndex"],  //dev 任务执行后自动执行
+    "buildAfter": [],          //build 任务执行后自动执行
+    "ftpAfter": ["ftp"]        //ftp 任务执行后自动执行
+  },
+
+  "lazyDir": ["../slice"], //gulp-lazyImageCSS 寻找目录(https://github.com/weixin/gulp-lazyimagecss)
+
+  "supportWebp": false,  //编译使用 webp
+
+  "supportREM": false,   //REM转换
+
+  "reversion": false     //新文件名功能
+}
 ```
+在根目录下放置一份 `.tmtworkflowrc` 配置文件。通过修改配置文件，可以实现各任务中的相关流程，例如：是否需要编译一份 WEBP 资源，是否转换 REM 等。
 
-*Note: Only do `Less/Sass` -> `CSS`*
+更详细说明查看：https://github.com/weixin/tmt-workflow/wiki/%E2%92%8A-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E
 
+## 任务介绍
 
-#### 2. Full workflow `grunt all`
+### 1. 开发任务 `gulp dev`
+按照前面介绍的目录结构创建好项目后，命令行中输入 `gulp dev` 即进入开发模式。
+- 自动创建与 src 目录一致的 dev 目录存放 ejs 和 less 编译后的文件
+- 自动监听所有文件变动
+- 监听到文件变动时自动刷新浏览器, 可在工作流配置文件 .tmtworkflowrc 选择开启或关闭
 
-**Output folder:** `../publish/(css/ + img/ + sprite/)`  
-*Note: Include Less/Sass Compile+Compression+Sprite+PNGmin(under `./img/` & `./sprite/`), without file watch*
+### 2. 生产任务 `gulp build`
+当开发完成之后，执行 `gulp build` 生成可供发布上线的最终文件。
+自动生成 dist 目录，存放所有经过编译合并的文件。
 
-#### 3. Debug workflow `grunt debug`
+### 3. FTP 部署 `gulp ftp`
+此任务依赖于 生产任务，执行 `gulp ftp`时，会先执行 `gulp build` 生成 dist 目录，然后将生成的 dist 目录上传至 .tmtworkflowrc 指定的 ftp 地址。
 
-**Output folder:** `../publish/(css/ + img/ + sprite/)`  
-*Note: Same as `grunt all`, but will not delete `tmp/` folder, this is only for debug use(with file watch task inside)*
+### 4. 打包 `gulp zip`
+执行 zip 任务时，会先执行 `gulp build` 生成 dist 目录，再将其打包压缩成 zip 包。
 
-#### 4. FTP deploy workflow `grunt push`
+> 注意：所有开发修改均在 **src** 源文件目录下，dev 和 dist 目录为任务自动编译生成，勿需触碰。
+> ftp 和 zip 任务执行后会自动删除调用 build 生成的 dist 目录，自己执行 build 任务生成的则不删。
 
-*Note: `grunt push` will push all the output to FTP server*
-
-#### 5. ZIP package `grunt zip`
-
-*Note: `grunt zip` will package all the output files into `.zip` file*
-
-#### Rename init `grunt sprite-cssmin`
-
-*Note: copy files from `slice/` to -> `sprite` -> CSS compression*
-
-#### Rename init `grunt 2x2x`
-
-*Note: @2x image to @1x image*
-
-### Demo
-
-Command line demo is below,  
-
-* *Also a GUI tools is ready, check: [Mobile-Team / spock](https://github.com/Mobile-Team/spock)*  
-* *WebStorm 8 is ready for `Yo` & `Grunt`:* [WebStorm 8.0 Release Candidate](http://blog.jetbrains.com/webstorm/2014/03/webstorm-8-rc/)
-
-![Demo](https://f.cloud.github.com/assets/1049575/2406255/386e803c-aa67-11e3-982b-36590d24f459.gif)
-
-`Demo Page` **without** Sprite Task: [/demo-without-sprite/html/index.html](http://hzlzh.github.io/f2e-workflow/demo-without-sprite/html/index.html)  
-After the workflow，check `Demo Page` [/demo/html/index.html](http://hzlzh.github.io/f2e-workflow/demo/html/index.html) for `sprite image` source code.
-
-### Know Issues
-
-* Images diff under `Mac OS` & `Win` is known from this [\[#issues\]](https://github.com/zauni/pngmin/issues/6)
-* No sprite task when you are doing a debug workflow, just run `grunt debug` if needed.
-
-### License
-
-Released under [MIT] LICENSE
-
-[MIT]: http://rem.mit-license.org/
-[Grunt]: http://gruntjs.com/
-[Getting Started page]: https://github.com/hzlzh/f2e-workflow#details
-[wiki list]: https://github.com/hzlzh/f2e-workflow/issues
-[Brew]: http://brew.sh/
-[Node.js]: http://nodejs.org/
-[GraphicsMagick(**Q8**)]: http://www.graphicsmagick.org/
-[generator-f2e]: https://github.com/hzlzh/generator-f2e 'Generator F2E'
-[Phantomjs]: http://phantomjs.org/
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/hzlzh/f2e-workflow/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
