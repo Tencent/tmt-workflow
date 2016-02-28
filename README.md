@@ -1,6 +1,3 @@
-#tmt-workflow
-@(随手记)
-
 **tmt-workflow** 是一个基于 [Gulp(Gulp4)](https://github.com/gulpjs/gulp/tree/4.0) 、跨平台(Mac&Win)、高效、可定制的前端工作流程。
 
 ## 功能说明
@@ -126,4 +123,4 @@ tmt-workflow/
 > 注意：所有开发修改均在 **src** 源文件目录下，dev 和 dist 目录为任务自动编译生成，勿需触碰。
 > ftp 和 zip 任务执行后会自动删除调用 build 生成的 dist 目录，自己执行 build 任务生成的则不删。
 
-
+更详细说明查看：https://github.com/weixin/tmt-workflow/wiki/%E2%92%8B-%E4%BB%BB%E5%8A%A1%E4%BB%8B%E7%BB%8D
