@@ -1,4 +1,15 @@
-**tmt-workflow** 是一个基于 [Gulp(Gulp4)](https://github.com/gulpjs/gulp/tree/4.0) 、跨平台(Mac&Win)、高效、可定制的前端工作流程。
+## tmt-workflow v1.0.0
+
+[![Build Status](https://travis-ci.org/weixin/node-lwip.svg)](https://travis-ci.org/weixin/tmt-workflow "Build Status")
+[![Win Build status](https://img.shields.io/appveyor/ci/weixin/tmt-workflow.svg?label=Win%20build)](https://ci.appveyor.com/project/weixin/tmt-workflow) 
+[![devDependencies](https://img.shields.io/david/dev/weixin/tmt-workflow.svg)](https://ci.appveyor.com/project/weixin/tmt-workflow "devDependencies") 
+[![NPM Downloads](https://img.shields.io/npm/dm/tmt-workflow.svg?style=flat)](https://www.npmjs.com/package/tmt-workflow "NPM Downloads") 
+
+[![Join the chat at https://gitter.im/weixin/tmt-workflow](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/TmT?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![TmT Name](https://img.shields.io/badge/Team-TmT-brightgreen.svg?style=flat)](https://github.com/orgs/TmT/people "Tencent Moe Team") 
+[![License](https://img.shields.io/npm/l/tmt-workflow.svg?style=flat)](http://opensource.org/licenses/MIT "Feel free to contribute.") 
+
+> tmt-workflow 是一个基于 [Gulp(v4.0)](https://github.com/gulpjs/gulp/tree/4.0)、跨平台(Mac & Win)、高效、可定制的前端工作流程。
 
 ## 功能说明
 
@@ -18,7 +29,7 @@
 - 完整的智能 WEBP 解决方案
 - 完整的缓存解决方案(reversion, 编译时根据内容生成新文件名)
 
-具体详见：https://github.com/weixin/tmt-workflow/wiki
+详见：https://github.com/weixin/tmt-workflow/wiki
 
 ## 安装
 
