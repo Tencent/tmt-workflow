@@ -1,16 +1,6 @@
 {
-  "name": "tmtworkflow",
-  "version": "0.0.1",
-  "description": "tmt workflow",
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
-  "licenses": [
-    {
-      "type": "MIT"
-    }
-  ],
+  "name": "tmt-workflow",
+  "version": "1.0.0",
   "dependencies": {
     "autoprefixer": "^6.3.3",
     "browser-sync": "^2.11.1",
@@ -43,5 +33,27 @@
     "rd": "^0.0.2",
     "tmt-ejs-helper": "^0.0.1"
   },
+  "description": "A f2e project workflow based on Gulp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/weixin/tmt-workflow"
+  },
+  "keywords": [
+    "Workflow",
+    "F2E",
+    "Less",
+    "CSS",
+    "Tencent",
+    "Wechat",
+    "WeiXin",
+    "Sprite",
+    "WebP",
+    "REM"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/weixin/tmt-workflow"
+  },
+  "homepage": "https://github.com/weixin/tmt-workflow",
   "readmeFilename": "README.md"
 }
