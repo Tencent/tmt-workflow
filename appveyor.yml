@@ -9,9 +9,8 @@ clone_depth: 10
 
 environment:
   matrix:
-    - nodejs_version: 0.12
     - nodejs_version: 4
-
+    - nodejs_version: 5
 # Install scripts. (runs after repo cloning)
 install:
   # Get the latest stable version of Node.js or io.js
