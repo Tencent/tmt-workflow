@@ -55,6 +55,7 @@ module.exports = function (config, done) {
             //智能寻找 webp
             function find2Webp (cb) {
                 render_webp('./dist/sprite');
+                render_webp('./dist/img');
                 if(imgArr.length){
                     reg = eval('/(' + imgArr.join('|') + ')/ig');
                 }
