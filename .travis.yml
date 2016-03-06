@@ -2,6 +2,18 @@ language: node_js
 node_js:
   - "0.12.7"
   - "4.0.0"
+env:
+  global:
+    - CXX=g++-4.8
+  matrix:
+    - GIT_VERSION=default
+    - GIT_VERSION=edge
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
 before_script:
   - npm install -g gulpjs/gulp#4.0
   - cd project
