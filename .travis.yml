@@ -2,9 +2,8 @@ language: node_js
 node_js:
   - "0.12.7"
   - "4.0.0"
-  - "5.0.0"
 before_script:
+  - npm install -g gulp
   - cd project
   - npm install
-  - npm install -g gulp
-  - gulp build
+script: gulp
