@@ -76,7 +76,7 @@ tmt-workflow/
 该配置文件为**隐藏文件**，位于工作流根目录，可存放配置信息或开启相关功能，[详见WiKi](https://github.com/weixin/tmt-workflow/wiki/%E2%92%8A-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E)。  
 _如：FTP 配置信息、开启 WebP功能，开启 REM 支持等。_
 
-```json
+```bash
 {
   // FTP 发布配置
   "ftp": {
