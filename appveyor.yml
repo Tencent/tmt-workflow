@@ -24,6 +24,7 @@ test_script:
   # Output useful info for debugging.
   - node --version && npm --version
   # run tests
+  - cd project
   - gulp build
 
 # Don't actually build.
