@@ -37,8 +37,7 @@
 3. 下载 tmt-workflow，进入根目录执行： `npm install`
 
 > 注意：
-> 1. 由于 gulp4 尚未发布，Win 用户需安装 git ，在 git bash 下执行 npm install，而不是在 cmd。
-> 2. tmt-workflow 只支持 Node4 以上版本
+> 由于 gulp4 尚未发布，Win 用户需安装 git ，在 git bash 下执行 npm install，而不是在 cmd。
 
 ## 目录介绍
 
