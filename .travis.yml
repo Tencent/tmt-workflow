@@ -1,6 +1,8 @@
 language: node_js
 node_js:
-  - "4.2.0"
+  - "0.12.7"
+  - "4.0.0"
+  - "5.0.0"
 before_script:
   - cd project
   - npm install
