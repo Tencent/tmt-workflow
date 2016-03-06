@@ -1,7 +1,7 @@
 ## tmt-workflow v1.0.0
 
 [![Build Status](https://travis-ci.org/weixin/tmt-workflow.svg)](https://travis-ci.org/weixin/tmt-workflow "Build Status")
-[![Win Build status](https://img.shields.io/appveyor/ci/weixin/tmt-workflow.svg?label=Win%20build)](https://ci.appveyor.com/project/littledu/tmt-workflow) 
+[![Win Build status](https://img.shields.io/appveyor/ci/littledu/tmt-workflow.svg?label=Win%20build)](https://ci.appveyor.com/project/littledu/tmt-workflow) 
 [![devDependencies](https://img.shields.io/david/dev/weixin/tmt-workflow.svg)](https://ci.appveyor.com/project/weixin/tmt-workflow "devDependencies") 
 
 [![Join the chat at https://gitter.im/weixin/tmt-workflow](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/TmT?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
