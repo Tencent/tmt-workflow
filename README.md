@@ -137,8 +137,8 @@ _如：FTP 配置信息、开启 WebP功能，开启 REM 支持等。_
 
   // 路径相对于 tasks/plugins 目录
   "plugins": {
-    "build_devAfter": ["TmTIndex"],           // build_dev 任务执行完成后，自动执行
-    "build_distAfter": [],                   // build_dist 任务执行完成后，自动执行
+    "build_devAfter": ["TmTIndex"],     // build_dev 任务执行完成后，自动执行
+    "build_distAfter": [],              // build_dist 任务执行完成后，自动执行
     "ftpAfter": ["ftp"]                 // ftp 任务执行完成后，自动执行
   },
 
