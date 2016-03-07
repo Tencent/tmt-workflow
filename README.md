@@ -163,7 +163,7 @@ _如：FTP 配置信息、开启 WebP功能，开启 REM 支持等。_
 
 _注：浏览器刷新功能可在 `.tmtworkflowrc` 中进行配置_
 
-**执行后 Demo 预览：**[project/dev/html/index.html](http://weixin.github.io/tmt-workflow/project/dist/html/index.html)
+**执行后 Demo 预览：**[project/dev/html/index.html](http://weixin.github.io/tmt-workflow/project/dev/html/index.html)
 
 **2. 生产任务 `gulp build`**  
 
