@@ -78,33 +78,33 @@ tmt-workflow/
 
 
 ````bash
-project/        				          // 项目目录
-├── gulpfile.js    				        // Gulp 工作流配置文件
+project/                          // 项目目录
+├── gulpfile.js                   // Gulp 工作流配置文件
 │
-├── src         				          // 源文件目录，`gulp dev`阶段会监听此目录下的文件变动
-│   ├── css     				          // 存放 Less 文件的目录，只有 style-*.less 的文件名会被编译
+├── src                           // 源文件目录，`gulp dev`阶段会监听此目录下的文件变动
+│   ├── css                       // 存放 Less 文件的目录，只有 style-*.less 的文件名会被编译
 │   │ ├── lib-reset.less
 │   │ ├── lib-mixins.less
 │   │ ├── lib-rem.less
-│   │ └── style-index.less  	    // CSS 编译出口文件
+│   │ └── style-index.less        // CSS 编译出口文件
 │   │ 
 │   ├── html
-│   ├── img       				        // 存放背景图等无需合并雪碧图处理的图片
-│   └── slice     				        // 切片图片素材，将会进行雪碧图合并，同名 @2x 图片也会合并
+│   ├── img                       // 存放背景图等无需合并雪碧图处理的图片
+│   └── slice                     // 切片图片素材，将会进行雪碧图合并，同名 @2x 图片也会合并
 │       ├── icon-dribbble.png
 │       └── icon-dribbble@2x.png
 │
-├── dev        					          // 开发目录，由 `gulp dev` 任务生成
+├── dev                           // 开发目录，由 `gulp dev` 任务生成
 │   ├── css
 │   ├── html
 │   ├── img
-│   └── slice   				          // 开发阶段，仅从 src/slice 拷贝至此，不做合并雪碧图处理
+│   └── slice                     // 开发阶段，仅从 src/slice 拷贝至此，不做合并雪碧图处理
 │
-└── dist        				          // 生产目录，由 `gulp build` 任务生成
+└── dist                          // 生产目录，由 `gulp build` 任务生成
     ├── css
     ├── html
     ├── img
-    └── sprite    				        // 将 /src/slice 合并雪碧图，根据 /css 文件名，命名为 style-*.png 
+    └── sprite                    // 将 /src/slice 合并雪碧图，根据 /css 文件名，命名为 style-*.png 
         ├── style-index.png
         └── style-index@2x.png
 ````
@@ -122,13 +122,13 @@ _如：FTP 配置信息、开启 WebP功能，开启 REM 支持等。_
     "port": "8021",
     "user": "tmt",
     "pass": "password",
-    "remotePath": "remotePath",     	  // 默认上传至根目录，此属性可指定子目录路径
-    "includeHtml": true         		    // FTP 上传时是否包含 .html 文件
+    "remotePath": "remotePath",         // 默认上传至根目录，此属性可指定子目录路径
+    "includeHtml": true                 // FTP 上传时是否包含 .html 文件
   },
 
   // 浏览器自动刷新
   "livereload": {
-     "available": true,  				        // 开启
+     "available": true,                 // 开启
      "port": 8080,
      "startPath": "html/TmTIndex.html"  // 启动时自动打开的路径
   },
@@ -137,18 +137,18 @@ _如：FTP 配置信息、开启 WebP功能，开启 REM 支持等。_
 
   // 路径相对于 tasks/plugins 目录
   "plugins": {
-    "devAfter": ["TmTIndex"],       	  // dev 任务执行完成后，自动执行
-    "buildAfter": [],               	  // build 任务执行完成后，自动执行
-    "ftpAfter": ["ftp"]             	  // ftp 任务执行完成后，自动执行
+    "devAfter": ["TmTIndex"],           // dev 任务执行完成后，自动执行
+    "buildAfter": [],                   // build 任务执行完成后，自动执行
+    "ftpAfter": ["ftp"]                 // ftp 任务执行完成后，自动执行
   },
 
-  "lazyDir": ["../slice"],        		  // gulp-lazyImageCSS 启用目录
+  "lazyDir": ["../slice"],              // gulp-lazyImageCSS 启用目录
   
-  "supportWebp": false,         		    // 开启 WebP 解决方案
+  "supportWebp": false,                 // 开启 WebP 解决方案
 
-  "supportREM": false,         			    // 开启 REM 适配方案，自动转换 px -> rem
+  "supportREM": false,                  // 开启 REM 适配方案，自动转换 px -> rem
 
-  "reversion": false            		    // 开启 新文件名 md5 功能
+  "reversion": false                    // 开启 新文件名 md5 功能
 }
 ```
 
