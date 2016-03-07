@@ -30,7 +30,7 @@ module.exports = function (gulp, config) {
 
     //注册 ftp 任务
     gulp.task('ftp', gulp.series(
-        'build',
+        'build_dist',
         remoteFtp,
         delDist,
         loadPlugin

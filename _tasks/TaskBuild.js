@@ -175,12 +175,12 @@ module.exports = function (gulp, config) {
 
     //加载插件
     function loadPlugin(cb) {
-        util.loadPlugin('build');
+        util.loadPlugin('build_dist');
         cb();
     }
 
-    //注册 build 任务
-    gulp.task('build', gulp.series(
+    //注册 build_dist 任务
+    gulp.task('build_dist', gulp.series(
         delDist,
         compileLess,
         compileAutoprefixer,

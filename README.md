@@ -48,8 +48,8 @@
 tmt-workflow/
 │
 ├── _tasks          		  // Gulp 任务目录
-│   ├── TaskDev.js      	// gulp dev
-│   ├── TaskBuild.js    	// gulp dist
+│   ├── TaskDev.js      	// gulp build_dev
+│   ├── TaskBuild.js    	// gulp build_dist
 │   ├── TaskFTP.js      	// gulp ftp
 │   ├── TaskZip.js      	// gulp zip
 │   │
@@ -81,7 +81,7 @@ tmt-workflow/
 project/                          // 项目目录
 ├── gulpfile.js                   // Gulp 工作流配置文件
 │
-├── src                           // 源文件目录，`gulp dev`阶段会监听此目录下的文件变动
+├── src                           // 源文件目录，`gulp build_dev`阶段会监听此目录下的文件变动
 │   ├── css                       // 存放 Less 文件的目录，只有 style-*.less 的文件名会被编译
 │   │ ├── lib-reset.less
 │   │ ├── lib-mixins.less
@@ -94,13 +94,13 @@ project/                          // 项目目录
 │       ├── icon-dribbble.png
 │       └── icon-dribbble@2x.png
 │
-├── dev                           // 开发目录，由 `gulp dev` 任务生成
+├── dev                           // 开发目录，由 `gulp build_dev` 任务生成
 │   ├── css
 │   ├── html
 │   ├── img
 │   └── slice                     // 开发阶段，仅从 src/slice 拷贝至此，不做合并雪碧图处理
 │
-└── dist                          // 生产目录，由 `gulp build` 任务生成
+└── dist                          // 生产目录，由 `gulp build_dist` 任务生成
     ├── css
     ├── html
     ├── img
@@ -137,8 +137,8 @@ _如：FTP 配置信息、开启 WebP功能，开启 REM 支持等。_
 
   // 路径相对于 tasks/plugins 目录
   "plugins": {
-    "devAfter": ["TmTIndex"],           // dev 任务执行完成后，自动执行
-    "buildAfter": [],                   // build 任务执行完成后，自动执行
+    "build_devAfter": ["TmTIndex"],           // build_dev 任务执行完成后，自动执行
+    "build_distAfter": [],                   // build_dist 任务执行完成后，自动执行
     "ftpAfter": ["ftp"]                 // ftp 任务执行完成后，自动执行
   },
 
@@ -154,9 +154,9 @@ _如：FTP 配置信息、开启 WebP功能，开启 REM 支持等。_
 
 ## 任务说明
 
-**1. 开发任务 `gulp dev`**  
+**1. 开发任务 `gulp build_dev`**
 
-按照`目录结构`创建好项目后，执行 `gulp dev` 生成开发文件位于 `/dev`，包含以下过程
+按照`目录结构`创建好项目后，执行 `gulp build_dev` 生成开发文件位于 `/dev`，包含以下过程
 
 - 完成 `ejs -> html` 和 `less -> css` 编译
 - 自动监听文件改动，触发浏览器刷新  
@@ -165,9 +165,9 @@ _注：浏览器刷新功能可在 `.tmtworkflowrc` 中进行配置_
 
 **执行后 Demo 预览：**[project/dev/html/index.html](http://weixin.github.io/tmt-workflow/project/dev/html/index.html)
 
-**2. 生产任务 `gulp build`**  
+**2. 生产任务 `gulp build_dist`**
 
-开发完成后，执行 `gulp build` 生成最终文件到 `/dist` 目录，包含以下过程：
+开发完成后，执行 `gulp build_dist` 生成最终文件到 `/dist` 目录，包含以下过程：
 
 - LESS/EJS 编译
 - CSS/JS/IMG 压缩合并
@@ -179,11 +179,11 @@ _注：浏览器刷新功能可在 `.tmtworkflowrc` 中进行配置_
 
 **3. FTP 部署 `gulp ftp`**  
 
-依赖于 `生产任务`，执行后，会将 `gulp build` 生成 `/dist` 目录上传至 `.tmtworkflowrc` 指定的 `FTP` 服务器。
+依赖于 `生产任务`，执行后，会将 `gulp build_dist` 生成 `/dist` 目录上传至 `.tmtworkflowrc` 指定的 `FTP` 服务器。
 
 **4. 打包任务 `gulp zip`**  
 
-将 `gulp build` 生成 `dist` 目录压缩成 `zip` 格式。
+将 `gulp build_dist` 生成 `dist` 目录压缩成 `zip` 格式。
 
 > 注1：**`./src`** 为源文件目录，`/dev` 和 `/dist` 目录为流程**生成目录**，建议设置为编辑器忽略。  
 > 注2：`FTP` 和 `zip` 任务执行后会自动删除**生成目录**。

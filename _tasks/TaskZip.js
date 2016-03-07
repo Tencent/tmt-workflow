@@ -17,7 +17,7 @@ module.exports = function (gulp, config) {
 
     //注册 zip 任务
     gulp.task('zip', gulp.series(
-        'build',
+        'build_dist',
         zipTask,
         delDist
     ));

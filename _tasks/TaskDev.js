@@ -247,12 +247,12 @@ module.exports = function (gulp, config) {
 
     //加载插件
     function loadPlugin(cb) {
-        util.loadPlugin('dev');
+        util.loadPlugin('build_dev');
         cb();
     }
 
-    //注册 dev 任务
-    gulp.task('dev', gulp.series(
+    //注册 build_dev 任务
+    gulp.task('build_dev', gulp.series(
         delDev,
         gulp.parallel(
             copyImg,
