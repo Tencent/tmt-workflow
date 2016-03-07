@@ -17,4 +17,4 @@ before_script:
   - npm install -g gulpjs/gulp#4.0
   - cd project
   - npm install
-script: gulp build
+script: gulp build_dist
