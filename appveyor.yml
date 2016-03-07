@@ -25,7 +25,7 @@ test_script:
   - node --version && npm --version
   # run tests
   - cd project
-  - gulp build
+  - gulp build_dist
 
 # Don't actually build.
 build: off
