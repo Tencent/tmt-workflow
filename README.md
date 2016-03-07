@@ -47,9 +47,9 @@
 ````bash
 tmt-workflow/
 │
-├── _tasks          		  // Gulp 任务目录
-│   ├── TaskDev.js      	// gulp build_dev
-│   ├── TaskBuild.js    	// gulp build_dist
+├── _tasks          		// Gulp 任务目录
+│   ├── TaskBuildDev.js     // gulp build_dev
+│   ├── TaskBuildDist.js    // gulp build_dist
 │   ├── TaskFTP.js      	// gulp ftp
 │   ├── TaskZip.js      	// gulp zip
 │   │
