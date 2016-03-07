@@ -15,6 +15,7 @@
 - 自动化流程
   - [Less -> CSS (Sass 可自行定制)](https://github.com/weixin/tmt-workflow/wiki/%E2%92%8C-Less-%E7%BC%96%E8%AF%91)
   - [CSS Autoprefixer 前缀自动补全](https://github.com/weixin/tmt-workflow/wiki/%E2%92%8D-Autoprefixer)
+  - [Less sourcemaps 调试支持](http://robdodson.me/debug-less-with-chrome-developer-tools/)
   - [自动生成图片 CSS 属性，width & height 等](https://github.com/weixin/gulp-lazyimagecss)
   - [CSS 压缩 cssnano](https://github.com/ben-eb/cssnano)
   - [CSS Sprite 雪碧图合成](https://github.com/weixin/tmt-workflow/wiki/%E2%92%8E-CSS-Sprite)

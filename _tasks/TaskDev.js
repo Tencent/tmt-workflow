@@ -10,6 +10,7 @@ var postcss = require('gulp-postcss');   // CSS 预处理
 var postcssPxtorem = require('postcss-pxtorem'); // CSS 转换 `px` 为 `rem`
 var posthtml = require('gulp-posthtml');  // HTML 预处理
 var posthtmlPx2rem = require('posthtml-px2rem');  // HTML 内联 CSS 转换 `px` 为 `rem`
+var sourcemaps = require('gulp-sourcemaps');  // 添加 LESS SourceMaps 调试支持
 
 var paths = {
     src: {
@@ -75,11 +76,11 @@ module.exports = function (gulp, config) {
     //编译 less
     function compileLess() {
         return gulp.src(paths.src.less)
+            .pipe(sourcemaps.init()) // sourcemaps 初始化
             .pipe(less())
             .on('error', function (error) {
                 console.log(error.message);
             })
-            .pipe(lazyImageCSS({imagePath: lazyDir}))
             .pipe(gulpif(
                 config.supportREM,
                 postcss([
@@ -90,6 +91,8 @@ module.exports = function (gulp, config) {
                     })
                 ])
             ))
+            .pipe(sourcemaps.write())  // sourcemaps 写入
+            .pipe(lazyImageCSS({imagePath: lazyDir}))
             .pipe(gulp.dest(paths.dev.css))
             .on('data', function () {
             })
