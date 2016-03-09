@@ -74,13 +74,6 @@ module.exports = function (gulp, config) {
         return gulp.src(paths.src.less)
             .pipe(less())
             .pipe(lazyImageCSS({imagePath: lazyDir}))
-            .pipe(minifyCSS({
-                safe: true,
-                reduceTransforms: false,
-                advanced: false,
-                compatibility: 'ie7',
-                keepSpecialComments: 0
-            }))
             .pipe(tmtsprite({margin: 4}))
             .pipe(gulpif('*.png', gulp.dest(paths.dist.sprite), gulp.dest(paths.dist.css)));
     }
@@ -89,6 +82,19 @@ module.exports = function (gulp, config) {
     function compileAutoprefixer() {
         return gulp.src('./dist/css/style-*.css')
             .pipe(postcss(postcssOption))
+            .pipe(gulp.dest('./dist/css/'));
+    }
+
+    //CSS 压缩
+    function miniCSS(){
+        return gulp.src('./dist/css/style-*.css')
+            .pipe(minifyCSS({
+                safe: true,
+                reduceTransforms: false,
+                advanced: false,
+                compatibility: 'ie7',
+                keepSpecialComments: 0
+            }))
             .pipe(gulp.dest('./dist/css/'));
     }
 
@@ -184,6 +190,7 @@ module.exports = function (gulp, config) {
         delDist,
         compileLess,
         compileAutoprefixer,
+        miniCSS,
         gulp.parallel(
             imageminImg,
             imageminSprite,
