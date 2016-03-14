@@ -15,7 +15,6 @@
 - 自动化流程
   - [Less -> CSS (Sass 可自行定制)](https://github.com/weixin/tmt-workflow/wiki/%E2%92%8C-Less-%E7%BC%96%E8%AF%91)
   - [CSS Autoprefixer 前缀自动补全](https://github.com/weixin/tmt-workflow/wiki/%E2%92%8D-Autoprefixer)
-  - [Less sourcemaps 调试支持](http://robdodson.me/debug-less-with-chrome-developer-tools/)
   - [自动生成图片 CSS 属性，width & height 等](https://github.com/weixin/gulp-lazyimagecss)
   - [CSS 压缩 cssnano](https://github.com/ben-eb/cssnano)
   - [CSS Sprite 雪碧图合成](https://github.com/weixin/tmt-workflow/wiki/%E2%92%8E-CSS-Sprite)
@@ -36,7 +35,7 @@
 
 以下 2 种方式任选，请确保已安装 [Node.js](https://nodejs.org/) 环境
 
-* 使用 [yoeman](http://yeoman.io/) 自动安装, 也可自行定制脚手架 [generator-workflow](https://github.com/weixin/generator-workflow)：
+* 使用 [Yoeman](http://yeoman.io/) 脚手架 [generator-workflow]() 自动安装（推荐）：
 	* `npm install -g generator-workflow`
 	* `yo workflow`
 	
@@ -44,8 +43,10 @@
 	1. 全局安装 [Gulp 4](https://github.com/gulpjs/gulp/tree/4.0)，执行：`npm install gulpjs/gulp#4.0 -g`
 	2. 点击下载 [tmt-workflow](https://github.com/weixin/tmt-workflow/archive/master.zip)，进入根目录执行： `npm install`
 
-> 注：[Gulp 4](https://github.com/gulpjs/gulp/tree/4.0) 目前 [尚未正式发布](https://github.com/gulpjs/gulp/blob/4.0/CHANGELOG.md)，Windows 用户请先安装 [git](http://git-scm.com/)，  
-> 然后在 [Git Bash](http://git-for-windows.github.io/) 下执行 `npm install` 即可（非 `CMD`）。
+> 注1：[Gulp 4](https://github.com/gulpjs/gulp/tree/4.0) 目前 [尚未正式发布](https://github.com/gulpjs/gulp/blob/4.0/CHANGELOG.md)，Windows 用户请先安装 [git](http://git-scm.com/)，  
+> 然后在 [Git Bash](http://git-for-windows.github.io/) 下执行 `npm install` 即可（非 `CMD`）。 
+>  
+> 注2：如遇 `npm install` 网络问题，推荐尝试 [cnmp](http://npm.taobao.org/) 安装环境依赖
 
 ## 目录结构
 
@@ -186,20 +187,20 @@ _注：浏览器刷新功能可在 `.tmtworkflowrc` 中进行配置_
 
 **3. FTP 部署 `gulp ftp`**  
 
-依赖于 `生产任务`，执行后，会将 `gulp build_dist` 生成 `/dist` 目录上传至 `.tmtworkflowrc` 指定的 `FTP` 服务器。
+依赖于 `生产任务`，执行后，会先执行 `gulp build_dist` ，然后将其生成的 `/dist` 目录上传至 `.tmtworkflowrc` 指定的 `FTP` 服务器。
 
 **4. 打包任务 `gulp zip`**  
 
 将 `gulp build_dist` 生成 `dist` 目录压缩成 `zip` 格式。
 
-> 注1：**`./src`** 为源文件目录，`/dev` 和 `/dist` 目录为流程**生成目录**，建议设置为编辑器忽略。  
-> 注2：`FTP` 和 `zip` 任务执行后会自动删除**生成目录**。
+> 注1：**`./src`** 为源文件目录，`/dev` 和 `/dist` 目录为流程**自动**生成的目录。  
+> 注2：`FTP` 和 `zip` 任务执行后会**自动删除** `/dist` 目录。
 
 更多详细说明 [参见 WiKi](https://github.com/weixin/tmt-workflow/wiki/%E2%92%8B-%E4%BB%BB%E5%8A%A1%E4%BB%8B%E7%BB%8D)
 
 ## 使用预览
 
-推荐配合 [WebStorm](https://www.jetbrains.com/webstorm/) 等编辑器的 [Gulp 任务管理器](https://www.jetbrains.com/webstorm/help/using-gulp-task-runner.html) 使用更佳。
+推荐配合 [WebStorm](https://www.jetbrains.com/webstorm/) 等编辑器的 [Gulp 任务管理器](https://www.jetbrains.com/webstorm/help/using-gulp-task-runner.html) 使用，体验更佳。
 
 ![tmt-workflow yo](https://cloud.githubusercontent.com/assets/1049575/13744821/77a67476-ea25-11e5-9cf3-eebf56ffbe03.gif)
 
