@@ -34,9 +34,15 @@
 
 ## 快速开始
 
-1. 安装 [Node.js](https://nodejs.org/) 默认此步骤已完成
-2. 全局安装 [Gulp 4](https://github.com/gulpjs/gulp/tree/4.0)，执行：`npm install gulpjs/gulp#4.0 -g`
-3. 点击下载 [tmt-workflow](https://github.com/weixin/tmt-workflow/archive/master.zip)，进入根目录执行： `npm install`
+以下 2 种方式任选，请确保已安装 [Node.js](https://nodejs.org/) 环境
+
+* 使用 [yoeman](http://yeoman.io/) 自动安装, 也可自行定制脚手架 [generator-workflow](https://github.com/weixin/generator-workflow)：
+	* `npm install -g generator-workflow`
+	* `yo workflow`
+	
+* 直接下载安装：
+	1. 全局安装 [Gulp 4](https://github.com/gulpjs/gulp/tree/4.0)，执行：`npm install gulpjs/gulp#4.0 -g`
+	2. 点击下载 [tmt-workflow](https://github.com/weixin/tmt-workflow/archive/master.zip)，进入根目录执行： `npm install`
 
 > 注：[Gulp 4](https://github.com/gulpjs/gulp/tree/4.0) 目前 [尚未正式发布](https://github.com/gulpjs/gulp/blob/4.0/CHANGELOG.md)，Windows 用户请先安装 [git](http://git-scm.com/)，  
 > 然后在 [Git Bash](http://git-for-windows.github.io/) 下执行 `npm install` 即可（非 `CMD`）。
@@ -190,6 +196,12 @@ _注：浏览器刷新功能可在 `.tmtworkflowrc` 中进行配置_
 > 注2：`FTP` 和 `zip` 任务执行后会自动删除**生成目录**。
 
 更多详细说明 [参见 WiKi](https://github.com/weixin/tmt-workflow/wiki/%E2%92%8B-%E4%BB%BB%E5%8A%A1%E4%BB%8B%E7%BB%8D)
+
+## 使用预览
+
+推荐配合 [WebStorm](https://www.jetbrains.com/webstorm/) 等编辑器的 [Gulp 任务管理器](https://www.jetbrains.com/webstorm/help/using-gulp-task-runner.html) 使用更佳。
+
+![tmt-workflow yo](https://cloud.githubusercontent.com/assets/1049575/13744821/77a67476-ea25-11e5-9cf3-eebf56ffbe03.gif)
 
 ## 其它说明
 
