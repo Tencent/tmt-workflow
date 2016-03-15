@@ -35,7 +35,7 @@
 
 以下 2 种方式任选，请确保已安装 [Node.js](https://nodejs.org/) 环境
 
-* 使用 [Yoeman](http://yeoman.io/) 脚手架 [generator-workflow]() 自动安装（推荐）：
+* 使用 [Yoeman](http://yeoman.io/) 脚手架 [generator-workflow](https://github.com/weixin/generator-workflow) 自动安装（推荐）：
 	* `npm install -g generator-workflow`
 	* `yo workflow`
 	
@@ -46,7 +46,7 @@
 > 注1：[Gulp 4](https://github.com/gulpjs/gulp/tree/4.0) 目前 [尚未正式发布](https://github.com/gulpjs/gulp/blob/4.0/CHANGELOG.md)，Windows 用户请先安装 [git](http://git-scm.com/)，  
 > 然后在 [Git Bash](http://git-for-windows.github.io/) 下执行 `npm install` 即可（非 `CMD`）。 
 >  
-> 注2：如遇 `npm install` 网络问题，推荐尝试 [cnmp](http://npm.taobao.org/) 安装环境依赖
+> 注2：如遇 `npm install` 网络问题，推荐尝试 [cnpm](http://npm.taobao.org/) 安装环境依赖
 
 ## 目录结构
 
