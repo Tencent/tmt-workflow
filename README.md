@@ -35,7 +35,7 @@
 
 以下 2 种方式任选，请确保已安装 [Node.js](https://nodejs.org/) 环境
 
-* 使用 [Yoeman](http://yeoman.io/) 脚手架 [generator-workflow]() 自动安装（推荐）：
+* 使用 [Yoeman](http://yeoman.io/) 脚手架 [generator-workflow](https://github.com/weixin/generator-workflow) 自动安装（推荐）：
 	* `npm install -g generator-workflow`
 	* `yo workflow`
 	
