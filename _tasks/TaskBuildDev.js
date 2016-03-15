@@ -144,7 +144,7 @@ module.exports = function (gulp, config) {
     }
 
     var watchHandler = function (type, file) {
-        var target = file.match(/^src\/(.*?)\//)[1];
+        var target = file.match(/^src[\/|\\](.*?)[\/|\\]/)[1];
 
         switch (target) {
             case 'img':
