@@ -1,3 +1,4 @@
+var fs = require('fs');
 var del = require('del');
 var path = require('path');
 var ejs = require('gulp-ejs');
@@ -19,6 +20,7 @@ var posthtml = require('gulp-posthtml');
 var posthtmlPx2rem = require('posthtml-px2rem');
 var RevAll = require('gulp-rev-all');   // reversion
 var revDel = require('gulp-rev-delete-original');
+var changed = require('./common/changed')();
 
 var paths = {
     src: {
@@ -32,6 +34,13 @@ var paths = {
         html: ['./src/html/**/*.html', '!./src/html/_*/**.html'],
         htmlAll: './src/html/**/*',
         php: './src/**/*.php'
+    },
+    tmp: {
+        dir: './tmp',
+        css: './tmp/css',
+        img: './tmp/img',
+        html: './tmp/html',
+        sprite: './tmp/sprite'
     },
     dist: {
         dir: './dist',
@@ -64,9 +73,14 @@ module.exports = function (gulp, config) {
         ]
     }
 
-    // 清除目标目录
+    // 清除 dist 目录
     function delDist() {
         return del([paths.dist.dir]);
+    }
+
+    // 清除 tmp 目录
+    function delTmp() {
+        return del([paths.tmp.dir]);
     }
 
     //编译 less
@@ -75,19 +89,19 @@ module.exports = function (gulp, config) {
             .pipe(less())
             .pipe(lazyImageCSS({imagePath: lazyDir}))
             .pipe(tmtsprite({margin: 4}))
-            .pipe(gulpif('*.png', gulp.dest(paths.dist.sprite), gulp.dest(paths.dist.css)));
+            .pipe(gulpif('*.png', gulp.dest(paths.tmp.sprite), gulp.dest(paths.tmp.css)));
     }
 
     //自动补全
     function compileAutoprefixer() {
-        return gulp.src('./dist/css/style-*.css')
+        return gulp.src('./tmp/css/style-*.css')
             .pipe(postcss(postcssOption))
-            .pipe(gulp.dest('./dist/css/'));
+            .pipe(gulp.dest('./tmp/css/'));
     }
 
     //CSS 压缩
-    function miniCSS(){
-        return gulp.src('./dist/css/style-*.css')
+    function miniCSS() {
+        return gulp.src('./tmp/css/style-*.css')
             .pipe(minifyCSS({
                 safe: true,
                 reduceTransforms: false,
@@ -95,7 +109,7 @@ module.exports = function (gulp, config) {
                 compatibility: 'ie7',
                 keepSpecialComments: 0
             }))
-            .pipe(gulp.dest('./dist/css/'));
+            .pipe(gulp.dest('./tmp/css/'));
     }
 
     //图片压缩
@@ -104,7 +118,7 @@ module.exports = function (gulp, config) {
             .pipe(imagemin({
                 use: [pngquant()]
             }))
-            .pipe(gulp.dest(paths.dist.img));
+            .pipe(gulp.dest(paths.tmp.img));
     }
 
     //复制媒体文件
@@ -116,16 +130,16 @@ module.exports = function (gulp, config) {
     function uglifyJs() {
         return gulp.src(paths.src.js, {base: paths.src.dir})
             .pipe(uglify())
-            .pipe(gulp.dest(paths.dist.dir));
+            .pipe(gulp.dest(paths.tmp.dir));
     }
 
     //雪碧图压缩
     function imageminSprite() {
-        return gulp.src('./dist/sprite/**/*')
+        return gulp.src('./tmp/sprite/**/*')
             .pipe(imagemin({
                 use: [pngquant()]
             }))
-            .pipe(gulp.dest(paths.dist.sprite));
+            .pipe(gulp.dest(paths.tmp.sprite));
     }
 
     //html 编译
@@ -144,7 +158,7 @@ module.exports = function (gulp, config) {
             .pipe(usemin({  //JS 合并压缩
                 jsmin: uglify()
             }))
-            .pipe(gulp.dest(paths.dist.html));
+            .pipe(gulp.dest(paths.tmp.html));
     }
 
     //webp 编译
@@ -166,18 +180,54 @@ module.exports = function (gulp, config) {
         });
 
         if (config['reversion']) {
-            return gulp.src(['./dist/**/*'])
+            return gulp.src(['./tmp/**/*'])
                 .pipe(revAll.revision())
-                .pipe(gulp.dest(paths.dist.dir))
+                .pipe(gulp.dest(paths.tmp.dir))
                 .pipe(revDel({
                     exclude: /(.html|.htm)$/
                 }))
                 .pipe(revAll.manifestFile())
-                .pipe(gulp.dest(paths.dist.dir));
+                .pipe(gulp.dest(paths.tmp.dir));
         } else {
             cb();
         }
     }
+    
+    function findChanged(cb) {
+
+        var diff = changed('./tmp');
+        var tmpSrc = [];
+
+        if(process.argv[2].indexOf(':all') > -1){
+            return gulp.src('./tmp/**/*', {base: paths.tmp.dir})
+                .pipe(gulp.dest(paths.dist.dir))
+                .on('end', function(){
+                    delTmp();
+                })
+        }
+
+        if(diff){
+            for(var i in diff){
+                tmpSrc.push('./tmp/' + i);
+                console.log(i + ' has changed!');
+            }
+
+            if(!tmpSrc.length){
+                console.log('Nothing changed!');
+                delTmp();
+                cb();
+            }else{
+                return gulp.src(tmpSrc, {base: paths.tmp.dir})
+                    .pipe(gulp.dest(paths.dist.dir))
+                    .on('end', function(){
+                        delTmp();
+                    })
+            }
+        }else{
+            cb();
+        }
+    }
+
 
     //加载插件
     function loadPlugin(cb) {
@@ -200,7 +250,13 @@ module.exports = function (gulp, config) {
         compileHtml,
         reversion,
         supportWebp(),
+        findChanged,
         loadPlugin
+    ));
+
+    //注册 build_dist 任务
+    gulp.task('build_dist:all', gulp.series(
+        'build_dist'
     ));
 };
 

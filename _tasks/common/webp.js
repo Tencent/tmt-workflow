@@ -43,43 +43,43 @@ module.exports = function (config, done) {
     return function () {
         return gulp.series(
             function compileSprite() {
-                return gulp.src('./dist/sprite/**/*')
+                return gulp.src('./tmp/sprite/**/*')
                     .pipe(gulpWebp())
-                    .pipe(gulp.dest('./dist/sprite'));
+                    .pipe(gulp.dest('./tmp/sprite'));
             },
             function compileImg () {
-                return gulp.src('./dist/img/**/*')
+                return gulp.src('./tmp/img/**/*')
                     .pipe(gulpWebp())
-                    .pipe(gulp.dest('./dist/img'));
+                    .pipe(gulp.dest('./tmp/img'));
             },
             //智能寻找 webp
             function find2Webp (cb) {
-                render_webp('./dist/sprite');
-                render_webp('./dist/img');
+                render_webp('./tmp/sprite');
+                render_webp('./tmp/img');
                 if(imgArr.length){
                     reg = eval('/(' + imgArr.join('|') + ')/ig');
                 }
                 cb();
             },
             function compileCss () {
-                return gulp.src(['./dist/css/**/*.css', '!./dist/css/**/*.webp.css'])
+                return gulp.src(['./tmp/css/**/*.css', '!./tmp/css/**/*.webp.css'])
                     .pipe(rename({suffix: '.webp'}))
                     .pipe(replace(reg, function (match) {
                         if(match){
                             return match.substring(0, match.lastIndexOf('.')) + '.webp';
                         }
                     }))
-                    .pipe(gulp.dest('./dist/css'));
+                    .pipe(gulp.dest('./tmp/css'));
             },
             function insertWebpJs () {
                 var preload_script = '<script>window.imgMap = ' + JSON.stringify(imgMap) + '</script>';
 
-                return gulp.src('./dist/html/**/*.html')
+                return gulp.src('./tmp/html/**/*.html')
                     .pipe(replace('data-href', 'href'))
                     .pipe(replace(/(link.*?)href/ig, '$1data-href'))
                     .pipe(replace('</head>', webpScript))
                     .pipe(replace('</head>', preload_script))
-                    .pipe(gulp.dest('./dist/html'));
+                    .pipe(gulp.dest('./tmp/html'));
             }
         );
     }
