@@ -156,6 +156,8 @@ _如：FTP 配置信息、开启 WebP功能，开启 REM 支持等。_
 
   "supportREM": false,                  // 开启 REM 适配方案，自动转换 px -> rem
 
+  "supportChanged": false,              // 开启 只编译有变动的文件
+
   "reversion": false                    // 开启 新文件名 md5 功能
 }
 ```
