@@ -1,3 +1,4 @@
+var _ = require('lodash');
 var fs = require('fs');
 var del = require('del');
 var path = require('path');
@@ -192,40 +193,65 @@ module.exports = function (gulp, config) {
             cb();
         }
     }
-    
+
     function findChanged(cb) {
 
-        var diff = changed('./tmp');
-        var tmpSrc = [];
-
-        if(process.argv[2].indexOf(':all') > -1){
+        if (!config['supportChanged']) {
             return gulp.src('./tmp/**/*', {base: paths.tmp.dir})
                 .pipe(gulp.dest(paths.dist.dir))
-                .on('end', function(){
+                .on('end', function () {
                     delTmp();
                 })
-        }
+        } else {
+            var diff = changed('./tmp');
+            var tmpSrc = [];
 
-        if(diff){
-            for(var i in diff){
-                tmpSrc.push('./tmp/' + i);
-                console.log(i + ' has changed!');
-            }
+            if (!_.isEmpty(diff)) {
 
-            if(!tmpSrc.length){
+                //如果有reversion
+                if (config['reversion'] && config['reversion']['available']) {
+                    var keys = _.keys(diff);
+
+                    //先取得 reversion 生成的manifest.json
+                    var reversionManifest = require(path.resolve('./tmp/manifest.json'));
+
+                    if (reversionManifest) {
+                        reversionManifest = _.invert(reversionManifest);
+
+                        reversionManifest = _.pick(reversionManifest, keys);
+
+                        reversionManifest = _.invert(reversionManifest);
+
+                        _.forEach(reversionManifest, function (item, index) {
+                            tmpSrc.push('./tmp/' + item);
+                            console.log('[changed:] ' + util.colors.blue(index));
+                        });
+
+                        //将新的 manifest.json 保存
+                        fs.writeFileSync('./tmp/manifest.json', JSON.stringify(reversionManifest));
+
+                        tmpSrc.push('./tmp/manifest.json');
+                    }
+                } else {
+                    _.forEach(diff, function (item, index) {
+                        tmpSrc.push('./tmp/' + index);
+                        console.log('[changed:] ' + util.colors.blue(index));
+                    });
+                }
+
+                return gulp.src(tmpSrc, {base: paths.tmp.dir})
+                    .pipe(gulp.dest(paths.dist.dir))
+                    .on('end', function () {
+                        delTmp();
+                    })
+
+            } else {
                 console.log('Nothing changed!');
                 delTmp();
                 cb();
-            }else{
-                return gulp.src(tmpSrc, {base: paths.tmp.dir})
-                    .pipe(gulp.dest(paths.dist.dir))
-                    .on('end', function(){
-                        delTmp();
-                    })
             }
-        }else{
-            cb();
         }
+
     }
 
 
@@ -252,11 +278,6 @@ module.exports = function (gulp, config) {
         supportWebp(),
         findChanged,
         loadPlugin
-    ));
-
-    //注册 build_dist 任务
-    gulp.task('build_dist:all', gulp.series(
-        'build_dist'
     ));
 };
 

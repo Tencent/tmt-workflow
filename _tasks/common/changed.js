@@ -9,7 +9,7 @@ function changed(dir) {
     var manifestPath = path.resolve('./src/manifest.json');
     var manifest = {};
     var originManifest = {};
-    
+
     //如果存在 manifest.json, 则加载保存
     if (fs.existsSync(manifestPath)) {
         originManifest = require(manifestPath);
