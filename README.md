@@ -164,6 +164,9 @@ _如：FTP 配置信息、开启 WebP功能，开启 REM 支持等。_
 
 ## 任务说明
 
+> 注1：**`./src`** 为源文件(开发目录)，`/dev` 和 `/dist` 目录为流程**自动**生成的**临时目录**。  
+> 注2：`FTP` 和 `zip` 任务执行后会**自动删除** `/dist` 目录。
+
 **1. 开发任务 `gulp build_dev`**
 
 按照`目录结构`创建好项目后，执行 `gulp build_dev` 生成开发文件位于 `/dev`，包含以下过程
@@ -194,9 +197,6 @@ _注：浏览器刷新功能可在 `.tmtworkflowrc` 中进行配置_
 **4. 打包任务 `gulp zip`**  
 
 将 `gulp build_dist` 生成 `dist` 目录压缩成 `zip` 格式。
-
-> 注1：**`./src`** 为源文件目录，`/dev` 和 `/dist` 目录为流程**自动**生成的目录。  
-> 注2：`FTP` 和 `zip` 任务执行后会**自动删除** `/dist` 目录。
 
 更多详细说明 [参见 WiKi](https://github.com/weixin/tmt-workflow/wiki/%E2%92%8B-%E4%BB%BB%E5%8A%A1%E4%BB%8B%E7%BB%8D)
 
