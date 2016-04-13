@@ -3,8 +3,34 @@
  */
 var fs = require('fs'),
     path = require('path'),
-    format = function () {
-    };
+    os = require('os');
+
+var getIp = function () {
+    var platform = os.platform();
+    var interfaces = os.networkInterfaces();
+    var IPv4 = '127.0.0.1';
+
+    if (platform === 'win32') {
+        var addressMes = interfaces['本地连接'];
+        if (addressMes && addressMes.length) {
+            for (var i = 0; i < addressMes.length; i++) {
+                if (addressMes[i]['family'] && addressMes[i]['family'] === 'IPv4') {
+                    return addressMes[i]['address'];
+                }
+            }
+        }
+    } else {
+        for (var key in interfaces) {
+            interfaces[key].forEach(function (details) {
+                if (details.family == 'IPv4' && key == 'en0') {
+                    IPv4 = details.address;
+                }
+            });
+        }
+    }
+
+    return IPv4;
+}
 
 module.exports = function (config) {
     var html = [
@@ -30,7 +56,8 @@ module.exports = function (config) {
         ].join(''),
         tmpHtml = '',
         length = '/dev/html/'.length,
-        collector = listdir('./dev/html');
+        collector = listdir('./dev/html'),
+        ip = getIp();
 
 
     showdir(collector, 0);
@@ -99,7 +126,7 @@ module.exports = function (config) {
 
     html = html + tmpHtml;
 
-    html += '</tbody></table><div id="qrcode"></div><script src="http://wximg.gtimg.com/tmt/tools/file-list/js/jquery-2.1.3.min.js"></script><script src="http://wximg.gtimg.com/tmt/tools/file-list/js/qrcode.min.js"></script><script type="text/javascript">$(document).ready(function(){document.title= "' + config.projectName + ' 资源列表";  $(".level1").prependTo(".table-body"); $(".td-qrcode i").bind("mouseenter ",function(){$("#qrcode").show().empty();new QRCode(document.getElementById("qrcode"), encodeURI(window.location.href.split("TmTIndex.html")[0]+$(this).parent().parent().find("a").attr("href")));});$("body").bind("click",function(){$("#qrcode").hide();});});</script></body></html>';
+    html += '</tbody></table><div id="qrcode"></div><script src="http://wximg.gtimg.com/tmt/tools/file-list/js/jquery-2.1.3.min.js"></script><script src="http://wximg.gtimg.com/tmt/tools/file-list/js/qrcode.min.js"></script><script type="text/javascript">$(document).ready(function(){ var url = location.href.replace("localhost", "' + ip + '");document.title= "' + config.projectName + ' 资源列表";  $(".level1").prependTo(".table-body"); $(".td-qrcode i").bind("mouseenter ",function(){$("#qrcode").show().empty();new QRCode(document.getElementById("qrcode"), encodeURI(url.split("TmTIndex.html")[0]+$(this).parent().parent().find("a").attr("href")));});$("body").bind("click",function(){$("#qrcode").hide();});});</script></body></html>';
 
     var out = fs.createWriteStream('./dev/html/TmTIndex.html', {encoding: "utf8"});
     out.write(html, function (err) {
