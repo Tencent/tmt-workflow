@@ -16,6 +16,7 @@ var getIp = function () {
             for (var i = 0; i < addressMes.length; i++) {
                 if (addressMes[i]['family'] && addressMes[i]['family'] === 'IPv4') {
                     IPv4 = addressMes[i]['address'];
+                    break;
                 }
             }
         }
@@ -24,7 +25,6 @@ var getIp = function () {
             interfaces[key].forEach(function (details) {
                 if (details.family == 'IPv4' && key == 'en0') {
                     IPv4 = details.address;
-                    break;
                 }
             });
         }
