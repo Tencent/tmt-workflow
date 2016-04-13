@@ -24,6 +24,7 @@ var getIp = function () {
             interfaces[key].forEach(function (details) {
                 if (details.family == 'IPv4' && key == 'en0') {
                     IPv4 = details.address;
+                    break;
                 }
             });
         }
