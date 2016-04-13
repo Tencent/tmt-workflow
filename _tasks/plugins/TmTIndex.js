@@ -11,11 +11,11 @@ var getIp = function () {
     var IPv4 = '127.0.0.1';
 
     if (platform === 'win32') {
-        var addressMes = interfaces['本地连接'];
+        var addressMes = interfaces['本地连接'] || interfaces['无线网络连接'];
         if (addressMes && addressMes.length) {
             for (var i = 0; i < addressMes.length; i++) {
                 if (addressMes[i]['family'] && addressMes[i]['family'] === 'IPv4') {
-                    return addressMes[i]['address'];
+                    IPv4 = addressMes[i]['address'];
                 }
             }
         }
@@ -30,7 +30,7 @@ var getIp = function () {
     }
 
     return IPv4;
-}
+};
 
 module.exports = function (config) {
     var html = [
