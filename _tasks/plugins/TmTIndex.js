@@ -3,35 +3,7 @@
  */
 var fs = require('fs'),
     path = require('path'),
-    os = require('os');
-
-var getIp = function () {
-    var platform = os.platform();
-    var interfaces = os.networkInterfaces();
-    var IPv4 = '127.0.0.1';
-
-    if (platform === 'win32') {
-        var addressMes = interfaces['本地连接'] || interfaces['无线网络连接'];
-        if (addressMes && addressMes.length) {
-            for (var i = 0; i < addressMes.length; i++) {
-                if (addressMes[i]['family'] && addressMes[i]['family'] === 'IPv4') {
-                    IPv4 = addressMes[i]['address'];
-                    break;
-                }
-            }
-        }
-    } else {
-        for (var key in interfaces) {
-            interfaces[key].forEach(function (details) {
-                if (details.family == 'IPv4' && key == 'en0') {
-                    IPv4 = details.address;
-                }
-            });
-        }
-    }
-
-    return IPv4;
-};
+    localIp = require('quick-local-ip');
 
 module.exports = function (config) {
     var html = [
@@ -58,7 +30,7 @@ module.exports = function (config) {
         tmpHtml = '',
         length = '/dev/html/'.length,
         collector = listdir('./dev/html'),
-        ip = getIp();
+        ip = localIp.getLocalIP4();
 
 
     showdir(collector, 0);
