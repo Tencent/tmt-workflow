@@ -1,4 +1,4 @@
-# tmt-workflow [![Version Number](https://img.shields.io/badge/v-1.0.0-blue.svg?style=flat)](https://github.com/weixin/tmt-workflow/ "Version Number")
+# tmt-workflow [![Version Number](https://img.shields.io/npm/v/generator-workflow.svg?style=flat)](https://github.com/weixin/tmt-workflow/ "Version Number")
 
 [![Build Status](https://travis-ci.org/weixin/tmt-workflow.svg)](https://travis-ci.org/weixin/tmt-workflow "Build Status")
 [![Win Build status](https://img.shields.io/appveyor/ci/littledu/tmt-workflow.svg?label=Win%20build&style=flat)](https://ci.appveyor.com/project/littledu/tmt-workflow) 
