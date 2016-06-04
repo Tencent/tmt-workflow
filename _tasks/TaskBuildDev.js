@@ -149,7 +149,7 @@ module.exports = function (gulp, config) {
         switch (target) {
             case 'img':
                 if (type === 'removed') {
-                    var tmp = file.replace('src/', 'dev/');
+                    var tmp = file.replace(/src/, 'dev');
                     del([tmp]);
                 } else {
                     copyHandler('img', file);
@@ -158,7 +158,7 @@ module.exports = function (gulp, config) {
 
             case 'slice':
                 if (type === 'removed') {
-                    var tmp = file.replace('src/', 'dev/');
+                    var tmp = file.replace('src', 'dev');
                     del([tmp]);
                 } else {
                     copyHandler('slice', file);
@@ -167,7 +167,7 @@ module.exports = function (gulp, config) {
 
             case 'js':
                 if (type === 'removed') {
-                    var tmp = file.replace('src/', 'dev/');
+                    var tmp = file.replace('src', 'dev');
                     del([tmp]);
                 } else {
                     copyHandler('js', file);
@@ -176,7 +176,7 @@ module.exports = function (gulp, config) {
 
             case 'media':
                 if (type === 'removed') {
-                    var tmp = file.replace('src/', 'dev/');
+                    var tmp = file.replace('src', 'dev');
                     del([tmp]);
                 } else {
                     copyHandler('media', file);
@@ -186,7 +186,7 @@ module.exports = function (gulp, config) {
             case 'css':
 
                 if (type === 'removed') {
-                    var tmp = file.replace('src/', 'dev/').replace('.less', '.css');
+                    var tmp = file.replace('src', 'dev').replace('.less', '.css');
                     del([tmp]);
                 } else {
                     compileLess();
@@ -196,9 +196,9 @@ module.exports = function (gulp, config) {
 
             case 'html':
                 if (type === 'removed') {
-                    var tmp = file.replace('src/', 'dev/');
+                    var tmp = file.replace('src', 'dev');
                     del([tmp]).then(function () {
-                        util.loadPlugin('BuildDev');
+                        util.loadPlugin('build_dev');
                     });
                 } else {
                     compileHtml();
@@ -206,7 +206,7 @@ module.exports = function (gulp, config) {
 
                 if (type === 'add') {
                     setTimeout(function () {
-                        util.loadPlugin('BuildDev');
+                        util.loadPlugin('build_dev');
                     }, 500);
                 }
 
