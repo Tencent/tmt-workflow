@@ -10,6 +10,7 @@
 
 > 一个基于 [Gulp(v4.0)](https://github.com/gulpjs/gulp/tree/4.0)、高效、跨平台(macOS & Win)、可定制的前端工作流程。  
 > 现已推出 GUI 桌面工具：[WeFlow]，无需安装任何环境依赖即可使用，官网下载：http://weflow.io/
+
 ## 功能特性
 
 - 自动化流程
@@ -204,7 +205,7 @@ _注：浏览器刷新功能可在 `.tmtworkflowrc` 中进行配置_
 
 推荐配合 [WebStorm](https://www.jetbrains.com/webstorm/) 等编辑器的 [Gulp 任务管理器](https://www.jetbrains.com/webstorm/help/using-gulp-task-runner.html) 使用，体验更佳。
 
-也可配合桌面工具：[WeFlow] 获得可视化的操作体验。
+也可配合桌面工具：[WeFlow]，无需安装环境依赖，获得可视化的操作体验。
 
 ![tmt-workflow yo](https://cloud.githubusercontent.com/assets/1049575/13744821/77a67476-ea25-11e5-9cf3-eebf56ffbe03.gif)
 
