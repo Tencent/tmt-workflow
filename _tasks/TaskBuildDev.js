@@ -75,7 +75,7 @@ module.exports = function (gulp, config) {
     //编译 less
     function compileLess() {
         return gulp.src(paths.src.less)
-            .pipe(less())
+            .pipe(less({relativeUrls: true}))
             .on('error', function (error) {
                 console.log(error.message);
             })

@@ -87,7 +87,7 @@ module.exports = function (gulp, config) {
     //编译 less
     function compileLess() {
         return gulp.src(paths.src.less)
-            .pipe(less())
+            .pipe(less({relativeUrls: true}))
             .pipe(lazyImageCSS({imagePath: lazyDir}))
             .pipe(tmtsprite({margin: 4}))
             .pipe(gulpif('*.png', gulp.dest(paths.tmp.sprite), gulp.dest(paths.tmp.css)));
