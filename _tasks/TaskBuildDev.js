@@ -7,9 +7,8 @@ var ejshelper = require('tmt-ejs-helper');
 var bs = require('browser-sync').create();  // 自动刷新浏览器
 var lazyImageCSS = require('gulp-lazyimagecss');  // 自动为图片样式添加 宽/高/background-size 属性
 var postcss = require('gulp-postcss');   // CSS 预处理
-var postcssPxtorem = require('postcss-pxtorem'); // CSS 转换 `px` 为 `rem`
 var posthtml = require('gulp-posthtml');  // HTML 预处理
-var posthtmlPx2rem = require('posthtml-px2rem');  // HTML 内联 CSS 转换 `px` 为 `rem`
+// 注: Dev 阶段不开启 px -> rem
 
 var paths = {
     src: {
@@ -79,16 +78,6 @@ module.exports = function (gulp, config) {
             .on('error', function (error) {
                 console.log(error.message);
             })
-            .pipe(gulpif(
-                config.supportREM,
-                postcss([
-                    postcssPxtorem({
-                        root_value: '20', // 基准值 html{ font-size: 20px; }
-                        prop_white_list: [], // 对所有 px 值生效
-                        minPixelValue: 2 // 忽略 1px 值
-                    })
-                ])
-            ))
             .pipe(lazyImageCSS({imagePath: lazyDir}))
             .pipe(gulp.dest(paths.dev.css))
             .on('data', function () {
@@ -102,15 +91,6 @@ module.exports = function (gulp, config) {
             .pipe(ejs(ejshelper()).on('error', function (error) {
                 console.log(error.message);
             }))
-            .pipe(gulpif(
-                config.supportREM,
-                posthtml(
-                    posthtmlPx2rem({
-                        rootValue: 20,
-                        minPixelValue: 2
-                    })
-                ))
-            )
             .pipe(gulp.dest(paths.dev.html))
             .on('data', function () {
             })
