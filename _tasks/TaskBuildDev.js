@@ -1,13 +1,14 @@
+var path = require('path');
 var del = require('del');
 var ejs = require('gulp-ejs');
 var less = require('gulp-less');
-var gulpif = require('gulp-if');
 var util = require('./lib/util');
 var ejshelper = require('tmt-ejs-helper');
 var bs = require('browser-sync').create();  // 自动刷新浏览器
 var lazyImageCSS = require('gulp-lazyimagecss');  // 自动为图片样式添加 宽/高/background-size 属性
 var postcss = require('gulp-postcss');   // CSS 预处理
 var posthtml = require('gulp-posthtml');  // HTML 预处理
+var sass = require('gulp-sass');
 // 注: Dev 阶段不开启 px -> rem
 
 var paths = {
@@ -19,6 +20,8 @@ var paths = {
         media: './src/media/**/*',
         less: './src/css/style-*.less',
         lessAll: './src/css/**/*.less',
+        sass: './src/css/style-*.scss',
+        sassAll: './src/css/**/*.scss',
         html: ['./src/html/**/*.html', '!./src/html/_*/**.html', '!./src/html/_*/**/**.html'],
         htmlAll: './src/html/**/*.html'
     },
@@ -78,6 +81,18 @@ module.exports = function (gulp, config) {
             .on('error', function (error) {
                 console.log(error.message);
             })
+            .pipe(lazyImageCSS({imagePath: lazyDir}))
+            .pipe(gulp.dest(paths.dev.css))
+            .on('data', function () {
+            })
+            .on('end', reloadHandler)
+    }
+
+    //编译 sass
+    function compileSass() {
+        return gulp.src(paths.src.sass)
+            .pipe(sass())
+            .on('error', sass.logError)
             .pipe(lazyImageCSS({imagePath: lazyDir}))
             .pipe(gulp.dest(paths.dev.css))
             .on('data', function () {
@@ -165,11 +180,17 @@ module.exports = function (gulp, config) {
 
             case 'css':
 
+                var ext = path.extname(file);
+
                 if (type === 'removed') {
-                    var tmp = file.replace('src', 'dev').replace('.less', '.css');
+                    var tmp = file.replace('src', 'dev').replace(ext, '.css');
                     del([tmp]);
                 } else {
-                    compileLess();
+                    if(ext === '.less'){
+                        compileLess();
+                    }else{
+                        compileSass();
+                    }
                 }
 
                 break;
@@ -203,6 +224,7 @@ module.exports = function (gulp, config) {
                 paths.src.js,
                 paths.src.media,
                 paths.src.lessAll,
+                paths.src.sassAll,
                 paths.src.htmlAll
             ],
             {ignored: /[\/\\]\./}
@@ -240,6 +262,7 @@ module.exports = function (gulp, config) {
             copyJs,
             copyMedia,
             compileLess,
+            compileSass,
             compileHtml
         ),
         gulp.parallel(

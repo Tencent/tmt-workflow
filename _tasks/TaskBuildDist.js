@@ -21,6 +21,7 @@ var posthtml = require('gulp-posthtml');
 var posthtmlPx2rem = require('posthtml-px2rem');
 var RevAll = require('gulp-rev-all');   // reversion
 var revDel = require('gulp-rev-delete-original');
+var sass = require('gulp-sass');
 var changed = require('./common/changed')();
 
 var paths = {
@@ -31,7 +32,7 @@ var paths = {
         js: './src/js/**/*.js',
         media: './src/media/**/*',
         less: './src/css/style-*.less',
-        lessAll: './src/css/**/*.less',
+        sass: './src/css/style-*.scss',
         html: ['./src/html/**/*.html', '!./src/html/_*/**.html'],
         htmlAll: './src/html/**/*',
         php: './src/**/*.php'
@@ -88,6 +89,16 @@ module.exports = function (gulp, config) {
     function compileLess() {
         return gulp.src(paths.src.less)
             .pipe(less({relativeUrls: true}))
+            .pipe(lazyImageCSS({imagePath: lazyDir}))
+            .pipe(tmtsprite({margin: 4}))
+            .pipe(gulpif('*.png', gulp.dest(paths.tmp.sprite), gulp.dest(paths.tmp.css)));
+    }
+
+    //编译 less
+    function compileSass() {
+        return gulp.src(paths.src.sass)
+            .pipe(sass())
+            .on('error', sass.logError)
             .pipe(lazyImageCSS({imagePath: lazyDir}))
             .pipe(tmtsprite({margin: 4}))
             .pipe(gulpif('*.png', gulp.dest(paths.tmp.sprite), gulp.dest(paths.tmp.css)));
@@ -265,6 +276,7 @@ module.exports = function (gulp, config) {
     gulp.task('build_dist', gulp.series(
         delDist,
         compileLess,
+        compileSass,
         compileAutoprefixer,
         miniCSS,
         gulp.parallel(
