@@ -1,6 +1,6 @@
 {
   "name": "tmt-workflow",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "dependencies": {
     "autoprefixer": "^6.3.3",
     "browser-sync": "^2.11.1",
