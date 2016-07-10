@@ -24,6 +24,15 @@ var revDel = require('gulp-rev-delete-original');
 var sass = require('gulp-sass');
 var changed = require('./common/changed')();
 
+var webpack = require('webpack-stream');
+
+var webpackConfigPath = path.join(process.cwd(), 'webpack.config.js');
+var webpackConfig = {}; // webpack 配置
+
+if (util.fileExist(webpackConfigPath)) {
+    webpackConfig = require(webpackConfigPath);
+}
+
 var paths = {
     src: {
         dir: './src',
@@ -42,7 +51,8 @@ var paths = {
         css: './tmp/css',
         img: './tmp/img',
         html: './tmp/html',
-        sprite: './tmp/sprite'
+        sprite: './tmp/sprite',
+        js: './tmp/js'
     },
     dist: {
         dir: './dist',
@@ -138,9 +148,16 @@ module.exports = function (gulp, config) {
         return gulp.src(paths.src.media, {base: paths.src.dir}).pipe(gulp.dest(paths.dist.dir));
     }
 
+    //JS 编译
+    function compileJs() {
+        return gulp.src(paths.src.js)
+            .pipe(webpack(webpackConfig))
+            .pipe(gulp.dest(paths.tmp.js))
+    }
+
     //JS 压缩
     function uglifyJs() {
-        return gulp.src(paths.src.js, {base: paths.src.dir})
+        return gulp.src(paths.tmp.js, {base: paths.src.dir})
             .pipe(uglify())
             .pipe(gulp.dest(paths.tmp.dir));
     }
@@ -275,16 +292,17 @@ module.exports = function (gulp, config) {
     //注册 build_dist 任务
     gulp.task('build_dist', gulp.series(
         delDist,
-        compileLess,
-        compileSass,
-        compileAutoprefixer,
-        miniCSS,
         gulp.parallel(
+            compileLess,
+            compileSass,
             imageminImg,
-            imageminSprite,
             copyMedia,
-            uglifyJs
+            compileJs
         ),
+        compileAutoprefixer,
+        imageminSprite,
+        miniCSS,
+        uglifyJs,
         compileHtml,
         reversion,
         supportWebp(),
