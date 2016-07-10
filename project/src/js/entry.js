@@ -1,5 +1,11 @@
-var mod = require('./mod');
 
-mod();
+document.body.onclick = function(){
+    require.ensure([], function() {
+        require('./mod/mod.js')();
+    });
+}
 
-console.log('entry.js');
+let filename = 'entry.js';
+let out = `my test is ${filename}`
+
+console.log(out);

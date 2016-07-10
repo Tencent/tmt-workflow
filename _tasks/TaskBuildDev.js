@@ -17,6 +17,7 @@ var webpackConfig = {}; // webpack 配置
 
 if (util.fileExist(webpackConfigPath)) {
     webpackConfig = require(webpackConfigPath);
+    webpackConfig.output.publicPath = path.join('..', 'js/');
 }
 
 var paths = {

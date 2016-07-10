@@ -23,8 +23,8 @@ var RevAll = require('gulp-rev-all');   // reversion
 var revDel = require('gulp-rev-delete-original');
 var sass = require('gulp-sass');
 var changed = require('./common/changed')();
-
 var webpack = require('webpack-stream');
+var babel = require('gulp-babel');
 
 var webpackConfigPath = path.join(process.cwd(), 'webpack.config.js');
 var webpackConfig = {}; // webpack 配置
@@ -152,6 +152,9 @@ module.exports = function (gulp, config) {
     function compileJs() {
         return gulp.src(paths.src.js)
             .pipe(webpack(webpackConfig))
+            .pipe(babel({
+                presets: ['es2015']
+            }))
             .pipe(gulp.dest(paths.tmp.js))
     }
 
@@ -205,7 +208,18 @@ module.exports = function (gulp, config) {
     function reversion(cb) {
         var revAll = new RevAll({
             fileNameManifest: 'manifest.json',
-            dontRenameFile: ['.html', '.php']
+            dontRenameFile: ['.html', '.php'],
+            transformFilename: function (file, hash) {
+                var filename = path.basename(file.path);
+                var ext = path.extname(file.path);
+
+                if (/^\d+\..*\.js$/.test(filename)) {
+                    return filename;
+                } else {
+                    return path.basename(file.path, ext) + '.' + hash.substr(0, 8) + ext;
+                }
+
+            }
         });
 
         if (config['reversion']) {
