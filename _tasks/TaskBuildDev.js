@@ -4,6 +4,7 @@ var del = require('del');
 var ejs = require('gulp-ejs');
 var less = require('gulp-less');
 var util = require('./lib/util');
+var gulpif = require('gulp-if');
 var ejshelper = require('tmt-ejs-helper');
 var bs = require('browser-sync').create();  // 自动刷新浏览器
 var lazyImageCSS = require('gulp-lazyimagecss');  // 自动为图片样式添加 宽/高/background-size 属性
@@ -11,11 +12,13 @@ var postcss = require('gulp-postcss');   // CSS 预处理
 var posthtml = require('gulp-posthtml');  // HTML 预处理
 var sass = require('gulp-sass');
 var webpack = require('webpack-stream');
+var babel = require('gulp-babel');
 
 var webpackConfigPath = path.join(process.cwd(), 'webpack.config.js');
-var webpackConfig = {}; // webpack 配置
+var webpackConfig; // webpack 配置
+var jsPath = path.join(process.cwd(), 'src', 'js');
 
-if (util.fileExist(webpackConfigPath)) {
+if (util.dirExist(jsPath) && util.fileExist(webpackConfigPath)) {
     webpackConfig = require(webpackConfigPath);
     webpackConfig.output.publicPath = path.join('..', 'js/');
 }
@@ -75,10 +78,6 @@ module.exports = function (gulp, config) {
         return copyHandler('slice');
     }
 
-    function copyJs() {
-        return copyHandler('js');
-    }
-
     function copyMedia() {
         return copyHandler('media');
     }
@@ -125,8 +124,13 @@ module.exports = function (gulp, config) {
 
     //编译 JS
     function compileJs() {
+        var condition = webpackConfig ? true : false;
+
         return gulp.src(paths.src.js)
-            .pipe(webpack(webpackConfig))
+            .pipe(gulpif(condition, webpack(webpackConfig)))
+            .pipe(babel({
+                presets: ['es2015']
+            }))
             .pipe(gulp.dest(paths.dev.js))
             .on('end', reloadHandler)
     }

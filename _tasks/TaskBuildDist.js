@@ -7,7 +7,7 @@ var gulpif = require('gulp-if');
 var less = require('gulp-less');
 var util = require('./lib/util');
 var uglify = require('gulp-uglify');
-var usemin = require('gulp-usemin2');
+var usemin = require('gulp-usemin');
 var lazyImageCSS = require('gulp-lazyimagecss');  // 自动为图片样式添加 宽/高/background-size 属性
 var minifyCSS = require('gulp-cssnano');
 var imagemin = require('gulp-imagemin');
@@ -27,9 +27,10 @@ var webpack = require('webpack-stream');
 var babel = require('gulp-babel');
 
 var webpackConfigPath = path.join(process.cwd(), 'webpack.config.js');
-var webpackConfig = {}; // webpack 配置
+var webpackConfig; // webpack 配置
+var jsPath = path.join(process.cwd(), 'src', 'js');
 
-if (util.fileExist(webpackConfigPath)) {
+if (util.dirExist(jsPath) && util.fileExist(webpackConfigPath)) {
     webpackConfig = require(webpackConfigPath);
 }
 
@@ -148,21 +149,17 @@ module.exports = function (gulp, config) {
         return gulp.src(paths.src.media, {base: paths.src.dir}).pipe(gulp.dest(paths.dist.dir));
     }
 
-    //JS 编译
+    //编译 JS
     function compileJs() {
+        var condition = webpackConfig ? true : false;
+
         return gulp.src(paths.src.js)
-            .pipe(webpack(webpackConfig))
+            .pipe(gulpif(condition, webpack(webpackConfig)))
             .pipe(babel({
                 presets: ['es2015']
             }))
-            .pipe(gulp.dest(paths.tmp.js))
-    }
-
-    //JS 压缩
-    function uglifyJs() {
-        return gulp.src(paths.tmp.js, {base: paths.src.dir})
             .pipe(uglify())
-            .pipe(gulp.dest(paths.tmp.dir));
+            .pipe(gulp.dest(paths.tmp.js));
     }
 
     //雪碧图压缩
@@ -187,11 +184,13 @@ module.exports = function (gulp, config) {
                     })
                 ))
             )
+            .pipe(gulp.dest(paths.tmp.html))
             .pipe(usemin({  //JS 合并压缩
-                jsmin: uglify()
+                js: [uglify()]
             }))
             .pipe(gulp.dest(paths.tmp.html));
     }
+
 
     //webp 编译
     function supportWebp() {
@@ -316,7 +315,6 @@ module.exports = function (gulp, config) {
         compileAutoprefixer,
         imageminSprite,
         miniCSS,
-        uglifyJs,
         compileHtml,
         reversion,
         supportWebp(),
