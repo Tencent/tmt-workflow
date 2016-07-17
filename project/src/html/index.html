@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>tmt-workflow Test</title>
+    <title>tmt-workflow Example</title>
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
@@ -11,18 +11,59 @@
     <link rel="stylesheet" type="text/css" href="../css/style-index.css" />
 </head>
 <body>
-<div class="header">
-    <a href="https://github.com/weixin/f2e-workflow"><h1>tmt-workflow Test</h1></a>
-    <div class="header__logo">Logo</div>
-    <div class="tips">Normal image still <span class="tips__code">../<strong>img</strong>/<strong>bg</strong>-logo.png</span></div>
-    <div class="header__social-media">
-        <i class="icon icon-twitter"></i>Twitter
-        <i class="icon icon-facebook"></i>Facebook
-        <i class="icon icon-github"></i>Github
-        <i class="icon icon-instagram"></i>Instagram
-        <i class="icon icon-dribbble"></i>Dribbble
-    </div>
-    <div class="tips">Icons images <span class="tips__code">../<strong>slice</strong>/<strong>icon</strong>-twitter.png</span> change to -> <span class="tips__code">../<strong>sprite</strong>/test.png</span></div>
+
+<div class="mod-header">
+    <div class="mod-header__logo">WeFlow Logo</div>
+    <a class="mod-header__title" href="https://github.com/weixin/tmt-workflow">tmt-workflow Examples</a>
+    <div class="mod-header__desc">执行 开发(dev)/编译(dist) 任务后 [查看源码]</div>
 </div>
+
+<div class="mod-example">
+    <div class="mod-example__title">雪碧图合并</div>
+    <div class="mod-example__preview">
+        <div class="mod-discovery">
+            <div class="mod-discovery__list">
+                <i class="mod-discovery__icon mod-discovery__icon_moment"></i>
+                <i class="mod-discovery__icon mod-discovery__icon_qrcode"></i>
+                <i class="mod-discovery__icon mod-discovery__icon_shake"></i>
+                <i class="mod-discovery__icon mod-discovery__icon_locaitonservice"></i>
+                <i class="mod-discovery__icon mod-discovery__icon_bottle"></i>
+                <i class="mod-discovery__icon mod-discovery__icon_jd"></i>
+                <i class="mod-discovery__icon mod-discovery__icon-game"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mod-example">
+    <div class="mod-example__title">普通图片调用</div>
+    <div class="mod-example__preview">
+        <div class="mod-sticker">
+            <div class="mod-sticker__list">
+                <img class="mod-sticker__icon" src="../img/mod-sticker/1.gif"></img>
+                <img class="mod-sticker__icon" src="../img/mod-sticker/2.gif"></img>
+                <i class="mod-sticker__icon mod-sticker__icon_3"></i>
+                <i class="mod-sticker__icon mod-sticker__icon_4"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mod-footer">
+    <!--以下为 EJS 模板语言使用范例-->
+    <% var text = "点击查看更多源码说明" %>
+    <a href="doc.html" class="mod-footer__link"><%-text %></a>
+</div>
+
+<!--音乐等媒体文件使用范例-->
+<audio src="../media/bgm.mp3" loop id="musicBGM"></audio>
+
+<!--以下为 js 代码压缩指令格式范例-->
+<!-- build:js ../js/build.js -->
+<script type="text/javascript" src="../js/lib/zepto.min.js"></script>
+<script type="text/javascript" src="../js/lib/zepto-touch.js"></script>
+<script type="text/javascript" src="../js/lib/prism.js"></script>
+<!-- endbuild -->
+
 </body>
 </html>

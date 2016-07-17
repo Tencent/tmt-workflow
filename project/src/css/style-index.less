@@ -1,18 +1,19 @@
 /**
- * @name: Test Project
- * @description: This is a demo use of `Gulp Workflow`
- * @author: littledu
+ * @name: tmt-workflow example
+ * @description: Examples for tmt-workflow
+ * @author: weixin
  */
 
-/* Import Less files */
+/* 引入库文件 */
+@import "./lib/lib-mixins";
+@import "./lib/lib-reset";
 
-@import "lib-mixins";
-@import "lib-reset";
+/* 如果使用 REM 解决方案, 取消本行注释 */
+/* @import "./libs/lib-rem"; */
 
-/* Import lib-rem.less if supportREM opened. */
-/* @import "lib-rem"; */
-
-/* Import modules like `header.less` */
-
-@import "header";
-@import "tips";
+/* 引入 Less 依赖文件 */
+@import "mod-header";
+@import "mod-example";
+@import "mod-discovery";
+@import "mod-sticker";
+@import "mod-footer";

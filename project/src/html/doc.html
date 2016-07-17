@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>tmt-workflow Example</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="apple-mobile-web-app-capable" content="no" />
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="../css/style-doc.css" />
+</head>
+<body>
+
+<div class="mod-header">
+    <div class="mod-header__logo">WeFlow Logo</div>
+    <a class="mod-header__title" href="https://github.com/weixin/tmt-workflow">tmt-workflow Examples</a>
+    <div class="mod-header__desc">通过本范例了解工作流在开发、编译过程中所做的自动化处理</div>
+</div>
+
+<div class="mod-example">
+    <div class="mod-example__title">雪碧图合并</div>
+    <div class="mod-example__preview">
+        <div class="mod-discovery">
+            <div class="mod-discovery__list">
+                <i class="mod-discovery__icon mod-discovery__icon_moment"></i>
+                <i class="mod-discovery__icon mod-discovery__icon_qrcode"></i>
+                <i class="mod-discovery__icon mod-discovery__icon_shake"></i>
+                <i class="mod-discovery__icon mod-discovery__icon_locaitonservice"></i>
+                <i class="mod-discovery__icon mod-discovery__icon_bottle"></i>
+                <i class="mod-discovery__icon mod-discovery__icon_jd"></i>
+                <i class="mod-discovery__icon mod-discovery__icon-game"></i>
+            </div>
+        </div>
+    </div>
+    <div class="mod-example__doc">
+        <div class="mod-example__show">
+            <div class="mod-example__before">
+                <div class="mod-example__doc-title">源文件 (src)</div>
+<pre><code class="language-css">.mod-discovery__icon{
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+}
+.mod-discovery__icon_moment{
+    background-image: url(../slice/mod-discovery/icon-moment@2x.png);
+}
+.mod-discovery__icon_qrcode{
+    background-image: url(../slice/mod-discovery/icon-qrcode@2x.png);
+}</code></pre>
+            </div>
+            <div class="mod-example__after">
+                <div class="mod-example__doc-title">编译后 (dist)</div>
+<pre><code class="language-css">.mod-discovery__icon_moment, .mod-discovery__icon_qrcode {
+    background-image: url(../sprite/style-index.b91f7ae0.png);
+    width: 25px;
+    height: 25px;
+    background-size: 25px
+}
+.mod-discovery__icon_qrcode {
+    background-position: -58px -4px
+}
+.mod-discovery__icon_shake {
+    background-position: -4px -58px
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 2.5), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-resolution: 240dpi) {
+    .mod-discovery__icon_moment, .mod-discovery__icon_qrcode {
+        background-image: url(../sprite/style-index@2x.b983005a.png);
+        background-size: 87px
+    }
+    .mod-discovery__icon_moment {
+        background-position: -4px -4px
+    }
+    .mod-discovery__icon_qrcode {
+        background-position: -33px -4px
+    }
+}</code></pre>
+            </div>
+        </div>
+        <div class="mod-example__notes"></div>
+    </div>
+</div>
+
+<div class="mod-example">
+    <div class="mod-example__title">普通图片调用</div>
+    <div class="mod-example__preview">
+        <div class="mod-sticker">
+            <div class="mod-sticker__list">
+                <img class="mod-sticker__icon" src="../img/mod-sticker/1.gif"></img>
+                <img class="mod-sticker__icon" src="../img/mod-sticker/2.gif"></img>
+                <i class="mod-sticker__icon mod-sticker__icon_3"></i>
+                <i class="mod-sticker__icon mod-sticker__icon_4"></i>
+            </div>
+        </div>
+    </div>
+    <div class="mod-example__doc">
+        <div class="mod-example__show">
+            <div class="mod-example__before">
+                <div class="mod-example__doc-title">源文件 (src)</div>
+<pre><code class="language-css">// 两种常见方法
+
+.mod-sticker__icon {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    background-size: 50px; // 注: 此处要额外设置背景图 size
+}
+.mod-sticker__icon_3{
+    background-image: url(../img/mod-sticker/3.gif);
+}
+.mod-sticker__icon_4{
+    background-image: url(../img/mod-sticker/4.gif);
+}
+</code></pre>
+<pre><code class="language-html">&lt;!-- IMG 标签 引入方式 --&gt;
+&lt;img class=&quot;mod-sticker__icon&quot; src=&quot;../img/mod-sticker/1.gif&quot;&gt;&lt;/img&gt;
+&lt;img class=&quot;mod-sticker__icon&quot; src=&quot;../img/mod-sticker/2.gif&quot;&gt;&lt;/img&gt;
+
+&lt;!-- 背景图 引入方式 --&gt;
+&lt;i class=&quot;mod-sticker__icon mod-sticker__icon_3&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;mod-sticker__icon mod-sticker__icon_4&quot;&gt;&lt;/i&gt;</code></pre>
+            </div>
+            <div class="mod-example__after">
+                <div class="mod-example__doc-title">编译后 (dist不做操作)</div>
+<pre><code class="language-css">.mod-sticker__icon {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    background-size: 50px;
+}
+.mod-sticker__icon_3{
+    background-image: url(../img/mod-sticker/3.gif);
+}
+.mod-sticker__icon_4{
+    background-image: url(../img/mod-sticker/4.gif);
+}
+</code></pre>
+            </div>
+        </div>
+        <div class="mod-example__notes"></div>
+    </div>
+</div>
+
+<!-- REM -> PX 解决方案 -->
+<div class="mod-example">
+    <div class="mod-example__title">REM -> PX 解决方案 (需开启选项)</div>
+    <div class="mod-example__doc">
+        <div class="mod-example__show">
+            <div class="mod-example__before">
+                <div class="mod-example__doc-title">源文件 (src)</div>
+<pre><code class="language-css">// 计算比例为 20:1
+h1 {
+    margin: 0 0 20px;
+    padding: 0 0 20PX; // 单位使用大写 PX 可以避免进行 rem 处理 (hack 用法)
+    font-size: 32px;
+    line-height: 1.2;
+    letter-spacing: 2px;
+    border: 1px; // 为避免小数 Bug 问题 1px 不进行转换
+}</code></pre>
+<pre><code class="language-html">&lt;!-- HTML style 方式 --&gt;
+&lt;style&gt;
+.test {
+    font-size: 10PX;
+    width: 20px;
+    margin: 30px 40px 50px 60px;
+    border: 1px solid #fff; // 为避免小数 Bug 问题 1px 不进行转换
+}
+&lt;/style&gt;</code></pre>
+<pre><code class="language-html">&lt;!-- HTML 内联方式 --&gt;
+&lt;div style=&quot;font-size: 10PX; width: 20px; margin: 30px 40px 50px 60px; border: 1px solid #fff;&quot;&gt;
+    text
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="mod-example__after">
+                <div class="mod-example__doc-title">编译后 (dist)</div>
+<pre><code class="language-css">// 1rem = 20px
+h1 {
+    margin: 0 0 1rem;
+    padding: 0 0 20PX; // 无操作
+    font-size: 1.6rem;
+    line-height: 1.2;
+    letter-spacing: 0.1rem;
+    border: 1px; // 无操作
+}</code></pre>
+<pre><code class="language-html">&lt;!-- HTML style 方式 --&gt;
+&lt;style&gt;
+.test {
+    font-size: 10PX; // 无操作
+    width: 1rem;
+    margin: 1.5rem 2rem 2.5rem 3rem;
+    border: 1px solid #fff; // 无操作
+}
+&lt;/style&gt;</code></pre>
+<pre><code class="language-html">&lt;!-- HTML 内联方式 --&gt;
+    &lt;div style=&quot;font-size: 10PX; width: 1rem; margin: 1.5rem 2rem 2.5rem 3rem; border: 1px solid #fff;&quot;&gt;
+    text
+    &lt;/div&gt;</code></pre>
+            </div>
+        </div>
+        <div class="mod-example__notes"></div>
+    </div>
+</div>
+
+<!--音乐等媒体文件使用范例-->
+<audio src="../media/bgm.mp3" loop id="musicBGM"></audio>
+
+<!--以下为 js 代码压缩指令格式范例-->
+<!-- build:js ../js/build.js -->
+<script type="text/javascript" src="../js/lib/zepto.min.js"></script>
+<script type="text/javascript" src="../js/lib/zepto-touch.js"></script>
+<script type="text/javascript" src="../js/lib/prism.js"></script>
+<!-- endbuild -->
+</body>
+</html>
