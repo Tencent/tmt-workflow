@@ -2,19 +2,30 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>tmt-workflow Example</title>
+    <title>tmt-workflow Demo</title>
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="apple-mobile-web-app-capable" content="no" />
     <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" type="text/css" href="../css/style-index.css" />
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://o4jiepyc4.qnssl.com/analytics.js','ga');
+        // 使用七牛 CDN 进行 GA 加速：https://o4jiepyc4.qnssl.com/analytics.js <- https://www.google-analytics.com/analytics.js
+
+        ga('create', 'UA-24431632-5', 'auto');
+        ga('send', 'pageview');
+
+    </script>
 </head>
 <body>
 
 <div class="mod-header">
     <div class="mod-header__logo">WeFlow Logo</div>
-    <a class="mod-header__title" href="https://github.com/weixin/tmt-workflow">tmt-workflow Examples</a>
+    <a class="mod-header__title" href="https://github.com/weixin/tmt-workflow">tmt-workflow Demo</a>
     <div class="mod-header__desc">执行 开发(dev)/编译(dist) 任务后 [查看源码]</div>
 </div>
 
@@ -65,7 +76,7 @@
 <div class="mod-footer">
     <!--以下为 EJS 模板语言使用范例-->
     <% var text = "点击查看更多源码说明" %>
-    <a href="doc.html" class="mod-footer__link"><%-text %></a>
+    <a href="https://weflow.io/demo/html/doc.html" class="mod-footer__link"><%-text %></a>
 </div>
 
 <!--音乐等媒体文件使用范例-->
@@ -78,5 +89,6 @@
 <script type="text/javascript" src="../js/lib/prism.js"></script>
 <!-- endbuild -->
 
+<script type="text/javascript" src="https://pingjs.qq.com/h5/stats.js" name="MTAH5" sid="500140624" ></script>
 </body>
 </html>
