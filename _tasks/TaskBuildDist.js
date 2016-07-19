@@ -135,7 +135,7 @@ module.exports = function (gulp, config) {
 
     //复制媒体文件
     function copyMedia() {
-        return gulp.src(paths.src.media, {base: paths.src.dir}).pipe(gulp.dest(paths.dist.dir));
+        return gulp.src(paths.src.media, {base: paths.src.dir}).pipe(gulp.dest(paths.tmp.dir));
     }
 
     //JS 压缩
