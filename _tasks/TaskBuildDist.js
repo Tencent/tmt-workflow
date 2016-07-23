@@ -146,7 +146,7 @@ module.exports = function (gulp, config) {
 
     //复制媒体文件
     function copyMedia() {
-        return gulp.src(paths.src.media, {base: paths.src.dir}).pipe(gulp.dest(paths.dist.dir));
+        return gulp.src(paths.src.media, {base: paths.src.dir}).pipe(gulp.dest(paths.tmp.dir));
     }
 
     //编译 JS
@@ -154,10 +154,13 @@ module.exports = function (gulp, config) {
         var condition = webpackConfig ? true : false;
 
         return gulp.src(paths.src.js)
-            .pipe(gulpif(condition, webpack(webpackConfig)))
-            .pipe(babel({
-                presets: ['es2015', 'stage-2']
-            }))
+            .pipe(gulpif(
+                condition,
+                webpack(webpackConfig),
+                babel({
+                    presets: ['es2015', 'stage-2']
+                })
+            ))
             .pipe(uglify())
             .pipe(gulp.dest(paths.tmp.js));
     }
@@ -185,9 +188,7 @@ module.exports = function (gulp, config) {
                 ))
             )
             .pipe(gulp.dest(paths.tmp.html))
-            .pipe(usemin({  //JS 合并压缩
-                js: [uglify()]
-            }))
+            .pipe(usemin())
             .pipe(gulp.dest(paths.tmp.html));
     }
 

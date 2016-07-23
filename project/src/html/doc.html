@@ -1,0 +1,452 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>tmt-workflow Demo</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="apple-mobile-web-app-capable" content="no" />
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="../css/style-doc.css" />
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://o4jiepyc4.qnssl.com/analytics.js','ga');
+        // 使用七牛 CDN 进行 GA 加速：https://o4jiepyc4.qnssl.com/analytics.js <- https://www.google-analytics.com/analytics.js
+
+        ga('create', 'UA-24431632-5', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+</head>
+<body>
+
+<div class="mod-header">
+    <div class="mod-header__logo">WeFlow Logo</div>
+    <a class="mod-header__title" href="https://github.com/weixin/tmt-workflow">tmt-workflow Demo</a>
+    <div class="mod-header__desc">以下为工作流在开发、编译过程中所做的自动化处理</div>
+</div>
+
+<div class="mod-example">
+    <a href="https://github.com/weixin/tmt-workflow/wiki/%E2%92%8E-CSS-Sprite" target="_blank" class="mod-example__title">雪碧图合并 (支持多组)</a>
+    <div class="mod-example__preview">
+        <div class="mod-discovery">
+            <div class="mod-discovery__list">
+                <i class="mod-discovery__icon mod-discovery__icon_moment"></i>
+                <i class="mod-discovery__icon mod-discovery__icon_qrcode"></i>
+                <i class="mod-discovery__icon mod-discovery__icon_shake"></i>
+                <i class="mod-discovery__icon mod-discovery__icon_locaitonservice"></i>
+                <i class="mod-discovery__icon mod-discovery__icon_bottle"></i>
+                <i class="mod-discovery__icon mod-discovery__icon_jd"></i>
+                <i class="mod-discovery__icon mod-discovery__icon-game"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="mod-example__notes">
+        注: ../slice/ 目录进行雪碧图操作, 2x 图命名为 xxx@2x.png, 如果有对应的 1x 图则会智能生成
+    </div>
+
+    <div class="mod-example__doc">
+        <div class="mod-example__show">
+            <div class="mod-example__before">
+                <div class="mod-example__doc-title">源文件 (src)</div>
+<pre><code class="language-css">.mod-discovery__icon{
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+}
+.mod-discovery__icon_moment{
+    background-image: url(../slice/mod-discovery/icon-moment@2x.png);
+}
+.mod-discovery__icon_qrcode{
+    background-image: url(../slice/mod-discovery/icon-qrcode@2x.png);
+}</code></pre>
+            </div>
+            <div class="mod-example__after">
+                <div class="mod-example__doc-title">编译后 (dist)</div>
+<pre><code class="language-css">.mod-discovery__icon_moment, .mod-discovery__icon_qrcode {
+    background-image: url(../sprite/style-index.b91f7ae0.png);
+    width: 25px;
+    height: 25px;
+    background-size: 25px
+}
+.mod-discovery__icon_qrcode {
+    background-position: -58px -4px
+}
+.mod-discovery__icon_shake {
+    background-position: -4px -58px
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 2.5), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-resolution: 240dpi) {
+    .mod-discovery__icon_moment, .mod-discovery__icon_qrcode {
+        background-image: url(../sprite/style-index@2x.b983005a.png);
+        background-size: 87px
+    }
+    .mod-discovery__icon_moment {
+        background-position: -4px -4px
+    }
+    .mod-discovery__icon_qrcode {
+        background-position: -33px -4px
+    }
+}</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mod-example">
+    <div class="mod-example__title">普通图片调用</div>
+    <div class="mod-example__preview">
+        <div class="mod-sticker">
+            <div class="mod-sticker__list">
+                <img class="mod-sticker__icon" src="../img/mod-sticker/1.gif"></img>
+                <img class="mod-sticker__icon" src="../img/mod-sticker/2.gif"></img>
+                <i class="mod-sticker__icon mod-sticker__icon_3"></i>
+                <i class="mod-sticker__icon mod-sticker__icon_4"></i>
+            </div>
+        </div>
+    </div>
+    <div class="mod-example__notes">
+        注: ../img/ 目录 <strong>不进行</strong> 雪碧图处理
+    </div>
+    <div class="mod-example__doc">
+        <div class="mod-example__show">
+            <div class="mod-example__before">
+                <div class="mod-example__doc-title">源文件 (src)</div>
+<pre><code class="language-css">// 两种常见方法
+
+.mod-sticker__icon {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    background-size: 50px; // 注: 此处要额外设置背景图 size
+}
+.mod-sticker__icon_3{
+    background-image: url(../img/mod-sticker/3.gif);
+}
+.mod-sticker__icon_4{
+    background-image: url(../img/mod-sticker/4.gif);
+}
+</code></pre>
+<pre><code class="language-html">&lt;!-- IMG 标签 引入方式 --&gt;
+&lt;img class=&quot;mod-sticker__icon&quot; src=&quot;../img/mod-sticker/1.gif&quot;&gt;&lt;/img&gt;
+&lt;img class=&quot;mod-sticker__icon&quot; src=&quot;../img/mod-sticker/2.gif&quot;&gt;&lt;/img&gt;
+
+&lt;!-- 背景图 引入方式 --&gt;
+&lt;i class=&quot;mod-sticker__icon mod-sticker__icon_3&quot;&gt;&lt;/i&gt;
+&lt;i class=&quot;mod-sticker__icon mod-sticker__icon_4&quot;&gt;&lt;/i&gt;</code></pre>
+            </div>
+            <div class="mod-example__after">
+                <div class="mod-example__doc-title">编译后 (dist不做操作)</div>
+<pre><code class="language-css">.mod-sticker__icon {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    background-size: 50px;
+}
+.mod-sticker__icon_3{
+    background-image: url(../img/mod-sticker/3.gif);
+}
+.mod-sticker__icon_4{
+    background-image: url(../img/mod-sticker/4.gif);
+}
+</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--自动生成图片 CSS 属性，width & height 等-->
+<div class="mod-example">
+    <a href="https://github.com/weixin/gulp-lazyimagecss" target="_blank" class="mod-example__title">自动生成图片 CSS 属性，width & height 等</a>
+    <div class="mod-example__notes">
+        注: 需要开启配置, 默认对 ../slice/ 目录生效
+    </div>
+    <div class="mod-example__doc">
+        <div class="mod-example__show">
+            <div class="mod-example__before">
+                <div class="mod-example__doc-title">源文件 (src)</div>
+<pre><code class="language-css">.bg-test {
+    background: url(../img/bg.png);
+    background-repeat: no-repeat;
+}
+.icon-test {
+    background-image: url(../slice/test.png);
+}
+.icon-test-retina {
+    background-image: url(../slice/test@2x.png);
+}</code></pre>
+            </div>
+            <div class="mod-example__after">
+                <div class="mod-example__doc-title">编译后 (dist)</div>
+<pre><code class="language-css">.bg-test {
+    background: url(../img/bg.png);
+    background-repeat: no-repeat;
+    width: 1100px;
+    height: 300px;
+}
+.icon-test {
+    background-image: url(../slice/test.png); // test.png - 32x32
+    width: 32px;
+    height: 32px;
+}
+.icon-test-retina {
+    background-image: url(../slice/test@2x.png); // test@2x.png - 64x64
+    width: 32px;
+    height: 32px;
+    background-size: 32px;
+}</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--PostCSS & Autoprefixer-->
+<div class="mod-example">
+    <a href="https://github.com/weixin/tmt-workflow/wiki/%E2%92%8D-Autoprefixer" target="_blank" class="mod-example__title">PostCSS & Autoprefixer</a>
+    <!--<div class="mod-example__notes">-->
+        <!--注:-->
+    <!--</div>-->
+    <div class="mod-example__doc">
+        <div class="mod-example__show">
+            <div class="mod-example__before">
+                <div class="mod-example__doc-title">源文件 (src)</div>
+<pre><code class="language-css">.test {
+    display: flex;
+}
+:fullscreen {
+}</code></pre>
+            </div>
+            <div class="mod-example__after">
+                <div class="mod-example__doc-title">编译后 (dist)</div>
+                <pre><code class="language-css">.test {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex
+}
+:-webkit-:full-screen {
+}
+:-moz-:full-screen {
+}
+:full-screen {
+}</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--CSS 压缩 cssnano-->
+<div class="mod-example">
+    <a href="https://github.com/ben-eb/cssnano" target="_blank" class="mod-example__title">CSS 压缩 cssnano</a>
+    <!--<div class="mod-example__notes">-->
+        <!--注:-->
+    <!--</div>-->
+    <div class="mod-example__doc">
+        <div class="mod-example__show">
+            <div class="mod-example__before">
+                <div class="mod-example__doc-title">源文件 (src)</div>
+<pre><code class="language-css">.mod-example{
+	text-align: center;
+	margin-bottom: 40px;
+}
+.mod-example__title{
+	display: inline-block;
+	font-size: 18px;
+}</code></pre>
+            </div>
+            <div class="mod-example__after">
+                <div class="mod-example__doc-title">编译后 (dist)</div>
+                <pre><code class="language-css">.mod-example{text-align: center;margin-bottom: 40px;}.mod-example__title{display: inline-block;font-size: 18px;</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--JS 合并压缩-->
+<div class="mod-example">
+    <a href="https://github.com/weixin/tmt-workflow/wiki/%E2%92%8F-JS-%E5%90%88%E5%B9%B6%E5%8E%8B%E7%BC%A9" target="_blank" class="mod-example__title">JS 合并压缩</a>
+    <div class="mod-example__notes">
+        注: 可配合 MD5 reversion 使用
+    </div>
+    <div class="mod-example__doc">
+        <div class="mod-example__show">
+            <div class="mod-example__before">
+                <div class="mod-example__doc-title">源文件 (src)</div>
+<pre><code class="language-html">&lt;!-- build:js ../js/build.js --&gt;
+&lt;script src=&quot;../js/zepto.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../js/all.js&quot;&gt;&lt;/script&gt;
+&lt;!-- endbuild --&gt;</code></pre>
+            </div>
+            <div class="mod-example__after">
+                <div class="mod-example__doc-title">编译后 (dist)</div>
+                <pre><code class="language-html">&lt;script src=&quot;../js/build.js&quot;&gt;&lt;/script&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--HTML EJS 模板语言-->
+<div class="mod-example">
+    <a href="https://github.com/weixin/tmt-workflow/wiki/%E2%92%90-EJS-%E6%A8%A1%E7%89%88%E8%AF%AD%E8%A8%80" target="_blank" class="mod-example__title">HTML EJS 模板语言</a>
+    <!--<div class="mod-example__notes">-->
+        <!--注:-->
+    <!--</div>-->
+    <div class="mod-example__doc">
+        <div class="mod-example__show">
+            <div class="mod-example__before">
+                <div class="mod-example__doc-title">源文件 (src)</div>
+<pre><code class="language-ejs">&lt;% for(var i = 0; i &lt; 5; i++) {%&gt;
+&lt;i class=&quot;emoji-&lt;%-i %&gt;&quot;&gt;表情 &lt;%-i %&gt;&lt;/i&gt;
+&lt;% } %&gt;</code></pre>
+            </div>
+            <div class="mod-example__after">
+                <div class="mod-example__doc-title">编译后 (dist)</div>
+                <pre><code class="language-html">&lt;i class=&quot;emoji-1&quot;&gt;表情 1&lt;/i&gt;
+&lt;i class=&quot;emoji-2&quot;&gt;表情 2&lt;/i&gt;
+&lt;i class=&quot;emoji-3&quot;&gt;表情 3&lt;/i&gt;
+&lt;i class=&quot;emoji-4&quot;&gt;表情 4&lt;/i&gt;
+&lt;i class=&quot;emoji-5&quot;&gt;表情 5&lt;/i&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- REM -> PX 解决方案 -->
+<div class="mod-example">
+    <a href="https://github.com/weixin/tmt-workflow/wiki/%E2%92%96-Reversion-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88" target="_blank" class="mod-example__title">REM -> PX 解决方案 (需开启选项)</a>
+    <div class="mod-example__notes">
+        注: 单位转换比例为 20:1, 即 20px = 1rem
+    </div>
+    <div class="mod-example__doc">
+        <div class="mod-example__show">
+            <div class="mod-example__before">
+                <div class="mod-example__doc-title">源文件 (src)</div>
+<pre><code class="language-css">// 计算比例为 20:1
+h1 {
+    margin: 0 0 20px;
+    padding: 0 0 20PX; // 单位使用大写 PX 可以避免进行 rem 处理 (hack 用法)
+    font-size: 32px;
+    line-height: 1.2;
+    letter-spacing: 2px;
+    border: 1px; // 为避免小数 Bug 问题 1px 不进行转换
+}</code></pre>
+<pre><code class="language-html">&lt;!-- HTML style 方式 --&gt;
+&lt;style&gt;
+.test {
+    font-size: 10PX;
+    width: 20px;
+    margin: 30px 40px 50px 60px;
+    border: 1px solid #fff; // 为避免小数 Bug 问题 1px 不进行转换
+}
+&lt;/style&gt;</code></pre>
+<pre><code class="language-html">&lt;!-- HTML 内联方式 --&gt;
+&lt;div style=&quot;font-size: 10PX; width: 20px; margin: 30px 40px 50px 60px; border: 1px solid #fff;&quot;&gt;
+    text
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="mod-example__after">
+                <div class="mod-example__doc-title">编译后 (dist)</div>
+<pre><code class="language-css">// 1rem = 20px
+h1 {
+    margin: 0 0 1rem;
+    padding: 0 0 20PX; // 无操作
+    font-size: 1.6rem;
+    line-height: 1.2;
+    letter-spacing: 0.1rem;
+    border: 1px; // 无操作
+}</code></pre>
+<pre><code class="language-html">&lt;!-- HTML style 方式 --&gt;
+&lt;style&gt;
+.test {
+    font-size: 10PX; // 无操作
+    width: 1rem;
+    margin: 1.5rem 2rem 2.5rem 3rem;
+    border: 1px solid #fff; // 无操作
+}
+&lt;/style&gt;</code></pre>
+<pre><code class="language-html">&lt;!-- HTML 内联方式 --&gt;
+&lt;div style=&quot;font-size: 10PX; width: 1rem; margin: 1.5rem 2rem 2.5rem 3rem; border: 1px solid #fff;&quot;&gt;
+    text
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--智能 WebP 解决方案-->
+<div class="mod-example">
+    <a class="mod-example__title" href="https://github.com/weixin/tmt-workflow/wiki/%E2%92%95-WEBP-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88" target="_blank">智能 WebP 解决方案</a>
+    <div class="mod-example__notes">
+        注: 需要打开选项
+    </div>
+    <div class="mod-example__doc">
+        <div class="mod-example__show">
+            <div class="mod-example__before">
+                <div class="mod-example__doc-title">源文件 (src)</div>
+<pre><code class="language-js">html/index.html
+css/style-index.css
+img/bg-body.png
+sprite/style-index.png
+sprite/style-index@2x.png
+media/bgm.mp3</code></pre>
+            </div>
+            <div class="mod-example__after">
+                <div class="mod-example__doc-title">编译后 (dist)</div>
+                <pre><code class="language-js">html/index.html
+css/style-index.e72b382a.css
+img/bg-body.131a8d26.png
+sprite/style-index.0e41255a.png
+sprite/style-index@2x.2eaf5fed.png
+media/bgm.e20f34.mp3</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Reversion 解决方案-->
+<div class="mod-example">
+    <a href="https://github.com/weixin/tmt-workflow/wiki/%E2%92%94-REM-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88" target="_blank" class="mod-example__title">Reversion 解决方案</a>
+    <!--<div class="mod-example__notes">-->
+        <!--注: .html 格式文件除外-->
+    <!--</div>-->
+    <div class="mod-example__doc">
+        <div class="mod-example__show">
+            <div class="mod-example__before">
+                <div class="mod-example__doc-title">源文件 (src)</div>
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;../css/style-index.css&quot; /&gt</code></pre>
+            </div>
+            <div class="mod-example__after">
+                <div class="mod-example__doc-title">编译后 (dist)</div>
+                <pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;../css/style-index.css&quot; /&gt;
+&lt;script&gt;function webpsupport(a){var c=window.localStorage;if(typeof a!=&quot;function&quot;){a=function(){}}if(c!=undefined&amp;&amp;c._tmtwebp!=undefined&amp;&amp;c._tmtwebp==0){a();return false}else{if(c!=undefined&amp;&amp;c._tmtwebp!=undefined&amp;&amp;c._tmtwebp==1){a(1);return true}else{var f=new Image();f.onload=f.onerror=function(){if(f.height!=2){if(c!=undefined){c._tmtwebp=0}a();return false}else{if(c!=undefined){c._tmtwebp=1}a(1);return true}};f.src=&quot;data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA&quot;}}};;(function(){function b(t){var f=document.getElementsByTagName(&quot;link&quot;);for(var e=0,d=f.length;e&lt;d;e++){if(t){f[e].href=f[e].getAttribute(&quot;data-href&quot;).replace(&quot;.css&quot;,&quot;.webp.css&quot;);}else{f[e].href=f[e].getAttribute(&quot;data-href&quot;)}}}webpsupport(b);})();&lt;/script&gt;
+&lt;script&gt;window.imgMap = {&quot;style-doc.png&quot;:0,&quot;style-doc@2x.png&quot;:0,&quot;style-index.png&quot;:0,&quot;style-index@2x.png&quot;:0,&quot;style-index@3x.png&quot;:0,&quot;bg-body.png&quot;:1,&quot;weflow-logo.png&quot;:1}&lt;/script&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mod-footer">
+    <a href="https://github.com/weixin/WeFlow" class="mod-footer__link">更多文档见 GitHub</a>
+</div>
+
+
+<!--音乐等媒体文件使用范例-->
+<audio src="../media/bgm.mp3" loop id="musicBGM"></audio>
+
+<!--以下为 js 代码压缩指令格式范例-->
+<!-- build:js ../js/build.js -->
+<script type="text/javascript" src="../js/lib/prism.js"></script>
+<!-- endbuild -->
+
+<script type="text/javascript" src="https://pingjs.qq.com/h5/stats.js" name="MTAH5" sid="500140624" ></script>
+</body>
+</html>

@@ -127,10 +127,13 @@ module.exports = function (gulp, config) {
         var condition = webpackConfig ? true : false;
 
         return gulp.src(paths.src.js)
-            .pipe(gulpif(condition, webpack(webpackConfig)))
-            .pipe(babel({
-                presets: ['es2015', 'stage-2']
-            }))
+            .pipe(gulpif(
+                condition,
+                webpack(webpackConfig),
+                babel({
+                    presets: ['es2015', 'stage-2']
+                })
+            ))
             .pipe(gulp.dest(paths.dev.js))
             .on('end', reloadHandler)
     }
