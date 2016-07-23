@@ -26,7 +26,7 @@ if (util.dirExist(jsPath) && util.fileExist(webpackConfigPath)) {
 var paths = {
     src: {
         dir: './src',
-        img: './src/img/**/*.{JPG,jpg,png,gif}',
+        img: './src/img/**/*.{JPG,jpg,png,gif,svg}',
         slice: './src/slice/**/*.png',
         js: './src/js/**/*.js',
         media: './src/media/**/*',
@@ -129,7 +129,7 @@ module.exports = function (gulp, config) {
         return gulp.src(paths.src.js)
             .pipe(gulpif(condition, webpack(webpackConfig)))
             .pipe(babel({
-                presets: ['es2015']
+                presets: ['es2015', 'stage-2']
             }))
             .pipe(gulp.dest(paths.dev.js))
             .on('end', reloadHandler)
