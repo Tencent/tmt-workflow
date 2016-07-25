@@ -24,6 +24,8 @@ var revDel = require('gulp-rev-delete-original');
 var sass = require('gulp-sass');
 var changed = require('./common/changed')();
 
+var plugin = require('gulp-load-plugins')();    // by xishiyi7 2016/07/04 可根据package.json识别gulp plugin, 在插件比较多的情况下不用写一大串require语句
+
 var paths = {
     src: {
         dir: './src',
@@ -141,7 +143,14 @@ module.exports = function (gulp, config) {
     //JS 压缩
     function uglifyJs() {
         return gulp.src(paths.src.js, {base: paths.src.dir})
+            .pipe(plugin.removeUseStrict({force: true}))                        // by xishiyi7 2016/07/04 先移除`use strict`语句
+            .pipe(plugin.wrapper({
+			                    header: '(function(){\'use strict\';\n',
+			                    footer: '\n}());'
+		                    }))                                                 // by xishiyi7 2016/07/04 再在头部插入`use strict`语句
+            .pipe(plugin.if(isDebug, plugin.sourcemaps.init({loadMaps: true}))) // by xishiyi7 2016/07/04 开始生成.map文件 (开发环境下用，发布环境用判断排除)
             .pipe(uglify())
+            .pipe(plugin.if(isDebug, plugin.sourcemaps.write('./')))            // by xishiyi7 2016/07/04 结束生成.map文件
             .pipe(gulp.dest(paths.tmp.dir));
     }
 
