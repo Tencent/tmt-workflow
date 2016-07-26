@@ -1,20 +1,32 @@
+var fs = require('fs');
 var path = require('path');
 var del = require('del');
 var ejs = require('gulp-ejs');
 var less = require('gulp-less');
 var util = require('./lib/util');
+var gulpif = require('gulp-if');
 var ejshelper = require('tmt-ejs-helper');
 var bs = require('browser-sync').create();  // 自动刷新浏览器
 var lazyImageCSS = require('gulp-lazyimagecss');  // 自动为图片样式添加 宽/高/background-size 属性
 var postcss = require('gulp-postcss');   // CSS 预处理
 var posthtml = require('gulp-posthtml');  // HTML 预处理
 var sass = require('gulp-sass');
-// 注: Dev 阶段不开启 px -> rem
+var webpack = require('webpack-stream');
+var babel = require('gulp-babel');
+
+var webpackConfigPath = path.join(process.cwd(), 'webpack.config.js');
+var webpackConfig; // webpack 配置
+var jsPath = path.join(process.cwd(), 'src', 'js');
+
+if (util.dirExist(jsPath) && util.fileExist(webpackConfigPath)) {
+    webpackConfig = require(webpackConfigPath);
+    webpackConfig.output.publicPath = path.join('..', 'js/');
+}
 
 var paths = {
     src: {
         dir: './src',
-        img: './src/img/**/*.{JPG,jpg,png,gif}',
+        img: './src/img/**/*.{JPG,jpg,png,gif,svg}',
         slice: './src/slice/**/*.png',
         js: './src/js/**/*.js',
         media: './src/media/**/*',
@@ -28,7 +40,8 @@ var paths = {
     dev: {
         dir: './dev',
         css: './dev/css',
-        html: './dev/html'
+        html: './dev/html',
+        js: './dev/js'
     }
 };
 
@@ -47,7 +60,7 @@ module.exports = function (gulp, config) {
     };
 
     // 自动刷新
-    var reloadHandler = function(){
+    var reloadHandler = function () {
         config.livereload && bs.reload();
     };
 
@@ -65,13 +78,10 @@ module.exports = function (gulp, config) {
         return copyHandler('slice');
     }
 
-    function copyJs() {
-        return copyHandler('js');
-    }
-
     function copyMedia() {
         return copyHandler('media');
     }
+
     //复制操作 end
 
     //编译 less
@@ -109,6 +119,22 @@ module.exports = function (gulp, config) {
             .pipe(gulp.dest(paths.dev.html))
             .on('data', function () {
             })
+            .on('end', reloadHandler)
+    }
+
+    //编译 JS
+    function compileJs() {
+        var condition = webpackConfig ? true : false;
+
+        return gulp.src(paths.src.js)
+            .pipe(gulpif(
+                condition,
+                webpack(webpackConfig),
+                babel({
+                    presets: ['es2015', 'stage-2']
+                })
+            ))
+            .pipe(gulp.dest(paths.dev.js))
             .on('end', reloadHandler)
     }
 
@@ -165,7 +191,7 @@ module.exports = function (gulp, config) {
                     var tmp = file.replace('src', 'dev');
                     del([tmp]);
                 } else {
-                    copyHandler('js', file);
+                    compileJs();
                 }
                 break;
 
@@ -186,9 +212,9 @@ module.exports = function (gulp, config) {
                     var tmp = file.replace('src', 'dev').replace(ext, '.css');
                     del([tmp]);
                 } else {
-                    if(ext === '.less'){
+                    if (ext === '.less') {
                         compileLess();
-                    }else{
+                    } else {
                         compileSass();
                     }
                 }
@@ -259,7 +285,8 @@ module.exports = function (gulp, config) {
         gulp.parallel(
             copyImg,
             copySlice,
-            copyJs,
+            compileJs,
+            // copyJs,
             copyMedia,
             compileLess,
             compileSass,

@@ -7,7 +7,7 @@ var gulpif = require('gulp-if');
 var less = require('gulp-less');
 var util = require('./lib/util');
 var uglify = require('gulp-uglify');
-var usemin = require('gulp-usemin2');
+var usemin = require('gulp-usemin');
 var lazyImageCSS = require('gulp-lazyimagecss');  // 自动为图片样式添加 宽/高/background-size 属性
 var minifyCSS = require('gulp-cssnano');
 var imagemin = require('gulp-imagemin');
@@ -23,11 +23,21 @@ var RevAll = require('gulp-rev-all');   // reversion
 var revDel = require('gulp-rev-delete-original');
 var sass = require('gulp-sass');
 var changed = require('./common/changed')();
+var webpack = require('webpack-stream');
+var babel = require('gulp-babel');
+
+var webpackConfigPath = path.join(process.cwd(), 'webpack.config.js');
+var webpackConfig; // webpack 配置
+var jsPath = path.join(process.cwd(), 'src', 'js');
+
+if (util.dirExist(jsPath) && util.fileExist(webpackConfigPath)) {
+    webpackConfig = require(webpackConfigPath);
+}
 
 var paths = {
     src: {
         dir: './src',
-        img: './src/img/**/*.{JPG,jpg,png,gif}',
+        img: './src/img/**/*.{JPG,jpg,png,gif,svg}',
         slice: './src/slice/**/*.png',
         js: './src/js/**/*.js',
         media: './src/media/**/*',
@@ -42,7 +52,8 @@ var paths = {
         css: './tmp/css',
         img: './tmp/img',
         html: './tmp/html',
-        sprite: './tmp/sprite'
+        sprite: './tmp/sprite',
+        js: './tmp/js'
     },
     dist: {
         dir: './dist',
@@ -138,11 +149,20 @@ module.exports = function (gulp, config) {
         return gulp.src(paths.src.media, {base: paths.src.dir}).pipe(gulp.dest(paths.tmp.dir));
     }
 
-    //JS 压缩
-    function uglifyJs() {
-        return gulp.src(paths.src.js, {base: paths.src.dir})
+    //编译 JS
+    function compileJs() {
+        var condition = webpackConfig ? true : false;
+
+        return gulp.src(paths.src.js)
+            .pipe(gulpif(
+                condition,
+                webpack(webpackConfig),
+                babel({
+                    presets: ['es2015', 'stage-2']
+                })
+            ))
             .pipe(uglify())
-            .pipe(gulp.dest(paths.tmp.dir));
+            .pipe(gulp.dest(paths.tmp.js));
     }
 
     //雪碧图压缩
@@ -167,11 +187,11 @@ module.exports = function (gulp, config) {
                     })
                 ))
             )
-            .pipe(usemin({  //JS 合并压缩
-                jsmin: uglify()
-            }))
+            .pipe(gulp.dest(paths.tmp.html))
+            .pipe(usemin())
             .pipe(gulp.dest(paths.tmp.html));
     }
+
 
     //webp 编译
     function supportWebp() {
@@ -188,7 +208,18 @@ module.exports = function (gulp, config) {
     function reversion(cb) {
         var revAll = new RevAll({
             fileNameManifest: 'manifest.json',
-            dontRenameFile: ['.html', '.php']
+            dontRenameFile: ['.html', '.php'],
+            transformFilename: function (file, hash) {
+                var filename = path.basename(file.path);
+                var ext = path.extname(file.path);
+
+                if (/^\d+\..*\.js$/.test(filename)) {
+                    return filename;
+                } else {
+                    return path.basename(file.path, ext) + '.' + hash.substr(0, 8) + ext;
+                }
+
+            }
         });
 
         if (config['reversion']) {
@@ -275,16 +306,16 @@ module.exports = function (gulp, config) {
     //注册 build_dist 任务
     gulp.task('build_dist', gulp.series(
         delDist,
-        compileLess,
-        compileSass,
-        compileAutoprefixer,
-        miniCSS,
         gulp.parallel(
+            compileLess,
+            compileSass,
             imageminImg,
-            imageminSprite,
             copyMedia,
-            uglifyJs
+            compileJs
         ),
+        compileAutoprefixer,
+        imageminSprite,
+        miniCSS,
         compileHtml,
         reversion,
         supportWebp(),
