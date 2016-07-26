@@ -14,7 +14,7 @@
 ## 功能特性
 
 - 自动化流程
-  - [Less -> CSS (Sass 可自行定制)](https://github.com/weixin/tmt-workflow/wiki/%E2%92%8C-Less-%E7%BC%96%E8%AF%91)
+  - [Less/Sass -> CSS](https://github.com/weixin/tmt-workflow/wiki/%E2%92%8C-Less-%E7%BC%96%E8%AF%91)
   - [CSS Autoprefixer 前缀自动补全](https://github.com/weixin/tmt-workflow/wiki/%E2%92%8D-Autoprefixer)
   - [自动生成图片 CSS 属性，width & height 等](https://github.com/weixin/gulp-lazyimagecss)
   - [CSS 压缩 cssnano](https://github.com/ben-eb/cssnano)
@@ -34,7 +34,7 @@
 
 ## 快速开始
 
-以下 2 种方式任选，请确保已安装 [Node.js](https://nodejs.org/) 环境
+以下 2 种方式任选，请确保已安装 [Node.js](https://nodejs.org/) (已经支持到 Node 6) 环境
 
 * 使用 [Yoeman](http://yeoman.io/) 脚手架 [generator-workflow](https://github.com/weixin/generator-workflow) 自动安装（推荐）：
 	* `npm install -g generator-workflow`
@@ -92,26 +92,30 @@ project/                          // 项目目录
 │
 ├── src                           // 源文件目录，`gulp build_dev`阶段会监听此目录下的文件变动
 │   ├── css                       // 存放 Less 文件的目录，只有 style-*.less 的文件名会被编译
-│   │ ├── lib-reset.less
-│   │ ├── lib-mixins.less
-│   │ ├── lib-rem.less
-│   │ └── style-index.less        // CSS 编译出口文件
+│   │   └── lib/
+│   │   │   ├── lib-reset.less
+│   │   │   ├── lib-mixins.less
+│   │   │   └── lib-rem.less
+│   │   └── style-index.less        // CSS 编译出口文件
 │   │ 
 │   ├── html
+│   ├── media                     // 存放如 bgm.mp3 媒体文件
 │   ├── img                       // 存放背景图等无需合并雪碧图处理的图片
 │   └── slice                     // 切片图片素材，将会进行雪碧图合并，同名 @2x 图片也会合并
-│       ├── icon-dribbble.png
-│       └── icon-dribbble@2x.png
+│       ├── icon-shake.png
+│       └── icon-shake@2x.png
 │
 ├── dev                           // 开发目录，由 `gulp build_dev` 任务生成
 │   ├── css
 │   ├── html
+│   ├── media
 │   ├── img
 │   └── slice                     // 开发阶段，仅从 src/slice 拷贝至此，不做合并雪碧图处理
 │
 └── dist                          // 生产目录，由 `gulp build_dist` 任务生成
     ├── css
     ├── html
+    ├── media
     ├── img
     └── sprite                    // 将 /src/slice 合并雪碧图，根据 /css 文件名，命名为 style-*.png 
         ├── style-index.png
