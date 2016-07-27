@@ -2,44 +2,49 @@
 
 // 375px (iPhone 6)
 // 此为基准值, 与视觉设计稿 `宽度/2` 保持一致
-html {
+html[data-rem="375"] {
   font-size: 20PX;
 }
 
 // 17.06 = 320*20/375 (iPhone 5)
 @media only screen and (min-width: 320px) {
-  html {
+  html[data-rem="375"] {
     font-size: 17.06PX !important;
   }
 }
 
 // base root size (iPhone 6)
 @media only screen and (min-width: 375px) {
-  html {
+  html[data-rem="375"] {
     font-size: 20PX !important;
   }
 }
 
 // 21.33333333 = 400*20/375 (Most Android)
 @media only screen and (min-width: 400px) {
-  html {
+  html[data-rem="375"] {
     font-size: 21.33333333PX !important;
   }
 }
 
 // 22.08 = 414*20/375 (iPhone 6 Plus)
 @media only screen and (min-width: 414px) {
-  html {
+  html[data-rem="375"] {
     font-size: 22.08PX !important;
   }
 }
 
 // 25.6 = 480*20/375 (iPad)
 @media only screen and (min-width: 480px) {
-  html {
+  html[data-rem="375"] {
     font-size: 25.6PX !important;
   }
 }
+
+// 20*100/375 = 5.333333333 以 375 宽度为基准动态计算
+//html[data-rem="375"] {
+//  font-size: 5.333333333vw;
+//}
 
 // REM 适配, 用法: <html data-rem="320">
 
@@ -76,3 +81,8 @@ html[data-rem="320"] {
     font-size: 30PX !important;
   }
 }
+
+// 20*100/320 = 6.25 以 320 宽度为基准动态计算
+//html[data-rem="320"] {
+//  font-size: 6.25vw;
+//}

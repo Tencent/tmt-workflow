@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="zh-CN">
+<html lang="zh-CN" data-rem="375">
 <head>
     <meta charset="UTF-8">
     <title>tmt-workflow Demo</title>
@@ -25,7 +25,7 @@
 
 <div class="mod-header">
     <div class="mod-header__logo">WeFlow Logo</div>
-    <a class="mod-header__title" href="https://github.com/weixin/tmt-workflow">tmt-workflow Demo</a>
+    <a class="mod-header__title" href="https://github.com/weixin/tmt-workflow/tree/master/project/src" title="点击在 GitHub 查看 Demo 源码">tmt-workflow Demo</a>
     <div class="mod-header__desc">以下为工作流在开发、编译过程中所做的自动化处理</div>
 </div>
 
@@ -46,7 +46,7 @@
     </div>
 
     <div class="mod-example__notes">
-        注: ../slice/ 目录进行雪碧图操作, 2x 图命名为 xxx@2x.png, 如果有对应的 1x 图则会智能生成
+        注: ../slice/ 目录进行雪碧图操作, 需提供 1x 图, 如果有对应 2x、3x 图则会相应生成
     </div>
 
     <div class="mod-example__doc">
@@ -58,11 +58,12 @@
     height: 25px;
     display: inline-block;
 }
+// 书写时调用 1x 图
 .mod-discovery__icon_moment{
-    background-image: url(../slice/mod-discovery/icon-moment@2x.png);
+    background-image: url(../slice/mod-discovery/icon-moment.png);
 }
 .mod-discovery__icon_qrcode{
-    background-image: url(../slice/mod-discovery/icon-qrcode@2x.png);
+    background-image: url(../slice/mod-discovery/icon-qrcode.png);
 }</code></pre>
             </div>
             <div class="mod-example__after">
@@ -323,7 +324,10 @@
 <div class="mod-example">
     <a href="https://github.com/weixin/tmt-workflow/wiki/%E2%92%96-Reversion-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88" target="_blank" class="mod-example__title">REM -> PX 解决方案 (需开启选项)</a>
     <div class="mod-example__notes">
-        注: 单位转换比例为 20:1, 即 20px = 1rem
+        注: 单位转换比例为 20:1, 即 20px = 1rem。
+        <br>
+        开启方式: `&lt;html data-rem=&quot;375&quot;&gt;`
+        依赖: `im`
     </div>
     <div class="mod-example__doc">
         <div class="mod-example__show">
@@ -443,8 +447,9 @@ media/bgm.e20f34.mp3</code></pre>
 <audio src="../media/bgm.mp3" loop id="musicBGM"></audio>
 
 <!--以下为 js 代码压缩指令格式范例-->
+<!-- build:js ../js/build.js -->
 <script type="text/javascript" src="../js/lib/prism.js"></script>
-<script type="text/javascript" src="../js/index.js"></script>
+<!-- endbuild -->
 
 <script type="text/javascript" src="https://pingjs.qq.com/h5/stats.js" name="MTAH5" sid="500140624" ></script>
 </body>
