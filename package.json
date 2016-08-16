@@ -1,6 +1,6 @@
 {
   "name": "tmt-workflow",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "dependencies": {
     "autoprefixer": "^6.3.3",
     "babel-core": "^6.10.4",
