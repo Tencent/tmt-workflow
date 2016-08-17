@@ -5,10 +5,10 @@ module.exports = {
     context: './src',
     entry: {
         'index': './js/index.js',
-        'prism': './js/lib/prism.js'
+        'lib/prism': './js/lib/prism.js'
     },
     output: {
-        path: __dirname,
+        path:__dirname,
         filename: '[name].js'
     },
     module: {
