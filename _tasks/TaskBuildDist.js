@@ -209,6 +209,7 @@ module.exports = function (gulp, config) {
         var revAll = new RevAll({
             fileNameManifest: 'manifest.json',
             dontRenameFile: ['.html', '.php'],
+            dontUpdateReference: ['.html'],
             transformFilename: function (file, hash) {
                 var filename = path.basename(file.path);
                 var ext = path.extname(file.path);
