@@ -110,6 +110,10 @@ module.exports = function (gulp, config) {
         return del([paths.tmp.dir]);
     }
 
+    function delSVG() {
+        return del([paths.tmp.symboltemp]);
+    }
+
     //编译 less
     function compileLess() {
         return gulp.src(paths.src.less)
@@ -132,6 +136,10 @@ module.exports = function (gulp, config) {
     //自动补全
     function compileAutoprefixer() {
         return gulp.src('./tmp/css/style-*.css')
+            .pipe(svgInline({
+                maxImageSize: 10*1024*1024,
+                extensions: [/.svg/ig],
+            }))
             .pipe(postcss(postcssOption))
             .pipe(gulp.dest('./tmp/css/'));
     }
@@ -420,6 +428,7 @@ module.exports = function (gulp, config) {
         svgSymbols,
         reversion,
         supportWebp(),
+        delSVG,
         findChanged,
         loadPlugin
     ));
