@@ -13,6 +13,8 @@ var posthtml = require('gulp-posthtml');  // HTML 预处理
 var sass = require('gulp-sass');
 var webpack = require('webpack-stream');
 var babel = require('gulp-babel');
+var parseSVG = require('./common/parseSVG');
+
 
 var webpackConfigPath = path.join(process.cwd(), 'webpack.config.js');
 var webpackConfig; // webpack 配置
@@ -91,7 +93,7 @@ module.exports = function (gulp, config) {
             .on('error', function (error) {
                 console.log(error.message);
             })
-            .pipe(lazyImageCSS({imagePath: lazyDir}))
+            .pipe(lazyImageCSS({SVGGracefulDegradation: false}))
             .pipe(gulp.dest(paths.dev.css))
             .on('data', function () {
             })
@@ -103,7 +105,7 @@ module.exports = function (gulp, config) {
         return gulp.src(paths.src.sass)
             .pipe(sass())
             .on('error', sass.logError)
-            .pipe(lazyImageCSS({imagePath: lazyDir}))
+            .pipe(lazyImageCSS({SVGGracefulDegradation: false}))
             .pipe(gulp.dest(paths.dev.css))
             .on('data', function () {
             })
@@ -116,6 +118,7 @@ module.exports = function (gulp, config) {
             .pipe(ejs(ejshelper()).on('error', function (error) {
                 console.log(error.message);
             }))
+            .pipe(parseSVG({devPath:'dev',onlyInline:true}))
             .pipe(gulp.dest(paths.dev.html))
             .on('data', function () {
             })
@@ -289,9 +292,9 @@ module.exports = function (gulp, config) {
             // copyJs,
             copyMedia,
             compileLess,
-            compileSass,
-            compileHtml
+            compileSass
         ),
+        compileHtml,
         gulp.parallel(
             watch,
             loadPlugin

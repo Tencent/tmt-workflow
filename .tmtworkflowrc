@@ -40,5 +40,6 @@
 	"supportWebp": false,
 	"supportREM": false,
 	"supportChanged": false,
-	"reversion": true
+	"reversion": true,
+    "SVGGracefulDegradation": true
 }

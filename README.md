@@ -17,6 +17,7 @@
   - [Less/Sass -> CSS](https://github.com/weixin/tmt-workflow/wiki/%E2%92%8C-Less-%E7%BC%96%E8%AF%91)
   - [CSS Autoprefixer 前缀自动补全](https://github.com/weixin/tmt-workflow/wiki/%E2%92%8D-Autoprefixer)
   - [自动生成图片 CSS 属性，width & height 等](https://github.com/weixin/gulp-lazyimagecss)
+  - [自动内联 SVG 到 CSS](https://github.com/weixin/gulp-svg-inline)
   - [CSS 压缩 cssnano](https://github.com/ben-eb/cssnano)
   - [CSS Sprite 雪碧图合成](https://github.com/weixin/tmt-workflow/wiki/%E2%92%8E-CSS-Sprite)
   - [Retina @2x & @3x 自动生成适配](https://github.com/weixin/tmt-workflow/wiki/%E2%92%8E-CSS-Sprite)
@@ -30,6 +31,7 @@
 - 解决方案集成
   - [px -> rem 兼容适配方案](https://github.com/weixin/tmt-workflow/wiki/%E2%92%94-REM-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88)
   - [智能 WebP 解决方案](https://github.com/weixin/tmt-workflow/wiki/%E2%92%95-WEBP-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88)
+  - [SVG 整体解决方案](https://github.com/weixin/tmt-workflow/wiki/404)
   - [去缓存文件 Reversion (MD5) 解决方案](https://github.com/weixin/tmt-workflow/wiki/%E2%92%96-Reversion-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88)
 
 ## 快速开始
@@ -190,6 +192,7 @@ _注：浏览器刷新功能可在 `.tmtworkflowrc` 中进行配置_
 - LESS/EJS 编译
 - CSS/JS/IMG 压缩合并
 - slice 图片合并成雪碧图
+- SVG 内联压缩打包合并
 - 文件添加版本号
 - WebP 图片支持
 
