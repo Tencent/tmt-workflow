@@ -95,7 +95,7 @@
             <div class="mod-sticker__list-border">
                 <div>内联到HTML 动画需求</div>
                 <div class="mod-header__desc">在src中链接的最后加?i</div>
-                <img id="svg4" class="cas3" src="../img/svgicon/ts.svg?i" alt="">
+                <img id="svg4" class="cas3" src="../img/svgicon/translate.svg?i" alt="">
             </div>
             <div class="mod-sticker__list-border">
                 <div>合并SYMBOL   <button id="svgToggleColor" class="mod-example__svg-button">换色</button>需求</div>
@@ -145,6 +145,16 @@
         togglecolor('svg6');
         togglecolor('svg7');
         togglecolor('svg8');
+    }
+    window.onload = function(){
+        var tral = 0;
+        setInterval(function(){
+            tral = tral + 2;
+            if(tral == 30){tral = 0;}
+            document.querySelector('[data-id="t1"]').style.transform = 'translate('+ tral +'px,0)';
+            document.querySelector('[data-id="t2"]').style.transform = 'translate('+ (-tral) +'px,0)';
+        },10)
+        
     }
 </script>
 </body>
