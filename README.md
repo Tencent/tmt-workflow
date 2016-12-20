@@ -31,7 +31,7 @@
 - 解决方案集成
   - [px -> rem 兼容适配方案](https://github.com/weixin/tmt-workflow/wiki/%E2%92%94-REM-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88)
   - [智能 WebP 解决方案](https://github.com/weixin/tmt-workflow/wiki/%E2%92%95-WEBP-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88)
-  - [SVG 整体解决方案](https://github.com/weixin/tmt-workflow/wiki/404)
+  - [SVG 整体解决方案](https://github.com/weixin/tmt-workflow/wiki/%E2%92%9A-SVG%E6%95%B4%E4%BD%93%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88)
   - [去缓存文件 Reversion (MD5) 解决方案](https://github.com/weixin/tmt-workflow/wiki/%E2%92%96-Reversion-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88)
 
 ## 快速开始
