@@ -128,7 +128,11 @@ module.exports = function (options) {
                 }else{
                     if(!mkdirone){
                         mkdirone = true;
-                        fs.mkdir(process.cwd() + '/'+ options.devPath +'/symboltemp');
+                        fs.exists(process.cwd() + '/'+ options.devPath +'/symboltemp',function(exists){
+                            if(!exists){
+                                fs.mkdir(process.cwd() + '/'+ options.devPath +'/symboltemp');
+                            }
+                        });
                     }
                     regData = contents.match(marchRegInline);
                     contents = run(regData,contents,marchRegInline);

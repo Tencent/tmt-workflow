@@ -74,28 +74,41 @@
 </div>
 
 <div class="mod-example">
-    <div class="mod-example__title">普通图片调用</div>
+    <div class="mod-example__title">SVG调用 - 作为背景图</div>
     <div class="mod-example__preview">
         <div class="mod-sticker">
             <div class="mod-sticker__list">
-                <p>作为背景图</p>
                 <div class="mod-social-media mod-svg__background-icon"></div>
-            </div>
-            <div class="mod-sticker__list">
-                <p>内联到HTML</p>
-                <img id="svg3" class="cas3" src="../img/svgicon/ts.svg?i" alt="">
-                <img id="svg3" class="cas3" src="../img/svgicon/ts.svg" alt="">
-            </div>
-            <div class="mod-sticker__list">
-                <p>合并SYMBOL</p>
-                <img id="svg2" class="cas2" src="../img/svgicon/4g.svg?s" alt="">
-                <img id="svg2" class="cas2" src="../img/svgicon/12w.svg?s" alt="">
-                <img id="svg2" class="cas2" src="../img/svgicon/bl.svg?s" alt="">
-                <img id="svg2" class="cas2" src="../img/svgicon/ss.svg?s" alt="">
             </div>
         </div>
     </div>
 </div>
+
+<div class="mod-example">
+    <div class="mod-example__title">SVG调用 - 在HTML使用</div>
+    <div class="mod-example__preview">
+        <div class="mod-sticker">
+            <div class="mod-sticker__list-border">
+                <div>HTML直接引用</div>
+                <img src="../img/svgicon/ts.svg" alt="">
+            </div>
+            <div class="mod-sticker__list-border">
+                <div>内联到HTML 动画需求</div>
+                <div class="mod-header__desc">在src中链接的最后加?i</div>
+                <img id="svg4" class="cas3" src="../img/svgicon/ts.svg?i" alt="">
+            </div>
+            <div class="mod-sticker__list-border">
+                <div>合并SYMBOL   <button id="svgToggleColor" class="mod-example__svg-button">换色</button>需求</div>
+                <div class="mod-header__desc">在src中链接的最后加?s</div>
+                <img id="svg5" class="mod-example__svg-red" src="../img/svgicon/4g.svg?s" alt="">
+                <img id="svg6" class="mod-example__svg-red" src="../img/svgicon/12w.svg?s" alt="">
+                <img id="svg7" class="mod-example__svg-red" src="../img/svgicon/bl.svg?s" alt="">
+                <img id="svg8" class="mod-example__svg-red" src="../img/svgicon/ss.svg?s" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 <div class="mod-footer">
@@ -114,5 +127,25 @@
 <!-- endbuild -->
 
 <script type="text/javascript" src="https://pingjs.qq.com/h5/stats.js" name="MTAH5" sid="500140624" ></script>
+<script type="text/javascript">
+    var ys = 0;
+    document.getElementById('svgToggleColor').onclick = function(){
+        function togglecolor(id){
+            if(!(ys%2)){
+                document.getElementById(id).className.baseVal = 'mod-example__svg-red';
+                document.getElementById(id).className.animVal = 'mod-example__svg-red';
+            }else{
+                document.getElementById(id).className.baseVal = 'mod-example__svg-blue';
+                document.getElementById(id).className.animVal = 'mod-example__svg-blue';
+            }
+        }
+        ys++;
+
+        togglecolor('svg5');
+        togglecolor('svg6');
+        togglecolor('svg7');
+        togglecolor('svg8');
+    }
+</script>
 </body>
 </html>

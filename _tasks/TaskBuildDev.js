@@ -14,6 +14,8 @@ var sass = require('gulp-sass');
 var webpack = require('webpack-stream');
 var babel = require('gulp-babel');
 var parseSVG = require('./common/parseSVG');
+var svgSymbol = require('gulp-svg-sprite');
+var rename = require('gulp-rename');
 
 
 var webpackConfigPath = path.join(process.cwd(), 'webpack.config.js');
@@ -43,7 +45,10 @@ var paths = {
         dir: './dev',
         css: './dev/css',
         html: './dev/html',
-        js: './dev/js'
+        js: './dev/js',
+        symboltemp:'./dev/symboltemp/',
+        symbol:'./dev/symbolsvg'
+
     }
 };
 
@@ -118,7 +123,7 @@ module.exports = function (gulp, config) {
             .pipe(ejs(ejshelper()).on('error', function (error) {
                 console.log(error.message);
             }))
-            .pipe(parseSVG({devPath:'dev',onlyInline:true}))
+            .pipe(parseSVG({devPath:'dev'}))
             .pipe(gulp.dest(paths.dev.html))
             .on('data', function () {
             })
@@ -177,6 +182,13 @@ module.exports = function (gulp, config) {
                     del([tmp]);
                 } else {
                     copyHandler('img', file);
+                    compileHtml();
+                    setTimeout(function(){
+                        svgSymbols();
+                        setTimeout(function(){
+                            reloadHandler();
+                        },300)
+                    },300)
                 }
                 break;
 
@@ -245,6 +257,29 @@ module.exports = function (gulp, config) {
 
     };
 
+    function svgSymbols(){
+        return gulp.src(paths.dev.symboltemp + '**/*.svg')
+            .pipe(svgSymbol({
+                mode:{
+                    inline:true,
+                    symbol:true
+                },
+                shape:{
+                    id:{
+                        generator:function(id){
+                            var ids = id.replace(/.svg/ig,'');
+                            return ids;
+                        }
+                    }
+                }
+            }))
+            .pipe(rename(function (path){
+                path.dirname = './';
+                path.basename = 'symbol';
+            }))
+            .pipe(gulp.dest(paths.dev.symbol))
+    }
+
     //监听文件
     function watch(cb) {
         var watcher = gulp.watch([
@@ -295,6 +330,7 @@ module.exports = function (gulp, config) {
             compileSass
         ),
         compileHtml,
+        svgSymbols,
         gulp.parallel(
             watch,
             loadPlugin
