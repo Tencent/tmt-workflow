@@ -45,7 +45,10 @@
     "rc": "^1.1.6",
     "rd": "^0.0.2",
     "svg-to-png": "^3.1.2",
+    "through2": "^2.0.3",
     "tmt-ejs-helper": "^0.0.1",
+    "vinyl": "^2.0.1",
+    "webpack": "^2.2.1",
     "webpack-stream": "^3.2.0"
   },
   "description": "A f2e project workflow based on Gulp",
