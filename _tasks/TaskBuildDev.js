@@ -39,6 +39,7 @@ var paths = {
         sass: './src/css/style-*.scss',
         sassAll: './src/css/**/*.scss',
         html: ['./src/html/**/*.html', '!./src/html/_*/**.html', '!./src/html/_*/**/**.html'],
+        svg:['./src/svg/**/*.svg','!./src/html'],
         htmlAll: './src/html/**/*.html'
     },
     dev: {
@@ -55,7 +56,7 @@ var paths = {
 
 module.exports = function (gulp, config) {
 
-    var lazyDir = config.lazyDir || ['../slice'];
+    var lazyDir = config.lazyDir || ['../slice','../svg'];
 
     // 复制操作
     var copyHandler = function (type, file) {
@@ -85,6 +86,10 @@ module.exports = function (gulp, config) {
         return copyHandler('slice');
     }
 
+    function copySvg() {
+        return copyHandler('svg');
+    }
+
     function copyMedia() {
         return copyHandler('media');
     }
@@ -98,7 +103,7 @@ module.exports = function (gulp, config) {
             .on('error', function (error) {
                 console.log(error.message);
             })
-            .pipe(lazyImageCSS({SVGGracefulDegradation: false}))
+            .pipe(lazyImageCSS({SVGGracefulDegradation: false,imagePath: lazyDir}))
             .pipe(gulp.dest(paths.dev.css))
             .on('data', function () {
             })
@@ -110,7 +115,7 @@ module.exports = function (gulp, config) {
         return gulp.src(paths.src.sass)
             .pipe(sass())
             .on('error', sass.logError)
-            .pipe(lazyImageCSS({SVGGracefulDegradation: false}))
+            .pipe(lazyImageCSS({SVGGracefulDegradation: false,imagePath: lazyDir}))
             .pipe(gulp.dest(paths.dev.css))
             .on('data', function () {
             })
@@ -324,6 +329,7 @@ module.exports = function (gulp, config) {
             copyImg,
             copySlice,
             compileJs,
+            copySvg,
             // copyJs,
             copyMedia,
             compileLess,

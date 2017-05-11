@@ -56,7 +56,7 @@ var paths = {
         html: ['./src/html/**/*.html', '!./src/html/_*/**.html'],
         htmlAll: './src/html/**/*',
         php: './src/**/*.php',
-        svg: './src/img/**/*.svg'
+        svg: './src/svg/**/*.svg'
     },
     tmp: {
         dir: './tmp',
@@ -65,7 +65,7 @@ var paths = {
         html: './tmp/html',
         sprite: './tmp/sprite',
         js: './tmp/js',
-        svg: './tmp/img',
+        svg: './tmp/svg',
         symboltemp:'./tmp/symboltemp/',
         symbol:'./tmp/symbolsvg'
     },
@@ -73,6 +73,7 @@ var paths = {
         dir: './dist',
         css: './dist/css',
         img: './dist/img',
+        img: './dist/svg',
         html: './dist/html',
         sprite: './dist/sprite'
     }
@@ -81,7 +82,7 @@ var paths = {
 module.exports = function (gulp, config) {
     var webp = require('./common/webp')(config);
 
-    var lazyDir = config.lazyDir || ['../slice'];
+    var lazyDir = config.lazyDir || ['../slice','../svg'];
 
     var postcssOption = [];
 
@@ -118,7 +119,7 @@ module.exports = function (gulp, config) {
     function compileLess() {
         return gulp.src(paths.src.less)
             .pipe(less({relativeUrls: true}))
-            .pipe(lazyImageCSS({SVGGracefulDegradation:config.SVGGracefulDegradation}))
+            .pipe(lazyImageCSS({SVGGracefulDegradation:config.SVGGracefulDegradation,imagePath: lazyDir}))
             .pipe(tmtsprite({margin: 4}))
             .pipe(gulpif('*.png', gulp.dest(paths.tmp.sprite), gulp.dest(paths.tmp.css)));
     }
@@ -128,7 +129,7 @@ module.exports = function (gulp, config) {
         return gulp.src(paths.src.sass)
             .pipe(sass())
             .on('error', sass.logError)
-            .pipe(lazyImageCSS({SVGGracefulDegradation:config.SVGGracefulDegradation}))
+            .pipe(lazyImageCSS({SVGGracefulDegradation:config.SVGGracefulDegradation,imagePath: lazyDir}))
             .pipe(tmtsprite({margin: 4}))
             .pipe(gulpif('*.png', gulp.dest(paths.tmp.sprite), gulp.dest(paths.tmp.css)));
     }
