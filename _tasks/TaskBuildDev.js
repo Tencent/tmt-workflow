@@ -39,7 +39,7 @@ var paths = {
         sass: './src/css/style-*.scss',
         sassAll: './src/css/**/*.scss',
         html: ['./src/html/**/*.html', '!./src/html/_*/**.html', '!./src/html/_*/**/**.html'],
-        svg:['./src/svg/**/*.svg','!./src/html'],
+        svg:['./src/svg/**/*.svg'],
         htmlAll: './src/html/**/*.html'
     },
     dev: {
@@ -188,6 +188,17 @@ module.exports = function (gulp, config) {
                 } else {
                     copyHandler('img', file);
                     compileHtml();
+                }
+                break;
+
+            case 'svg':
+                if (type === 'removed') {
+                    var tmp = file.replace(/src/, 'dev');
+                    del([tmp]);
+                } else {
+                    copyHandler('svg', file);
+                    compileLess();
+                    compileHtml();
                     setTimeout(function(){
                         svgSymbols();
                         setTimeout(function(){
@@ -289,6 +300,7 @@ module.exports = function (gulp, config) {
     function watch(cb) {
         var watcher = gulp.watch([
                 paths.src.img,
+                paths.src.svg,
                 paths.src.slice,
                 paths.src.js,
                 paths.src.media,
