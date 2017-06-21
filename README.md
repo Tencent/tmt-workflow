@@ -1,11 +1,8 @@
-# tmt-workflow [![Version Number](https://img.shields.io/npm/v/generator-workflow.svg?style=flat)](https://github.com/weixin/tmt-workflow/ "Version Number")
+# tmt-workflow [![Version Number](https://img.shields.io/npm/v/generator-workflow.svg?style=flat)](https://github.com/Tencent/tmt-workflow/ "Version Number")
 
-[![Build Status](https://travis-ci.org/weixin/tmt-workflow.svg)](https://travis-ci.org/weixin/tmt-workflow "Build Status")
+[![Build Status](https://travis-ci.org/Tencent/tmt-workflow.svg)](https://travis-ci.org/weixin/tmt-workflow "Build Status")
 [![Win Build status](https://img.shields.io/appveyor/ci/littledu/tmt-workflow.svg?label=Win%20build&style=flat)](https://ci.appveyor.com/project/littledu/tmt-workflow) 
 [![devDependencies](https://img.shields.io/david/dev/weixin/tmt-workflow.svg?style=flat)](https://ci.appveyor.com/project/weixin/tmt-workflow "devDependencies") 
-
-[![Join the chat at https://gitter.im/weixin/tmt-workflow](https://badges.gitter.im/Join%20Chat.svg?style=flat)](https://gitter.im/TmT?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![TmT Name](https://img.shields.io/badge/Team-TmT-brightgreen.svg?style=flat)](https://github.com/orgs/TmT/people "Tencent Moe Team") 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://opensource.org/licenses/MIT "Feel free to contribute.") 
 
 > 一个基于 [Gulp(v4.0)](https://github.com/gulpjs/gulp/tree/4.0)、高效、跨平台(macOS & Win)、可定制的前端工作流程。  
@@ -14,25 +11,25 @@
 ## 功能特性
 
 - 自动化流程
-  - [Less/Sass -> CSS](https://github.com/weixin/tmt-workflow/wiki/%E2%92%8C-Less-%E7%BC%96%E8%AF%91)
-  - [CSS Autoprefixer 前缀自动补全](https://github.com/weixin/tmt-workflow/wiki/%E2%92%8D-Autoprefixer)
-  - [自动生成图片 CSS 属性，width & height 等](https://github.com/weixin/gulp-lazyimagecss)
-  - [自动内联 SVG 到 CSS](https://github.com/weixin/gulp-svg-inline)
+  - [Less/Sass -> CSS](https://github.com/Tencent/tmt-workflow/wiki/%E2%92%8C-Less-%E7%BC%96%E8%AF%91)
+  - [CSS Autoprefixer 前缀自动补全](https://github.com/Tencent/tmt-workflow/wiki/%E2%92%8D-Autoprefixer)
+  - [自动生成图片 CSS 属性，width & height 等](https://github.com/Tencent/gulp-lazyimagecss)
+  - [自动内联 SVG 到 CSS](https://github.com/Tencent/gulp-svg-inline)
   - [CSS 压缩 cssnano](https://github.com/ben-eb/cssnano)
-  - [CSS Sprite 雪碧图合成](https://github.com/weixin/tmt-workflow/wiki/%E2%92%8E-CSS-Sprite)
-  - [Retina @2x & @3x 自动生成适配](https://github.com/weixin/tmt-workflow/wiki/%E2%92%8E-CSS-Sprite)
+  - [CSS Sprite 雪碧图合成](https://github.com/Tencent/tmt-workflow/wiki/%E2%92%8E-CSS-Sprite)
+  - [Retina @2x & @3x 自动生成适配](https://github.com/Tencent/tmt-workflow/wiki/%E2%92%8E-CSS-Sprite)
   - [imagemin 图片压缩](https://github.com/sindresorhus/gulp-imagemin)
-  - [JS 合并压缩](https://github.com/weixin/tmt-workflow/wiki/%E2%92%8F-JS-%E5%90%88%E5%B9%B6%E5%8E%8B%E7%BC%A9)
-  - [EJS 模版语言](https://github.com/weixin/tmt-workflow/wiki/%E2%92%90-EJS-%E6%A8%A1%E7%89%88%E8%AF%AD%E8%A8%80)  
+  - [JS 合并压缩](https://github.com/Tencent/tmt-workflow/wiki/%E2%92%8F-JS-%E5%90%88%E5%B9%B6%E5%8E%8B%E7%BC%A9)
+  - [EJS 模版语言](https://github.com/Tencent/tmt-workflow/wiki/%E2%92%90-EJS-%E6%A8%A1%E7%89%88%E8%AF%AD%E8%A8%80)  
 - 调试 & 部署
-  - [监听文件变动，自动刷新浏览器 (LiveReload)](https://github.com/weixin/tmt-workflow/wiki/%E2%92%91-LiveReload)
-  - [FTP 发布部署](https://github.com/weixin/tmt-workflow/wiki/%E2%92%92-FTP-%E5%8F%91%E5%B8%83%E9%83%A8%E7%BD%B2)
-  - [ZIP 项目打包](https://github.com/weixin/tmt-workflow/wiki/%E2%92%93-ZIP-%E6%89%93%E5%8C%85)
+  - [监听文件变动，自动刷新浏览器 (LiveReload)](https://github.com/Tencent/tmt-workflow/wiki/%E2%92%91-LiveReload)
+  - [FTP 发布部署](https://github.com/Tencent/tmt-workflow/wiki/%E2%92%92-FTP-%E5%8F%91%E5%B8%83%E9%83%A8%E7%BD%B2)
+  - [ZIP 项目打包](https://github.com/Tencent/tmt-workflow/wiki/%E2%92%93-ZIP-%E6%89%93%E5%8C%85)
 - 解决方案集成
-  - [px -> rem 兼容适配方案](https://github.com/weixin/tmt-workflow/wiki/%E2%92%94-REM-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88)
-  - [智能 WebP 解决方案](https://github.com/weixin/tmt-workflow/wiki/%E2%92%95-WEBP-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88)
-  - [SVG 整体解决方案](https://github.com/weixin/tmt-workflow/wiki/%E2%92%9A-SVG%E6%95%B4%E4%BD%93%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88)
-  - [去缓存文件 Reversion (MD5) 解决方案](https://github.com/weixin/tmt-workflow/wiki/%E2%92%96-Reversion-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88)
+  - [px -> rem 兼容适配方案](https://github.com/Tencent/tmt-workflow/wiki/%E2%92%94-REM-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88)
+  - [智能 WebP 解决方案](https://github.com/Tencent/tmt-workflow/wiki/%E2%92%95-WEBP-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88)
+  - [SVG 整体解决方案](https://github.com/Tencent/tmt-workflow/wiki/%E2%92%9A-SVG%E6%95%B4%E4%BD%93%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88)
+  - [去缓存文件 Reversion (MD5) 解决方案](https://github.com/Tencent/tmt-workflow/wiki/%E2%92%96-Reversion-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88)
 
 ## 快速开始
 
@@ -44,7 +41,7 @@
 	
 * 直接下载安装：
 	1. 全局安装 [Gulp 4](https://github.com/gulpjs/gulp/tree/4.0)，执行：`npm install gulpjs/gulp#4.0 -g`
-	2. 点击下载 [tmt-workflow](https://github.com/weixin/tmt-workflow/archive/master.zip)，进入根目录执行： `npm install`
+	2. 点击下载 [tmt-workflow](https://github.com/Tencent/tmt-workflow/archive/master.zip)，进入根目录执行： `npm install`
 
 > 注1：[Gulp 4](https://github.com/gulpjs/gulp/tree/4.0) 目前 [尚未正式发布](https://github.com/gulpjs/gulp/blob/4.0/CHANGELOG.md)，Windows 用户请先安装 [git](http://git-scm.com/)，  
 > 然后在 [Git Bash](http://git-for-windows.github.io/) 下执行 `npm install` 即可（非 `CMD`）。 
@@ -126,7 +123,7 @@ project/                          // 项目目录
 
 ## 配置文件 `.tmtworkflowrc`
 
-`.tmtworkflowrc` 配置文件为**隐藏文件**，位于工作流根目录，可存放配置信息或开启相关功能，[详见WiKi](https://github.com/weixin/tmt-workflow/wiki/%E2%92%8A-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E)。  
+`.tmtworkflowrc` 配置文件为**隐藏文件**，位于工作流根目录，可存放配置信息或开启相关功能，[详见WiKi](https://github.com/Tencent/tmt-workflow/wiki/%E2%92%8A-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E)。  
 _如：FTP 配置信息、开启 WebP功能，开启 REM 支持等。_
 
 ```bash
@@ -206,7 +203,7 @@ _注：浏览器刷新功能可在 `.tmtworkflowrc` 中进行配置_
 
 将 `gulp build_dist` 生成 `dist` 目录压缩成 `zip` 格式。
 
-更多详细说明 [参见 WiKi](https://github.com/weixin/tmt-workflow/wiki/%E2%92%8B-%E4%BB%BB%E5%8A%A1%E4%BB%8B%E7%BB%8D)
+更多详细说明 [参见 WiKi](https://github.com/Tencent/tmt-workflow/wiki/%E2%92%8B-%E4%BB%BB%E5%8A%A1%E4%BB%8B%E7%BB%8D)
 
 ## 使用预览
 
@@ -220,12 +217,14 @@ _注：浏览器刷新功能可在 `.tmtworkflowrc` 中进行配置_
 
 `tmt-workflow` 具有良好的`定制性`和`扩展性`，用户可针对自身团队的具体需求，参看以下文档进行定制：
 
-* [任务的动态加载机制（高级）](https://github.com/weixin/tmt-workflow/wiki/%E2%92%97-%E4%BB%BB%E5%8A%A1%E7%9A%84%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89)
-* [自定义任务（高级）](https://github.com/weixin/tmt-workflow/wiki/%E2%92%98-%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%BB%E5%8A%A1%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89)
-* [自定义插件（高级](https://github.com/weixin/tmt-workflow/wiki/%E2%92%99-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89)
+* [任务的动态加载机制（高级）](https://github.com/Tencent/tmt-workflow/wiki/%E2%92%97-%E4%BB%BB%E5%8A%A1%E7%9A%84%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89)
+* [自定义任务（高级）](https://github.com/Tencent/tmt-workflow/wiki/%E2%92%98-%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%BB%E5%8A%A1%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89)
+* [自定义插件（高级](https://github.com/Tencent/tmt-workflow/wiki/%E2%92%99-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6%EF%BC%88%E9%AB%98%E7%BA%A7%EF%BC%89)
 
 ## 参与贡献
  
-如果有 `Bug反馈` 或 `功能建议`，请创建 [Issue](https://github.com/weixin/tmt-workflow/issues) 或发送 [Pull Request](https://github.com/weixin/tmt-workflow/pulls)，感谢你的参与和贡献。
+如果有 `Bug反馈` 或 `功能建议`，请创建 [Issue](https://github.com/Tencent/tmt-workflow/issues) 或发送 [Pull Request](https://github.com/Tencent/tmt-workflow/pulls)，感谢你的参与和贡献。
 
-[WeFlow]: http://weflow.io/
+## License
+
+所有代码采用 [MIT License](http://opensource.org/licenses/MIT) 开源，可根据自身团队和项目特点 `fork` 进行定制。
