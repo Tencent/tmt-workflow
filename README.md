@@ -1,6 +1,6 @@
 # tmt-workflow [![Version Number](https://img.shields.io/npm/v/generator-workflow.svg?style=flat)](https://github.com/Tencent/tmt-workflow/ "Version Number")
 
-[![Build Status](https://travis-ci.org/weixin/tmt-workflow.svg)](https://travis-ci.org/weixin/tmt-workflow "Build Status")
+[![Build Status](https://api.travis-ci.org/Tencent/tmt-workflow.svg)](https://travis-ci.org/Tencent/tmt-workflow "Build Status")
 [![Win Build status](https://img.shields.io/appveyor/ci/littledu/tmt-workflow.svg?label=Win%20build&style=flat)](https://ci.appveyor.com/project/littledu/tmt-workflow) 
 [![devDependencies](https://img.shields.io/david/dev/weixin/tmt-workflow.svg?style=flat)](https://ci.appveyor.com/project/weixin/tmt-workflow "devDependencies") 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://opensource.org/licenses/MIT "Feel free to contribute.") 
