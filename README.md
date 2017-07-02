@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://opensource.org/licenses/MIT "Feel free to contribute.") 
 
 > 一个基于 [Gulp(v4.0)](https://github.com/gulpjs/gulp/tree/4.0)、高效、跨平台(macOS & Win)、可定制的前端工作流程。  
-> 现已推出 GUI 桌面工具：[WeFlow]，无需安装任何环境依赖即可使用，官网下载：http://weflow.io/
+> 现已推出 GUI 桌面工具：[WeFlow](http://weflow.io/)，无需安装任何环境依赖即可使用，官网下载：http://weflow.io/
 
 ## 功能特性
 
@@ -33,7 +33,7 @@
 
 ## 快速开始
 
-以下 2 种方式任选，请确保已安装 [Node.js](https://nodejs.org/) (已经支持到 Node 6) 环境
+以下 2 种方式任选，请确保已安装 [Node.js](https://nodejs.org/) (如：node 5.10.0，已经支持到 Node 6) 环境
 
 * 使用 [Yoeman](http://yeoman.io/) 脚手架 [generator-workflow](https://github.com/weixin/generator-workflow) 自动安装（推荐）：
 	* `npm install -g generator-workflow`
