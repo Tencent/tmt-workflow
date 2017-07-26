@@ -98,8 +98,8 @@ project/                          // 项目目录
 │   │   └── style-index.less        // CSS 编译出口文件
 │   │ 
 │   ├── html
-│   ├── media                     // 存放如 bgm.mp3 媒体文件
-│   ├── img                       // 存放背景图等无需合并雪碧图处理的图片
+│   ├── media                     // 存放媒体文件，如 bgm.mp3 abc.font 1.mp4 等
+│   ├── img                       // 存放背景图等无需合并雪碧图处理的图片
 │   └── slice                     // 切片图片素材，将会进行雪碧图合并，同名 @2x 图片也会合并
 │       ├── icon-shake.png
 │       └── icon-shake@2x.png
