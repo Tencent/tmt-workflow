@@ -253,12 +253,12 @@
             <div class="mod-example__before">
                 <div class="mod-example__doc-title">源文件 (src)</div>
 <pre><code class="language-css">.mod-example{
-	text-align: center;
-	margin-bottom: 40px;
+    text-align: center;
+    margin-bottom: 40px;
 }
 .mod-example__title{
-	display: inline-block;
-	font-size: 18px;
+    display: inline-block;
+    font-size: 18px;
 }</code></pre>
             </div>
             <div class="mod-example__after">
@@ -396,21 +396,33 @@ h1 {
         <div class="mod-example__show">
             <div class="mod-example__before">
                 <div class="mod-example__doc-title">源文件 (src)</div>
-<pre><code class="language-js">html/index.html
-css/style-index.css
-img/bg-body.png
-sprite/style-index.png
-sprite/style-index@2x.png
-media/bgm.mp3</code></pre>
+                <pre><code class="language-js">
+// 原始 CSS 版本
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; data-href=&quot;../css/style-doc.css&quot;&gt;
+// 普通 CSS 文件 ../css/style-doc.css
+.mod-text{
+    background-image: url(../img/1.png);
+}
+.mod-discovery__icon_moment {
+    background-image: url(../sprite/style-doc@2x.2185f236.png);
+}
+</code></pre>
             </div>
             <div class="mod-example__after">
                 <div class="mod-example__doc-title">编译后 (dist)</div>
-                <pre><code class="language-js">html/index.html
-css/style-index.e72b382a.css
-img/bg-body.131a8d26.png
-sprite/style-index.0e41255a.png
-sprite/style-index@2x.2eaf5fed.png
-media/bgm.e20f34.mp3</code></pre>
+                <pre><code class="language-js">// 自动替换 CSS 为 WebP 版本
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; data-href=&quot;../css/style-doc.css&quot; href=&quot;../css/style-doc.webp.css&quot;&gt;
+// 判断当前浏览器是否支持 WebP
+&lt;script&gt;function webpsupport(a){var c=window.localStorage;if(typeof a!=&quot;function&quot;){a=function(){}}if(c!=undefined&amp;&amp;c._tmtwebp!=undefined&amp;&amp;c._tmtwebp==0){a();return false}else{if(c!=undefined&amp;&amp;c._tmtwebp!=undefined&amp;&amp;c._tmtwebp==1){a(1);return true}else{var f=new Image();f.onload=f.onerror=function(){if(f.height!=2){if(c!=undefined){c._tmtwebp=0}a();return false}else{if(c!=undefined){c._tmtwebp=1}a(1);return true}};f.src=&quot;data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA&quot;}}};;(function(){function b(t){var f=document.getElementsByTagName(&quot;link&quot;);for(var e=0,d=f.length;e&lt;d;e++){if(t){f[e].href=f[e].getAttribute(&quot;data-href&quot;).replace(&quot;.css&quot;,&quot;.webp.css&quot;);}else{f[e].href=f[e].getAttribute(&quot;data-href&quot;)}}}webpsupport(b);})();&lt;/script&gt;&lt;script&gt;window.imgMap = {&quot;style-doc.c37f3134.png&quot;:1,&quot;style-doc@2x.2185f236.png&quot;:1,&quot;style-index.0d81f1de.png&quot;:1,&quot;style-index@2x.ce40c0a0.png&quot;:1,&quot;style-index@3x.11d4f2a0.png&quot;:1,&quot;bg-body.48508064.png&quot;:1,&quot;weflow-logo.c976aa23.png&quot;:1}&lt;/script&gt;
+
+// WebP 版本的 CSS 文件 ../css/style-doc.webp.css
+.mod-text{
+    background-image: url(../img/1.webp);
+}
+.mod-discovery__icon_moment {
+    background-image: url(../sprite/style-doc@2x.2185f236.webp);
+}
+    </code></pre>
             </div>
         </div>
     </div>
@@ -447,7 +459,9 @@ media/bgm.e20f34.mp3</code></pre>
 <audio src="../media/bgm.mp3" loop id="musicBGM"></audio>
 
 <!--以下为 js 代码压缩指令格式范例-->
+<!-- build:js ../js/build.js -->
 <script type="text/javascript" src="../js/lib/prism.js"></script>
+<!-- endbuild -->
 
 <script type="text/javascript" src="https://pingjs.qq.com/h5/stats.js" name="MTAH5" sid="500140624" ></script>
 </body>
