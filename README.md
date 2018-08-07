@@ -223,7 +223,9 @@ _注：浏览器刷新功能可在 `.tmtworkflowrc` 中进行配置_
 
 ## 参与贡献
  
-如果有 `Bug反馈` 或 `功能建议`，请创建 [Issue](https://github.com/Tencent/tmt-workflow/issues) 或发送 [Pull Request](https://github.com/Tencent/tmt-workflow/pulls)，感谢你的参与和贡献。
+如果你有 `Bug反馈` 或 `功能建议`，请创建 [Issue](https://github.com/Tencent/tmt-workflow/issues) 或发送 [Pull Request](https://github.com/Tencent/tmt-workflow/pulls)，非常感谢。
+
+[腾讯开源激励计划](https://opensource.tencent.com/contribution) 鼓励开发者的参与和贡献，期待你的加入。
 
 ## License
 
