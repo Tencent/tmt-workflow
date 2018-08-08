@@ -33,12 +33,8 @@
 
 ## 快速开始
 
-以下 2 种方式任选，请确保已安装 [Node.js](https://nodejs.org/) (如：node 5.10.0，已经支持到 Node 6) 环境
+请确保已安装 [Node.js](https://nodejs.org/) (已支持到最新版，如：v8,v10) 
 
-* 使用 [Yoeman](http://yeoman.io/) 脚手架 [generator-workflow](https://github.com/weixin/generator-workflow) 自动安装（推荐）：
-	* `npm install -g generator-workflow`
-	* `yo workflow`
-	
 * 直接下载安装：
 	1. 全局安装 [Gulp 4](https://github.com/gulpjs/gulp/tree/4.0)，执行：`npm install gulpjs/gulp#4.0 -g`
 	2. 点击下载 [tmt-workflow](https://github.com/Tencent/tmt-workflow/archive/master.zip)，进入根目录执行： `npm install`
