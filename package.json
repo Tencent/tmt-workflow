@@ -11,7 +11,7 @@
     "cheerio": "^0.22.0",
     "crypto-md5": "^1.0.0",
     "del": "^2.2.0",
-    "gulp": "git://github.com/gulpjs/gulp#4.0",
+    "gulp": "^4.0.0",
     "gulp-babel": "^6.1.2",
     "gulp-cssnano": "^2.1.1",
     "gulp-ejs": "^2.1.1",
