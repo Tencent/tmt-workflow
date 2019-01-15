@@ -17,7 +17,7 @@ addons:
     packages:
     - g++-4.8
 before_script:
-  - npm install -g gulpjs/gulp#4.0
+  - npm install -g gulp
   - cd project
   - npm install
 script: gulp build_dist

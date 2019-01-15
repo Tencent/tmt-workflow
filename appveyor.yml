@@ -15,7 +15,7 @@ install:
   # Get the latest stable version of Node.js or io.js
   - ps: Install-Product node $env:nodejs_version
   - npm cache clean
-  - npm install -g gulpjs/gulp#4.0
+  - npm install -g gulp
   # install modules
   - npm install
 
