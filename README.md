@@ -35,11 +35,10 @@
 
 请确保已安装 [Node.js](https://nodejs.org/) (已支持到最新版，如：v5+, v8, v10 等) 
 
-1. 全局安装 [Gulp 4](https://github.com/gulpjs/gulp)，执行：`npm install gulp -g` 或者 `npm install gulp@next -g`
+1. 全局安装 [Gulp 4](https://github.com/gulpjs/gulp)，执行：`npm install gulp-cli -g`
 2. 点击下载 [tmt-workflow](https://github.com/Tencent/tmt-workflow/archive/master.zip)，进入根目录执行： `npm install`
 
-> 注1：[Gulp](https://github.com/gulpjs/gulp) 正式版已经升级到 4.0，Windows 用户请先安装 [git](http://git-scm.com/)，  
-> 然后在 [Git Bash](http://git-for-windows.github.io/) 下执行 `npm install` 即可（非 `CMD`）。 
+> 注1：Windows 用户请先安装 [git](http://git-scm.com/)，然后在 [Git Bash](http://git-for-windows.github.io/) 下执行 `npm install` 即可（非 `CMD`）。 
 >  
 > 注2：如遇 `npm install` 网络问题，推荐尝试 [cnpm](http://npm.taobao.org/) 或 [NPM腾讯云分流](https://cloud.tencent.com/document/product/213/8623#.E4.BD.BF.E7.94.A8.E8.85.BE.E8.AE.AF.E4.BA.91.E9.95.9C.E5.83.8F.E6.BA.90.E5.8A.A0.E9.80.9Fnpm) 安装环境依赖
 
