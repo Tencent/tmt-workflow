@@ -33,7 +33,7 @@
 
 ## 快速开始
 
-请确保已安装 [Node.js](https://nodejs.org/) (已支持到最新版，如：v5+, v8, v10 等) 
+请确保已安装 [Node.js](https://nodejs.org/) (已支持到最新版，如：v5+, v8, v9 等) 
 
 1. 全局安装 [Gulp](https://github.com/gulpjs/gulp)，执行：`npm install gulp-cli -g`
 2. 点击下载 [tmt-workflow](https://github.com/Tencent/tmt-workflow/archive/master.zip)，进入根目录执行： `npm install`

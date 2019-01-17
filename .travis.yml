@@ -6,12 +6,13 @@ cache:
 
 matrix:
   include:
-    
-    - node_js: "node"
+    - node_js: "9"
       os: osx
     - node_js: "8"
       os: osx
-    - node_js: "node"
+    - node_js: "7"
+      os: linux
+    - node_js: "6"
       os: linux
     - node_js: "5"
       os: linux
