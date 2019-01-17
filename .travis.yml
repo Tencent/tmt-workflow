@@ -1,23 +1,23 @@
 language: node_js
 cache:
+  yarn: true
   directories:
-    - node_modules # Speed up npm install
-node_js:
-  - "5.10.1"
-  - "6.3.1"
-  - "7.9.0"
-  - "8.11.3"
-  - "9.9.0"
-env:
-  - CXX=g++-4.8
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    packages:
-    - g++-4.8
+    - node_modules
+
+matrix:
+  include:
+    
+    - node_js: "node"
+      os: osx
+    - node_js: "8"
+      os: osx
+    - node_js: "node"
+      os: linux
+    - node_js: "5"
+      os: linux
+
 before_script:
   - npm install -g gulp
   - cd project
-  - npm install
+
 script: gulp build_dist
