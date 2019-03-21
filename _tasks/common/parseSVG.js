@@ -63,7 +63,9 @@ module.exports = function (options) {
     }
     function sybmol(contents){
         var newFile = path.join(process.cwd(), options.devPath + '/symboltemp/', fileName);
-        fs.writeFile(newFile, data, {encoding: 'utf8'});
+        fs.writeFile(newFile, data, {encoding: 'utf8'}, err => {
+            if (err) throw err;
+        });
         newcontent.push('<svg width="'+ width +'" height="'+ height +'" xmlns="http://www.w3.org/2000/svg"');
         getAttr();
         newcontent.push('>');
@@ -130,7 +132,9 @@ module.exports = function (options) {
                         mkdirone = true;
                         fs.exists(process.cwd() + '/'+ options.devPath +'/symboltemp',function(exists){
                             if(!exists){
-                                fs.mkdir(process.cwd() + '/'+ options.devPath +'/symboltemp');
+                                fs.mkdir(process.cwd() + '/'+ options.devPath +'/symboltemp', err => {
+                                    if (err) throw err;
+                                });
                             }
                         });
                     }
