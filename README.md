@@ -1,3 +1,11 @@
+## 项目迁移说明
+
+由于业务调整，本项目不再更新，感谢大家一直以来的支持。  
+后续需求会合并到 [Feflow](https://github.com/Tencent/feflow) 项目进行开发迭代，请移步：
+
+* Github: https://github.com/Tencent/feflow
+* 官网：https://feflowjs.com/
+
 # tmt-workflow [![Version Number](https://img.shields.io/npm/v/generator-workflow.svg?style=flat)](https://github.com/Tencent/tmt-workflow/ "Version Number")
 
 [![Build Status](https://api.travis-ci.org/Tencent/tmt-workflow.svg)](https://travis-ci.org/Tencent/tmt-workflow "Build Status")
